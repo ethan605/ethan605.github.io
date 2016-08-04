@@ -1,0 +1,80 @@
+<head>
+  <meta charset="utf-8">
+
+  {% seo %}
+  <!-- Google+ author meta -->
+  <link rel="author" href="https://plus.google.com/+ThanhNguyen605"/>
+
+  <!-- Enable responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+	<!-- Meta for robots -->
+	<meta name="revisit-after" content="1 days">
+	<meta name="robots" content="index, follow">
+	<meta name="author" content="{{ site.author.name }}">
+	<meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+	<!-- Google+ -->
+	<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | strip_html | slice: 0, 150 }}{% endif %}">
+
+	<!-- iOS web app -->
+	<meta name="format-detection" content="telephone=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<!-- Favicon & RSS -->
+  <link rel="alternate" hreflang="vi-vn" href="http://dev.ethanify.me" />
+  <link rel="alternate"
+        type="application/rss+xml"
+        title="{{ site.title }}"
+        href="{{ site.baseurl }}/feed.xml" />
+
+  <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+          integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+          crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="{{ site.baseurl }}/assets/js/app.js"></script> -->
+
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="{{ site.BASE_PATH }}/assets/ico/favicon.png" />
+  <link rel="apple-touch-icon" href="{{ site.BASE_PATH }}/assets/ico/apple-touch-icon.png" />
+  <link rel="apple-touch-icon"
+        href="{{ site.BASE_PATH }}/assets/ico/apple-touch-icon-72x72.png"
+        sizes="72x72" />
+  <link rel="apple-touch-icon"
+        href="{{ site.BASE_PATH }}/assets/ico/apple-touch-icon-114x114.png"
+        sizes="114x114" />
+
+	<!-- CSS & JS files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="manifest" href="{{ "assets/images/favicons/manifest.json" | prepend: site.baseurl }}">
+  <link rel="shortcut icon" href="{{ "assets/images/favicons/favicon.ico" | prepend: site.baseurl }}">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="{{ "assets/images/favicons/mstile-144x144.png" | prepend: site.baseurl }}">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="{{ "assets/css/main.css" | prepend: site.baseurl }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}feed.xml">
+</head>
