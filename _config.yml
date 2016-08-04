@@ -16,3 +16,10 @@ author:
 # Build settings
 destination: _site
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
+
+gems:
+  - github-pages
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
