@@ -1,6 +1,9 @@
 # Site settings
 title: Ethanify
-description: Passionate about creating awesome products that help plenty of people improving their lives.
+description: All about Ethan!
+bio: >
+  Hi, I'm Ethan.
+  I'm passionate about creating awesome products that help plenty of people improving their lives.
 url: 'http://ethanify.me'
 blog_url: 'http://dev.ethanify.me'
 baseurl:
