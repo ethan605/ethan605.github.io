@@ -522,9 +522,9 @@ nav {
 		padding: 6px 8px 6px 9px; }
 		.navigation--social a .label {
 			display: none; }
-		.navigation--social a .icon {
-			display: block;
-			font-size: 1.7em; }
+    .navigation--social a .icon {
+      display: block;
+      font-size: 1.7em; }
 
 .pagination {
 	display: block;
@@ -540,18 +540,6 @@ nav {
 
 .pagination__older {
 	margin-left: 1em; }
-
-/* i { */
-/*   font-family: 'entypo'; */
-/*   font-weight: normal; */
-/*   font-style: normal; */
-/*   font-size: 18px; } */
-/*  */
-/* .icon-social { */
-/*   font-family: 'entypo-social'; */
-/*   font-size: 22px; */
-/*   display: block; */
-/*   position: relative; } */
 
 .post-list {
 	margin: 0;
