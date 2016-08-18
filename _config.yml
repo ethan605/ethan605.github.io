@@ -15,6 +15,11 @@ author:
   facebook_username: ethan.605
   github_username: ethan605
   linkedin_username: ethan605
+facebook:
+  app_id: 1783427568545702
+  admins: 1119670477
+  publisher: 1119670477
+  page: 275993682774772
 
 # Build settings
 destination: _site

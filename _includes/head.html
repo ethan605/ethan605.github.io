@@ -2,8 +2,11 @@
   <meta charset="utf-8">
 
   {% seo %}
-  <!-- Google+ author meta -->
+
+  <!-- Google+ -->
   <link rel="author" href="https://plus.google.com/+ThanhNguyen605"/>
+  <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | strip_html | slice: 0, 150 }}{% endif %}">
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,18 +17,17 @@
 	<meta name="author" content="{{ site.author.name }}">
 	<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
-	<!-- Google+ -->
-	<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}">
-  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | strip_html | slice: 0, 150 }}{% endif %}">
-
+  <meta itemprop="image" content="{{ '/assets/images/ia-header-art.png' | prepend: site.url }}">
+  <meta property="og:image" content="{{ '/assets/images/ia-header-art.png' | prepend: site.url }}">
+  <meta name="twitter:image" content="{{ '/assets/images/ia-header-art.png' | prepend: site.url }}">
+  
 	<!-- iOS web app -->
 	<meta name="format-detection" content="telephone=yes">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-title" content="{% if page.title %}{{ page.title }}{% elsif site.title %}{{ site.title }}{% endif %}">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<!-- Favicon & RSS -->
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}feed.xml">
   <link rel="alternate" hreflang="vi-vn" href="http://dev.ethanify.me" />
 
@@ -33,7 +35,6 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ site.description }}">
   <meta name="author" content="{{ site.author.name }}">
   <meta name="HandheldFriendly" content="True">
@@ -42,6 +43,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/favicons/apple-touch-icon-57x57.png' | prepend: site.baseurl }}">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/favicons/apple-touch-icon-60x60.png' | prepend: site.baseurl }}">
   <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/favicons/apple-touch-icon-72x72.png' | prepend: site.baseurl }}">
