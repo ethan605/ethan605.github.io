@@ -1,6 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-
+import styled from 'styled-components';
 import logo from './logo.svg';
 
 const Container = styled.div`
@@ -8,7 +7,6 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,22 +16,9 @@ const Header = styled.header`
   color: white;
 `;
 
-const spinningKeyframe = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
 const Logo = styled.img`
   height: 40vmin;
   pointer-events: none;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: ${spinningKeyframe} infinite 20s linear;
-  }
 `;
 
 const Link = styled.a`
