@@ -31,7 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy:surge": "react-scripts build",
-    "deploy:surge": "surge build ethanify.surge.sh"
+    "deploy:surge": "surge --domain https://ethanify.surge.sh build"
   },
   "husky": {
     "hooks": {
