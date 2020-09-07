@@ -38,6 +38,11 @@ const Logo = styled.img`
 
 const Link = styled.a`
   color: #61dafb;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const App: React.FC = () => {
@@ -45,15 +50,12 @@ const App: React.FC = () => {
     <Container>
       <Header>
         <Logo alt="logo" src={logo} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
         <Link
           href="https://reactjs.org"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Learn React
+          Created with React
         </Link>
       </Header>
     </Container>
