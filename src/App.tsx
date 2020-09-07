@@ -1,29 +1,62 @@
 import React from 'react';
+import styled, { keyframes } from 'styled-components';
+
 import logo from './logo.svg';
-import './App.css';
 
-type Props = {
-  content: string;
-};
+const Container = styled.div`
+  text-align: center;
+`;
 
-const App: React.FC<Props> = ({ content }) => {
+const Header = styled.header`
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+`;
+
+const spinningKeyframe = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const Logo = styled.img`
+  height: 40vmin;
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${spinningKeyframe} infinite 20s linear;
+  }
+`;
+
+const Link = styled.a`
+  color: #61dafb;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Container>
+      <Header>
+        <Logo alt="logo" src={logo} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
+        <Link
           href="https://reactjs.org"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
-          Learn React with some {content}
-        </a>
-      </header>
-    </div>
+          Learn React
+        </Link>
+      </Header>
+    </Container>
   );
 };
 
