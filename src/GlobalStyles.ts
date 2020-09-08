@@ -9,7 +9,6 @@ WebFont.load({
 
 const GlobalStyles = createGlobalStyle`
   body {
-    background-color: #282c34;
     margin: 0;
     font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -21,9 +20,14 @@ const GlobalStyles = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
 
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
   @media print {
     body {
-      background-color: white;
+      background-color: pink;
     }
   }
 `;
