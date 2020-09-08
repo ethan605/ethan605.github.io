@@ -1,28 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+
+import Sheet from './Sheet';
 import logo from './logo.svg';
+import LIPSUM from './lipsum.json';
 
 const Container = styled.div`
+  display: block;
   text-align: center;
 `;
 
-const Header = styled.header`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;
-
 const Logo = styled.img`
+  display: block;
   height: 40vmin;
+  margin: 0 auto;
   pointer-events: none;
 `;
 
 const Link = styled.a`
-  color: #61dafb;
+  color: #282c34;
   text-decoration: none;
 
   &:hover {
@@ -30,21 +26,37 @@ const Link = styled.a`
   }
 `;
 
-const App: React.FC = () => {
-  return (
-    <Container>
-      <Header>
-        <Logo alt="logo" src={logo} />
-        <Link
-          href="https://reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Created with React
-        </Link>
-      </Header>
-    </Container>
-  );
-};
+const App: React.FC = () => (
+  <React.Fragment>
+    <Sheet size="a4">
+      {[0, 1, 2, 3, 4].map((val) => (
+        <Container className="page-break" key={`fragment_${val}`}>
+          <Logo alt="logo" src={logo} />
+          <Link
+            href="https://reactjs.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {LIPSUM[val]}
+          </Link>
+        </Container>
+      ))}
+    </Sheet>
+    {/* <Sheet size="a4">
+      {[3, 4].map((val) => (
+        <Container className="page-break" key={`fragment_${val}`}>
+          <Logo alt="logo" src={logo} />
+          <Link
+            href="https://reactjs.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {LIPSUM[val]}
+          </Link>
+        </Container>
+      ))}
+    </Sheet> */}
+  </React.Fragment>
+);
 
 export default App;
