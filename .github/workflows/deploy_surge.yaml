@@ -1,11 +1,11 @@
-name: Deploy to surge.sh
+name: Deployment
 
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Deploying to surge.sh
+    name: Deploy to surge.sh
     steps:
       - uses: actions/checkout@v1
       - name: Install surge and fire deployment
