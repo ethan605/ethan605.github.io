@@ -6,8 +6,8 @@ export interface ResumeTheme {
   paperMargin: string;
 }
 
-export const defaultTheme: ResumeTheme = {
+export const resumeTheme: ResumeTheme = {
   landscape: false,
   paperSize: 'A4',
-  paperMargin: '0.75cm',
+  paperMargin: '1.5cm',
 };

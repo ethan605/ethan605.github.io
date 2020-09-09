@@ -1,31 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
 import WebFont from 'webfontloader';
+import { normalize } from 'styled-normalize';
 
 WebFont.load({
   google: {
-    families: ['Noto Sans:400', 'Source Code Pro:300,400,500'],
+    families: ['Noto Sans', 'Source Code Pro'],
   },
 });
 
 const GlobalStyles = createGlobalStyle`
- :root {
-    margin: 0;
-    font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    font-size: 12px;
+  ${normalize}
+
+  :root {
+    font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Ubuntu', sans-serif;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  html, body, h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-  }
-
-  code {
-    font-family: 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
-  }
-
-  #resume {
+  code, #resume {
     font-family: 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
   }
 `;

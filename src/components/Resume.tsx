@@ -2,19 +2,26 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import logo from '../assets/logo.svg';
-import { defaultTheme } from '../styles/themes';
+import { resumeTheme } from '../styles/themes';
 import LIPSUM from '../data/lipsum.json';
 import RESUME_DATA from '../data/resume.json';
 import Sheet from './Sheet';
 
-const Container = styled.div``;
+const Container = styled.div`
+  font-size: 12px;
+`;
 
 const Header = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h1``;
-const Subtitle = styled.h2``;
+const Title = styled.h1`
+  margin: 0;
+`;
+
+const Subtitle = styled.h2`
+  margin: 0;
+`;
 
 const Content = styled.div``;
 const Column = styled.div<{ right?: boolean }>`
@@ -24,10 +31,7 @@ const Column = styled.div<{ right?: boolean }>`
   width: ${({ right }): string => (right ? 'auto' : '35%')};
 `;
 
-const Wrapper = styled.div`
-  display: block;
-  text-align: center;
-`;
+const Wrapper = styled.div``;
 
 const Logo = styled.img`
   display: block;
@@ -45,7 +49,7 @@ const Link = styled.a`
 `;
 
 const Resume: React.FC = () => (
-  <ThemeProvider theme={defaultTheme}>
+  <ThemeProvider theme={resumeTheme}>
     <Sheet>
       <Container id="resume">
         <Header>
