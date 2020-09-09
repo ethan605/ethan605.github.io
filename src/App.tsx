@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Sheet from './Sheet';
 import logo from './logo.svg';
-import LIPSUM from './lipsum.json';
+import LIPSUM from './data/lipsum.json';
 
 const Container = styled.div`
   display: block;

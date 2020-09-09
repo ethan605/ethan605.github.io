@@ -1,0 +1,166 @@
+{
+  "header": {
+    "title": "THANH NGUYEN (Ethan)",
+    "subTitle": "Software Engineer"
+  },
+  "columns": {
+    "left": [
+      {
+        "title": "Contact",
+        "entries": [
+          { "icon": "email", "content": "xtnguyen605@gmail.com" },
+          { "icon": "phone", "content": "+447546634543" },
+          { "icon": "globe", "content": "London, UK" },
+          { "icon": "home", "content": "https://ethanify.me" }
+        ]
+      },
+      {
+        "title": "Summary",
+        "entries": [
+          { "content": "8+ years of experience in the software industry" },
+          {
+            "content": "Enthusiastic about full-stack technologies, especially Node.js and React.js"
+          },
+          { "content": "Team player, technical supporter and mentor" }
+        ]
+      },
+      {
+        "title": "Skills",
+        "entries": [
+          {
+            "content": "Programming languages",
+            "attributes": [
+              "Javascript (ES2015+)",
+              "TypeScript",
+              "Ruby",
+              "Java",
+              "Swift",
+              "Objective-C",
+              "C++"
+            ]
+          },
+          {
+            "content": "Application frameworks",
+            "attributes": [
+              "React.js + Redux.js",
+              "Express.js",
+              "Loopback.js",
+              "Ruby on Rails",
+              "React Native",
+              "iOS"
+            ]
+          },
+          {
+            "content": "Databases",
+            "attributes": ["MongoDB", "PostgreSQL", "SQLite"]
+          },
+          {
+            "content": "Frontend development",
+            "attributes": [
+              "Sass",
+              "Less",
+              "CSS Modules",
+              "Styled Component",
+              "GraphQL",
+              "Server-side Rendering",
+              "Babel",
+              "Webpack",
+              "Gulp",
+              "jQuery"
+            ]
+          },
+          {
+            "content": "Cloud infrastructures",
+            "attributes": ["Amazon AWS", "Google Firebase"]
+          },
+          {
+            "content": "Toolings",
+            "attributes": [
+              "Jest",
+              "Mocha",
+              "Chai",
+              "Docker",
+              "TravisCI",
+              "Jenkins",
+              "Github Actions"
+            ]
+          }
+        ]
+      }
+    ],
+    "right": [
+      {
+        "title": "Experience",
+        "blocks": [
+          {
+            "title": "Senior Full-stack Engineer",
+            "company": "Pi-top",
+            "location": "London - UK (Remote)",
+            "timeframe": {
+              "from": "Sep 2019",
+              "to": "July 2020"
+            },
+            "entries": [
+              "Developed new features in both backend and frontend for \"Further\", a learning-by-making platform on top of Raspberry Pi hardware devices",
+              "Worked with stakeholders to clarify requirements from thousands of teachers and students in North America and Europe",
+              "Contributed to improving the project’s structure and performance, as well as the team’s work process"
+            ]
+          },
+          {
+            "title": "Senior Full-stack Engineer",
+            "company": "WeFit",
+            "location": "Hanoi, Vietnam",
+            "timeframe": {
+              "from": "Aug 2016",
+              "to": "Aug 2019"
+            },
+            "entries": [
+              "In charge of the architecture and the design of WeFit mobile application, an online-to-offline platform which connects users and local fitness studios, serving 200,000+ users with 2000+ daily active users",
+              "Built web-based tools which manage 10,000+ user bookings and revenues for 300+ fitness partners monthly",
+              "Trained/mentored 20+ potential middle managers on management and leadership skills, as well as start-up cultures"
+            ]
+          },
+          {
+            "title": "Development Team Lead then Operations Manager",
+            "company": "TOPICA Edtech Group",
+            "location": "Hanoi, Vietnam",
+            "timeframe": {
+              "from": "Aug 2014",
+              "to": "Aug 2016"
+            },
+            "entries": [
+              "Managed Operations department of 30 to connect 200+ instructors and create 500+ video courses for \"Edumall\", a short-course learning platform",
+              "Led development team of 10 to build and launch Web, iOS and Android applications for \"Memo\", an English learning product, serving 150,000+ users with 3000+ daily active users"
+            ]
+          },
+          {
+            "title": "Mobile Developer",
+            "company": "Vinova Pte. Ltd.",
+            "location": "Hanoi, Vietnam",
+            "timeframe": {
+              "from": "Aug 2014",
+              "to": "Aug 2016"
+            },
+            "entries": [
+              "Led a team of 3 to develop 5 different mobile applications for Singapore marketplace",
+              "Advised customers on choosing proper technical stacks and decisions, maintained and upgraded the products on request"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Education",
+        "blocks": [
+          {
+            "title": "Vietnam National University, Hanoi",
+            "timeframe": {
+              "from": "Aug 2009",
+              "to": "May 2013"
+            },
+            "entries": ["BSc Computer Science"]
+          }
+        ]
+      }
+    ]
+  }
+}
