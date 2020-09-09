@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Resume from './components/Resume';
-import GlobalStyles from './components/GlobalStyles';
+import GlobalStyles from './styles/GlobalStyles';
 import * as serviceWorker from './helpers/serviceWorker';
 
 ReactDOM.render(
