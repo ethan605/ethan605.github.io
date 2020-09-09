@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import logo from '../assets/logo.svg';
+import LIPSUM from '../data/lipsum.json';
 import Sheet from './Sheet';
-import logo from './logo.svg';
-import LIPSUM from './data/lipsum.json';
 
 const Container = styled.div`
   display: block;
@@ -26,7 +26,7 @@ const Link = styled.a`
   }
 `;
 
-const App: React.FC = () => (
+const Resume: React.FC = () => (
   <React.Fragment>
     <Sheet size="a4">
       {[0, 1, 2, 3, 4].map((val) => (
@@ -42,21 +42,7 @@ const App: React.FC = () => (
         </Container>
       ))}
     </Sheet>
-    {/* <Sheet size="a4">
-      {[3, 4].map((val) => (
-        <Container className="page-break" key={`fragment_${val}`}>
-          <Logo alt="logo" src={logo} />
-          <Link
-            href="https://reactjs.org"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {LIPSUM[val]}
-          </Link>
-        </Container>
-      ))}
-    </Sheet> */}
   </React.Fragment>
 );
 
-export default App;
+export default Resume;
