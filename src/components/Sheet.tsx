@@ -14,21 +14,23 @@ const Sheet = styled.div`
     const { width, height } = PAGE_SIZES[theme.paperSize];
     return theme.landscape ? height : width;
   }};
-  height: ${({ theme }): string => {
-    const { width, height } = PAGE_SIZES[theme.paperSize];
-    return theme.landscape ? width : height;
-  }};
 
   @page {
-    size: ${({ theme }): string => theme.paperSize};
+    size: ${({ theme }): string => theme.paperSize}
+      ${({ theme }): string => (theme.landscape ? 'landscape' : '')};
     margin: ${({ theme }): string => theme.paperMargin};
   }
 
   @media print {
     background-color: pink;
+    height: ${({ theme }): string => {
+      const { width, height } = PAGE_SIZES[theme.paperSize];
+      return theme.landscape ? width : height;
+    }};
   }
 
   @media screen {
+    overflow: auto;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     margin: 0.5cm auto;
     padding: ${({ theme }): string => theme.paperMargin};

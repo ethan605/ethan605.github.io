@@ -28,13 +28,13 @@ const Column = styled.div<{ right?: boolean }>`
   overflow: hidden;
   margin-right: ${({ right }): string => (right ? 'unset' : '1rem')};
   float: ${({ right }): string => (right ? 'unset' : 'left')};
-  width: ${({ right }): string => (right ? 'auto' : '35%')};
+  width: ${({ right, theme }): string =>
+    right ? 'auto' : theme.sideColumProportion};
 `;
-
-const Wrapper = styled.div``;
 
 const Logo = styled.img`
   display: block;
+  width: 10rem;
   margin: 0 auto;
   pointer-events: none;
 `;
@@ -57,34 +57,22 @@ const Resume: React.FC = () => (
           <Subtitle>{RESUME_DATA.header.subtitle}</Subtitle>
         </Header>
         <Content>
-          <Column>
-            {[0, 1, 2].map((val) => (
-              <Wrapper className="page-break" key={`fragment_${val}`}>
-                <Logo alt="logo" src={logo} />
-                <Link
-                  href="https://reactjs.org"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {`${val + 1}. ${LIPSUM[val]}`}
-                </Link>
-              </Wrapper>
-            ))}
-          </Column>
-          <Column right>
-            {[2, 3, 4].map((val) => (
-              <Wrapper className="page-break" key={`fragment_${val}`}>
-                <Logo alt="logo" src={logo} />
-                <Link
-                  href="https://reactjs.org"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {`${val + 1}. ${LIPSUM[val]}`}
-                </Link>
-              </Wrapper>
-            ))}
-          </Column>
+          {[false, true].map((col) => (
+            <Column key={`column_${col}`} right={col}>
+              {[0, 1, 2, 3, 4].map((val) => (
+                <div key={`block_${val}`}>
+                  <Logo alt="logo" src={logo} />
+                  <Link
+                    href="https://reactjs.org"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {`${val + 1}. ${LIPSUM[val]}`}
+                  </Link>
+                </div>
+              ))}
+            </Column>
+          ))}
         </Content>
       </Container>
     </Sheet>
