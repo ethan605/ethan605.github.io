@@ -14,4 +14,4 @@ jobs:
           node-version: 12
       - run: npm install
       - run: npm run build
-      - run: ./node_modules/.bin/surge ./build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: ./node_modules/.bin/surge ./build --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
