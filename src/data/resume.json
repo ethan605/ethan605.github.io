@@ -8,10 +8,26 @@
       {
         "title": "Contact",
         "entries": [
-          { "icon": "email", "content": "xtnguyen605@gmail.com" },
-          { "icon": "phone", "content": "+447546634543" },
-          { "icon": "globe", "content": "London, UK" },
-          { "icon": "home", "content": "https://ethanify.me" }
+          {
+            "decoration": "email",
+            "content": "xtnguyen605@gmail.com",
+            "href": "mailto:xtnguyen605@gmail.com"
+          },
+          {
+            "decoration": "phone",
+            "content": "(+44) 7546 634543",
+            "href": "tel:+447546634543"
+          },
+          {
+            "decoration": "location",
+            "content": "London, UK",
+            "href": "https://goo.gl/maps/vd9qPQGQZRfSDyBV8"
+          },
+          {
+            "decoration": "homepage",
+            "content": "ethanify.me",
+            "href": "https://ethanify.me"
+          }
         ]
       },
       {
@@ -42,7 +58,7 @@
           {
             "content": "Application frameworks",
             "attributes": [
-              "React.js + Redux.js",
+              "React & Redux",
               "Express.js",
               "Loopback.js",
               "Ruby on Rails",
@@ -91,16 +107,16 @@
     "right": [
       {
         "title": "Experience",
-        "blocks": [
+        "sections": [
           {
             "title": "Senior Full-stack Engineer",
-            "company": "Pi-top",
+            "org": "Pi-top",
             "location": "London - UK (Remote)",
             "timeframe": {
               "from": "Sep 2019",
               "to": "July 2020"
             },
-            "entries": [
+            "briefs": [
               "Developed new features in both backend and frontend for \"Further\", a learning-by-making platform on top of Raspberry Pi hardware devices",
               "Worked with stakeholders to clarify requirements from thousands of teachers and students in North America and Europe",
               "Contributed to improving the project’s structure and performance, as well as the team’s work process"
@@ -108,13 +124,13 @@
           },
           {
             "title": "Senior Full-stack Engineer",
-            "company": "WeFit",
+            "org": "WeFit",
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2016",
               "to": "Aug 2019"
             },
-            "entries": [
+            "briefs": [
               "In charge of the architecture and the design of WeFit mobile application, an online-to-offline platform which connects users and local fitness studios, serving 200,000+ users with 2000+ daily active users",
               "Built web-based tools which manage 10,000+ user bookings and revenues for 300+ fitness partners monthly",
               "Trained/mentored 20+ potential middle managers on management and leadership skills, as well as start-up cultures"
@@ -122,26 +138,26 @@
           },
           {
             "title": "Development Team Lead then Operations Manager",
-            "company": "TOPICA Edtech Group",
+            "org": "TOPICA Edtech Group",
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2014",
               "to": "Aug 2016"
             },
-            "entries": [
+            "briefs": [
               "Managed Operations department of 30 to connect 200+ instructors and create 500+ video courses for \"Edumall\", a short-course learning platform",
               "Led development team of 10 to build and launch Web, iOS and Android applications for \"Memo\", an English learning product, serving 150,000+ users with 3000+ daily active users"
             ]
           },
           {
             "title": "Mobile Developer",
-            "company": "Vinova Pte. Ltd.",
+            "org": "Vinova Pte. Ltd.",
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2014",
               "to": "Aug 2016"
             },
-            "entries": [
+            "briefs": [
               "Led a team of 3 to develop 5 different mobile applications for Singapore marketplace",
               "Advised customers on choosing proper technical stacks and decisions, maintained and upgraded the products on request"
             ]
@@ -150,14 +166,16 @@
       },
       {
         "title": "Education",
-        "blocks": [
+        "sections": [
           {
-            "title": "Vietnam National University, Hanoi",
+            "title": "Bachelor of Science",
+            "org": "Vietnam National University, Hanoi",
+            "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2009",
               "to": "May 2013"
             },
-            "entries": ["BSc Computer Science"]
+            "briefs": ["Major in Computer Science"]
           }
         ]
       }
