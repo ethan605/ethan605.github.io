@@ -5,32 +5,28 @@ import logo from '../assets/logo.svg';
 import { resumeTheme } from '../styles/themes';
 import LIPSUM from '../data/lipsum.json';
 import RESUME_DATA from '../data/resume.json';
+import { ResumeData } from '../types/resume';
+
+import Block from './Block';
+import Entries from './Entries';
 import Sheet from './Sheet';
 
-const Container = styled.div`
-  font-size: 12px;
-`;
+const Container = styled.div``;
 
 const Header = styled.div`
+  margin-bottom: 2rem;
   text-align: center;
 `;
 
-const Title = styled.h1`
-  margin: 0;
-`;
-
-const Subtitle = styled.h2`
-  margin: 0;
-`;
+const Title = styled.h1``;
+const Subtitle = styled.h2``;
 
 const Column = styled.div<{ side: 'left' | 'right' }>`
   float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
   margin-right: ${({ side }): string => (side === 'left' ? '1rem' : 'unset')};
   overflow: hidden;
-  margin-right: ${({ right }): string => (right ? 'unset' : '1rem')};
-  float: ${({ right }): string => (right ? 'unset' : 'left')};
-  width: ${({ right, theme }): string =>
-    right ? 'auto' : theme.sideColumProportion};
+  width: ${({ side, theme }): string =>
+    side === 'left' ? theme.sideColumnProportion : 'auto'};
 `;
 
 const Logo = styled.img`
@@ -49,17 +45,26 @@ const Link = styled.a`
   }
 `;
 
-const Resume: React.FC = () => (
-  <ThemeProvider theme={resumeTheme}>
-    <Sheet>
-      <Container id="resume">
-        <Header>
-          <Title>{RESUME_DATA.header.title}</Title>
-          <Subtitle>{RESUME_DATA.header.subtitle}</Subtitle>
-        </Header>
-        <Content>
-          {[false, true].map((col) => (
-            <Column key={`column_${col}`} right={col}>
+const Resume: React.FC = () => {
+  const { header, columns } = RESUME_DATA as ResumeData;
+
+  return (
+    <ThemeProvider theme={resumeTheme}>
+      <Sheet>
+        <Container id="resume">
+          <Header>
+            <Title>{header.title}</Title>
+            <Subtitle>{header.subtitle}</Subtitle>
+          </Header>
+          <Container>
+            <Column side="left">
+              {columns.left.map(({ entries, title }) => (
+                <Block key={`column_left_${title.toLowerCase()}`} title={title}>
+                  <Entries items={entries} />
+                </Block>
+              ))}
+            </Column>
+            <Column side="right">
               {[0, 1, 2, 3, 4].map((val) => (
                 <div key={`block_${val}`}>
                   <Logo alt="logo" src={logo} />
@@ -73,11 +78,11 @@ const Resume: React.FC = () => (
                 </div>
               ))}
             </Column>
-          ))}
-        </Content>
-      </Container>
-    </Sheet>
-  </ThemeProvider>
-);
+          </Container>
+        </Container>
+      </Sheet>
+    </ThemeProvider>
+  );
+};
 
 export default Resume;
