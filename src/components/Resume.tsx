@@ -23,8 +23,9 @@ const Subtitle = styled.h2`
   margin: 0;
 `;
 
-const Content = styled.div``;
-const Column = styled.div<{ right?: boolean }>`
+const Column = styled.div<{ side: 'left' | 'right' }>`
+  float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
+  margin-right: ${({ side }): string => (side === 'left' ? '1rem' : 'unset')};
   overflow: hidden;
   margin-right: ${({ right }): string => (right ? 'unset' : '1rem')};
   float: ${({ right }): string => (right ? 'unset' : 'left')};
