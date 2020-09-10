@@ -19,9 +19,9 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-/* const Subtitle = styled.h2`
+const Subtitle = styled.h2`
   margin: 0;
-`; */
+`;
 
 const Content = styled.div``;
 const Column = styled.div<{ right?: boolean }>`
@@ -54,7 +54,7 @@ const Resume: React.FC = () => (
       <Container id="resume">
         <Header>
           <Title>{RESUME_DATA.header.title}</Title>
-          {/* <Subtitle>{RESUME_DATA.header.subtitle}</Subtitle> */}
+          <Subtitle>{RESUME_DATA.header.subtitle}</Subtitle>
         </Header>
         <Content>
           {[false, true].map((col) => (
