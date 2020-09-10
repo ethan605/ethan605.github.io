@@ -1,10 +1,9 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import logo from '../assets/logo.svg';
-import { resumeTheme } from '../styles/themes';
-import LIPSUM from '../data/lipsum.json';
 import RESUME_DATA from '../data/resume.json';
+import { buildIteratorKey } from '../helpers/utils';
+import { resumeTheme } from '../styles/themes';
 import { ResumeData } from '../types/resume';
 
 import Block from './Block';
@@ -29,22 +28,6 @@ const Column = styled.div<{ side: 'left' | 'right' }>`
     side === 'left' ? theme.sideColumnProportion : 'auto'};
 `;
 
-const Logo = styled.img`
-  display: block;
-  width: 10rem;
-  margin: 0 auto;
-  pointer-events: none;
-`;
-
-const Link = styled.a`
-  color: #282c34;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 const Resume: React.FC = () => {
   const { header, columns } = RESUME_DATA as ResumeData;
 
@@ -65,17 +48,34 @@ const Resume: React.FC = () => {
               ))}
             </Column>
             <Column side="right">
-              {[0, 1, 2, 3, 4].map((val) => (
-                <div key={`block_${val}`}>
-                  <Logo alt="logo" src={logo} />
-                  <Link
-                    href="https://reactjs.org"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {`${val + 1}. ${LIPSUM[val]}`}
-                  </Link>
-                </div>
+              {columns.right.map(({ sections, title }) => (
+                <Block
+                  key={`column_right_${title.toLowerCase()}`}
+                  title={title}
+                >
+                  {sections.map(
+                    (section): React.ReactNode => (
+                      <div
+                        key={`section_${buildIteratorKey(
+                          section.title + section.org
+                        )}`}
+                      >
+                        <span>{section.title}</span>
+                        {'@'}
+                        <span>{section.org}</span>
+                        <ul>
+                          {section.briefs.map(
+                            (brief): React.ReactNode => (
+                              <li key={`brief_${buildIteratorKey(brief)}`}>
+                                {brief}
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )
+                  )}
+                </Block>
               ))}
             </Column>
           </Container>

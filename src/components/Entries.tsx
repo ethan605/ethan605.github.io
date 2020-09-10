@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { buildIteratorKey } from '../helpers/utils';
 import { EntryData, DecorationTypes } from '../types/resume';
-
-const buildIteratorKey = (content: string): string =>
-  btoa(content).substr(0, 10);
 
 const DECORATION_MAP: { [key in DecorationTypes]: string } = {
   email: '📧',
