@@ -45,20 +45,24 @@ export type ResumeTheme = {
   page: PageSettings;
 } & TerminalScheme;
 
+/**
+ * Inspired by base16-github theme
+ * https://github.com/kdrag0n/base16-kitty/blob/master/colors/base16-github.conf
+ */
 const colorSchemeLight: ColorScheme = {
-  background: '',
-  forground: '',
+  background: '#ffffff',
+  forground: '#333333',
   prompts: {
-    primary: '',
-    secondary: 'rgb(220, 220, 220)',
-    tertiary: '',
+    primary: '#a71d5d',
+    secondary: '#183691',
+    tertiary: '#969896',
   },
-  url: '',
+  url: '#0086b3',
 };
 
 /**
- * Inspired by pure-prompt & snazzy theme
- * @see https://github.com/sindresorhus/pure/blob/0a3801807dc274515dd6a2a26d56f63881ad07b4/pure.zsh#L772
+ * Inspired by kitty-snazzy theme
+ * https://github.com/connorholyday/kitty-snazzy/blob/master/snazzy.conf
  */
 const colorSchemeDark: ColorScheme = {
   background: '#282a36',
@@ -73,7 +77,7 @@ const colorSchemeDark: ColorScheme = {
 
 const pageSettings: PageSettings = {
   columnsGap: '0.5cm',
-  fontFamily: `'Fira Code', 'Operator Mono Lig'`,
+  fontFamily: `'Operator Mono Lig', 'Fira Code'`,
   fontSize: '14px',
   margin: '1cm 1cm 0.5cm 1cm',
   orientation: 'portrait',
