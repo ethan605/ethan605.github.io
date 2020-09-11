@@ -8,6 +8,7 @@ import { ResumeData } from '../types/resume';
 
 import Block from './Block';
 import Entries from './Entries';
+import Section from './Section';
 import Sheet from './Sheet';
 
 const Container = styled.div`
@@ -61,24 +62,12 @@ const Resume: React.FC = () => {
                 <Block key={`block_${title.toLowerCase()}`} title={title}>
                   {sections.map(
                     (section): React.ReactNode => (
-                      <div
+                      <Section
+                        {...section}
                         key={`section_${buildIteratorKey(
                           section.title + section.org
                         )}`}
-                      >
-                        <span>{section.title}</span>
-                        {'@'}
-                        <span>{section.org}</span>
-                        <ul>
-                          {section.briefs.map(
-                            (brief): React.ReactNode => (
-                              <li key={`brief_${buildIteratorKey(brief)}`}>
-                                {brief}
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
+                      />
                     )
                   )}
                 </Block>
