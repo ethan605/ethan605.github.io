@@ -22,7 +22,7 @@ const Item = styled.li<{ decoration?: DecorationTypes }>`
   margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
-    color: ${({ theme }): string => theme.colors.prompts.item};
+    color: ${({ theme }): string => theme.colors.prompts.secondary};
     content: '${({ decoration, theme }): string =>
       decoration ? DECORATION_MAP[decoration] : theme.prompts.item}';
     margin-right: ${({ theme }): string => theme.spacing.prompt};
@@ -43,13 +43,13 @@ const LinkContent = styled.a`
 
   &,
   &:active,
-  &:hover,
   &:visited {
     color: inherit;
   }
 
   &:hover {
     text-decoration: underline;
+    color: ${({ theme }): string => theme.colors.url};
   }
 `;
 

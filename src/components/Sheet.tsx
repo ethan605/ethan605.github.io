@@ -8,7 +8,7 @@ const PAGE_SIZES = {
 };
 
 const Sheet = styled.div`
-  background-color: white;
+  background-color: ${({ theme }): string => theme.colors.background};
   box-sizing: border-box;
   width: ${({ theme }): string => {
     const { width, height } = PAGE_SIZES[theme.page.size];
@@ -18,11 +18,10 @@ const Sheet = styled.div`
   @page {
     size: ${({ theme }): string => theme.page.size}
       ${({ theme }): string => theme.page.orientation};
-    margin: ${({ theme }): string => theme.page.margin};
+    margin: 0;
   }
 
   @media print {
-    background-color: pink;
     height: ${({ theme }): string => {
       const { width, height } = PAGE_SIZES[theme.page.size];
       return theme.page.orientation === 'landscape' ? width : height;
@@ -33,7 +32,6 @@ const Sheet = styled.div`
     overflow: auto;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     margin: 0.5cm auto;
-    padding: ${({ theme }): string => theme.page.margin};
   }
 `;
 

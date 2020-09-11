@@ -9,6 +9,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h4`
+  color: ${({ theme }): string => theme.colors.prompts.secondary};
   line-height: ${({ theme }): string => theme.spacing.lineHeight};
   margin-bottom: ${({ theme }): string => theme.spacing.title};
 
@@ -25,7 +26,7 @@ const Brief = styled.li`
   margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
-    color: ${({ theme }): string => theme.colors.prompts.item};
+    color: ${({ theme }): string => theme.colors.prompts.secondary};
     content: '${({ theme }): string => theme.prompts.item}';
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
@@ -33,7 +34,6 @@ const Brief = styled.li`
 
 const Org = styled(Brief)`
   ::before {
-    color: inherit;
     content: '@';
   }
 `;

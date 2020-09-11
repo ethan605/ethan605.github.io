@@ -11,6 +11,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h3`
+  color: ${({ theme }): string => theme.colors.prompts.primary};
   margin-bottom: ${({ theme }): string => theme.spacing.title};
 
   ::before {

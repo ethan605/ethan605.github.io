@@ -5,10 +5,11 @@ export type PaperSize = 'A3' | 'A4' | 'A5';
 export type ColorScheme = {
   background: string;
   forground: string;
-  url: string;
   prompts: {
-    item: string;
+    primary: string;
+    secondary: string;
   };
+  url: string;
 };
 
 export type PageSettings = {
@@ -46,10 +47,11 @@ export type ResumeTheme = {
 const colorSchemeLight: ColorScheme = {
   background: '',
   forground: '',
-  url: '',
   prompts: {
-    item: 'rgb(220, 220, 220)',
+    primary: '',
+    secondary: 'rgb(220, 220, 220)',
   },
+  url: '',
 };
 
 /**
@@ -57,19 +59,20 @@ const colorSchemeLight: ColorScheme = {
  * @see https://github.com/sindresorhus/pure/blob/0a3801807dc274515dd6a2a26d56f63881ad07b4/pure.zsh#L772
  */
 const colorSchemeDark: ColorScheme = {
-  background: '',
-  forground: '',
-  url: '',
+  background: '#282A36',
+  forground: '#EFF0EB',
   prompts: {
-    item: 'rgb(220, 220, 220)',
+    primary: '#FF6AC1',
+    secondary: '#9AEDFE',
   },
+  url: '#0087BD',
 };
 
 const pageSettings: PageSettings = {
-  columnsGap: '0.75cm',
+  columnsGap: '0.5cm',
   fontFamily: 'Fira Code',
-  fontSize: '15px',
-  margin: '1.5cm 1.5cm 1cm 1.5cm',
+  fontSize: '14px',
+  margin: '1cm 1cm 0 1cm',
   orientation: 'portrait',
   size: 'A4',
   smallColumnProportion: '40%',
@@ -83,12 +86,12 @@ const terminalScheme: TerminalScheme = {
     phone: '📞',
   },
   spacing: {
-    block: '2rem',
+    block: '1.5rem',
     item: '0.75rem',
-    lineHeight: '1.25rem',
+    lineHeight: '1.2rem',
     prompt: '0.5rem',
-    section: '1.75rem',
-    title: '0.75rem',
+    section: '1.25rem',
+    title: '1rem',
   },
   prompts: {
     block: '~',
