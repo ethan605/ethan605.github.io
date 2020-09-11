@@ -42,6 +42,7 @@ const Column = styled.div<{ side: ColumnSide }>`
   float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
   margin-right: ${({ side, theme }): string =>
     side === 'left' ? theme.page.columnsGap : 'unset'};
+  overflow: hidden;
   width: ${({ side, theme }): string =>
     side === 'left' ? theme.page.smallColumnProportion : 'auto'};
 `;

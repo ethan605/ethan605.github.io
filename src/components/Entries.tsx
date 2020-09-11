@@ -11,17 +11,18 @@ type Props = {
 
 const Container = styled.ul``;
 
-const Item = styled.li<{ hasDecoration?: boolean }>`
+const InteractiveItem = styled.li`
   align-items: center;
-  display: ${({ hasDecoration }): string =>
-    hasDecoration ? 'flex' : 'list-item'};
+  display: flex;
+`;
+
+const Item = styled.li`
   line-height: ${({ theme }): string => theme.spacing.lineHeight};
   margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
     color: ${({ theme }): string => theme.colors.prompts.tertiary};
-    content: ${({ hasDecoration, theme }): string =>
-      hasDecoration ? 'none' : `'${theme.prompts.item}'`};
+    content: '${({ theme }): string => theme.prompts.item}';
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
@@ -55,29 +56,42 @@ const Attributes = styled.strong`
   line-height: 1.5rem;
 `;
 
-const Entries: React.FC<Props> = ({ items }) => (
-  <Container>
-    {items.map(({ attributes, content, decoration, href }) => (
-      <Item
-        hasDecoration={decoration != null}
-        key={`entry_content_${buildIteratorKey(content)}`}
-      >
-        {decoration && decorationIcons[decoration]}
-        {href ? (
-          <LinkContent href={href} target="_blank">
-            {content}
-          </LinkContent>
-        ) : (
-          <TextContent hasAttributes={attributes != null}>
-            {content}
-          </TextContent>
-        )}
-        {!href && attributes && (
-          <Attributes>{attributes.join(', ')}</Attributes>
-        )}
-      </Item>
-    ))}
-  </Container>
-);
+const Entries: React.FC<Props> = ({ items }) => {
+  return (
+    <Container>
+      {items.map(({ attributes, content, decoration, href }) => {
+        const key = `entry_content_${buildIteratorKey(content)}`;
+
+        const children = (
+          <React.Fragment>
+            {href ? (
+              <LinkContent href={href} target="_blank">
+                {content}
+              </LinkContent>
+            ) : (
+              <TextContent hasAttributes={attributes != null}>
+                {content}
+              </TextContent>
+            )}
+            {!href && attributes && (
+              <Attributes>{attributes.join(', ')}</Attributes>
+            )}
+          </React.Fragment>
+        );
+
+        if (decoration != null) {
+          return (
+            <InteractiveItem key={key}>
+              {decorationIcons[decoration]}
+              {children}
+            </InteractiveItem>
+          );
+        }
+
+        return <Item key={key}>{children}</Item>;
+      })}
+    </Container>
+  );
+};
 
 export default Entries;
