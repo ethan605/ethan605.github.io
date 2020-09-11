@@ -4,7 +4,7 @@ import { normalize } from 'styled-normalize';
 
 WebFont.load({
   google: {
-    families: ['Oxygen', 'Fira Code'],
+    families: ['Fira Code', 'Oxygen'],
   },
 });
 

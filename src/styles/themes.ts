@@ -1,49 +1,9 @@
-import { DecorationTypes } from '../types/resume';
-
-export type PaperSize = 'A3' | 'A4' | 'A5';
-
-export type ColorScheme = {
-  background: string;
-  forground: string;
-  prompts: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-  };
-  url: string;
-};
-
-export type PageSettings = {
-  columnsGap: string;
-  fontFamily: string;
-  fontSize: string;
-  margin: string;
-  orientation: 'landscape' | 'portrait';
-  size: PaperSize;
-  smallColumnProportion: string;
-};
-
-export type TerminalScheme = {
-  decorators: { [key in DecorationTypes]: string };
-  spacing: {
-    block: string;
-    item: string;
-    lineHeight: string;
-    prompt: string;
-    section: string;
-    title: string;
-  };
-  prompts: {
-    block: string;
-    section: string;
-    item: string;
-  };
-};
-
-export type ResumeTheme = {
-  colors: ColorScheme;
-  page: PageSettings;
-} & TerminalScheme;
+import {
+  ColorScheme,
+  PageSettings,
+  AppTheme,
+  TerminalScheme,
+} from '../types/themes';
 
 /**
  * Inspired by base16-github theme
@@ -51,7 +11,7 @@ export type ResumeTheme = {
  */
 const colorSchemeLight: ColorScheme = {
   background: '#ffffff',
-  forground: '#333333',
+  foreground: '#333333',
   prompts: {
     primary: '#a71d5d',
     secondary: '#183691',
@@ -66,7 +26,7 @@ const colorSchemeLight: ColorScheme = {
  */
 const colorSchemeDark: ColorScheme = {
   background: '#282a36',
-  forground: '#eff0eb',
+  foreground: '#eff0eb',
   prompts: {
     primary: '#ff6ac1',
     secondary: '#9aedfe',
@@ -77,7 +37,7 @@ const colorSchemeDark: ColorScheme = {
 
 const pageSettings: PageSettings = {
   columnsGap: '0.5cm',
-  fontFamily: `'Operator Mono Lig', 'Fira Code'`,
+  fontFamily: `'Fira Code', 'Operator Mono Lig', 'Operator Mono Book', 'Operator Mono'`,
   fontSize: '14px',
   margin: '1cm 1cm 0.5cm 1cm',
   orientation: 'portrait',
@@ -107,14 +67,16 @@ const terminalScheme: TerminalScheme = {
   },
 };
 
-export const light: ResumeTheme = {
+const light: AppTheme = {
   colors: colorSchemeLight,
   page: pageSettings,
   ...terminalScheme,
 };
 
-export const dark: ResumeTheme = {
+const dark: AppTheme = {
   colors: colorSchemeDark,
   page: pageSettings,
   ...terminalScheme,
 };
+
+export default { light, dark };

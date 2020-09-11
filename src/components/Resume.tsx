@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import RESUME_DATA from '../data/resume.json';
-import { dark as darkTheme } from '../styles/themes';
+import themes from '../styles/themes';
 import { ResumeData } from '../types/resume';
+import { SupportedThemes } from '../types/themes';
 
 import Block from './Block';
-import Sheet from './Sheet';
+import PrintPaper from './PrintPaper';
 
 type ColumnSide = 'left' | 'right';
 
 const Container = styled.div`
-  color: ${({ theme }): string => theme.colors.forground};
+  color: ${({ theme }): string => theme.colors.foreground};
   font-family: ${({ theme }): string => theme.page.fontFamily};
   font-size: ${({ theme }): string => theme.page.fontSize};
   padding: ${({ theme }): string => theme.page.margin};
@@ -41,17 +42,22 @@ const Column = styled.div<{ side: ColumnSide }>`
   float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
   margin-right: ${({ side, theme }): string =>
     side === 'left' ? theme.page.columnsGap : 'unset'};
-  overflow: hidden;
   width: ${({ side, theme }): string =>
     side === 'left' ? theme.page.smallColumnProportion : 'auto'};
 `;
 
 const Resume: React.FC = () => {
+  const [currentTheme, changeTheme] = useState<SupportedThemes>('dark');
   const { header, columns } = RESUME_DATA as ResumeData;
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Sheet>
+    <ThemeProvider theme={themes[currentTheme]}>
+      <PrintPaper
+        currentTheme={currentTheme}
+        onChangeTheme={(): void =>
+          changeTheme(currentTheme === 'light' ? 'dark' : 'light')
+        }
+      >
         <Container id="resume">
           <Header>
             <Title>{header.title}</Title>
@@ -70,7 +76,7 @@ const Resume: React.FC = () => {
             ))}
           </div>
         </Container>
-      </Sheet>
+      </PrintPaper>
     </ThemeProvider>
   );
 };
