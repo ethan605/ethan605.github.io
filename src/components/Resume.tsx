@@ -15,6 +15,10 @@ const Container = styled.div`
   font-family: ${({ theme }): string => theme.page.fontFamily};
   font-size: ${({ theme }): string => theme.page.fontSize};
   padding: ${({ theme }): string => theme.page.margin};
+
+  @media print {
+    padding-bottom: 0;
+  }
 `;
 
 const Header = styled.div`
@@ -25,9 +29,11 @@ const Header = styled.div`
 const Title = styled.h1`
   color: ${({ theme }): string => theme.colors.prompts.primary};
   font-size: 1.5rem;
+  margin-bottom: 0.25rem;
 `;
 
 const Subtitle = styled.h2`
+  color: ${({ theme }): string => theme.colors.prompts.tertiary};
   font-size: 1.25rem;
 `;
 

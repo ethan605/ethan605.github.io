@@ -8,6 +8,7 @@ export type ColorScheme = {
   prompts: {
     primary: string;
     secondary: string;
+    tertiary: string;
   };
   url: string;
 };
@@ -50,6 +51,7 @@ const colorSchemeLight: ColorScheme = {
   prompts: {
     primary: '',
     secondary: 'rgb(220, 220, 220)',
+    tertiary: '',
   },
   url: '',
 };
@@ -59,20 +61,21 @@ const colorSchemeLight: ColorScheme = {
  * @see https://github.com/sindresorhus/pure/blob/0a3801807dc274515dd6a2a26d56f63881ad07b4/pure.zsh#L772
  */
 const colorSchemeDark: ColorScheme = {
-  background: '#282A36',
-  forground: '#EFF0EB',
+  background: '#282a36',
+  forground: '#eff0eb',
   prompts: {
-    primary: '#FF6AC1',
-    secondary: '#9AEDFE',
+    primary: '#ff6ac1',
+    secondary: '#9aedfe',
+    tertiary: '#6c6c6c',
   },
-  url: '#0087BD',
+  url: '#0087bd',
 };
 
 const pageSettings: PageSettings = {
   columnsGap: '0.5cm',
-  fontFamily: 'Fira Code',
+  fontFamily: `'Fira Code', 'Operator Mono Lig'`,
   fontSize: '14px',
-  margin: '1cm 1cm 0 1cm',
+  margin: '1cm 1cm 0.5cm 1cm',
   orientation: 'portrait',
   size: 'A4',
   smallColumnProportion: '40%',
@@ -94,9 +97,9 @@ const terminalScheme: TerminalScheme = {
     title: '1rem',
   },
   prompts: {
-    block: '~',
+    block: '❯',
     item: '↳',
-    section: '❯',
+    section: '~',
   },
 };
 
