@@ -52,7 +52,6 @@ const LinkContent = styled.a`
 `;
 
 const Attributes = styled.strong`
-  display: inline-block;
   line-height: 1.5rem;
 `;
 

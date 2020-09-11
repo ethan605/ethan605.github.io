@@ -37,7 +37,7 @@ const colorSchemeDark: ColorScheme = {
 
 const pageSettings: PageSettings = {
   columnsGap: '0.5cm',
-  fontFamily: `'Fira Code', 'Operator Mono Lig', 'Operator Mono Book', 'Operator Mono'`,
+  fontFamily: `'Fira Code', 'Operator Mono Book', 'Operator Mono'`,
   fontSize: '14px',
   margin: '1cm 1cm 0.5cm 1cm',
   orientation: 'portrait',
