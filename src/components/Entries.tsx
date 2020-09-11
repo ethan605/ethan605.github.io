@@ -1,15 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import decorationIcons from '../helpers/decorationIcons';
 import { buildIteratorKey } from '../helpers/utils';
-import { EntryData, DecorationTypes } from '../types/resume';
-
-const DECORATION_MAP: { [key in DecorationTypes]: string } = {
-  email: '📧',
-  phone: '📞',
-  location: '🌍',
-  homepage: '👤',
-};
+import { EntryData } from '../types/resume';
 
 type Props = {
   items: EntryData[];
@@ -17,14 +11,17 @@ type Props = {
 
 const Container = styled.ul``;
 
-const Item = styled.li<{ decoration?: DecorationTypes }>`
+const Item = styled.li<{ hasDecoration?: boolean }>`
+  align-items: center;
+  display: ${({ hasDecoration }): string =>
+    hasDecoration ? 'flex' : 'list-item'};
   line-height: ${({ theme }): string => theme.spacing.lineHeight};
   margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
     color: ${({ theme }): string => theme.colors.prompts.tertiary};
-    content: '${({ decoration, theme }): string =>
-      decoration ? DECORATION_MAP[decoration] : theme.prompts.item}';
+    content: ${({ hasDecoration, theme }): string =>
+      hasDecoration ? 'none' : `'${theme.prompts.item}'`};
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
@@ -62,9 +59,10 @@ const Entries: React.FC<Props> = ({ items }) => (
   <Container>
     {items.map(({ attributes, content, decoration, href }) => (
       <Item
-        decoration={decoration}
+        hasDecoration={decoration != null}
         key={`entry_content_${buildIteratorKey(content)}`}
       >
+        {decoration && decorationIcons[decoration]}
         {href ? (
           <LinkContent href={href} target="_blank">
             {content}

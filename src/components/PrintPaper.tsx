@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Moon, Sun } from 'react-feather';
 
 import { SupportedThemes } from '../types/themes';
 
@@ -41,6 +42,7 @@ const UtilButton = styled.button`
   margin-left: 0.25rem;
   outline: none;
   padding: 0.5rem;
+  padding-bottom: 0.3rem;
 `;
 
 const Sheet = styled.div`
@@ -89,9 +91,8 @@ const PrintPaper: React.FC<Props> = ({
 }) => (
   <Sheet>
     <UtilsContainer className="utils">
-      <UtilButton onClick={(): void => {}}>{'𝒜'}</UtilButton>
       <UtilButton onClick={onChangeTheme}>
-        {currentTheme === 'light' ? '☀︎' : '☀︎'}
+        {currentTheme === 'light' ? <Moon /> : <Sun />}
       </UtilButton>
     </UtilsContainer>
     {children}
