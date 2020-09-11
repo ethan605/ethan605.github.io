@@ -102,6 +102,21 @@
             ]
           }
         ]
+      },
+      {
+        "title": "Education",
+        "sections": [
+          {
+            "title": "Bachelor of Science",
+            "org": "Vietnam National University",
+            "location": "Hanoi, Vietnam",
+            "timeframe": {
+              "from": "Aug 2009",
+              "to": "May 2013"
+            },
+            "briefs": ["Major in Computer Science"]
+          }
+        ]
       }
     ],
     "right": [
@@ -161,21 +176,6 @@
               "Led a team of 3 to develop 5 different mobile applications for Singapore marketplace",
               "Advised customers on choosing proper technical stacks and decisions, maintained and upgraded the products on request"
             ]
-          }
-        ]
-      },
-      {
-        "title": "Education",
-        "sections": [
-          {
-            "title": "Bachelor of Science",
-            "org": "Vietnam National University",
-            "location": "Hanoi, Vietnam",
-            "timeframe": {
-              "from": "Aug 2009",
-              "to": "May 2013"
-            },
-            "briefs": ["Major in Computer Science"]
           }
         ]
       }

@@ -2,14 +2,13 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import RESUME_DATA from '../data/resume.json';
-import { buildIteratorKey } from '../helpers/utils';
 import { light as lightTheme } from '../styles/themes';
 import { ResumeData } from '../types/resume';
 
 import Block from './Block';
-import Entries from './Entries';
-import Section from './Section';
 import Sheet from './Sheet';
+
+type ColumnSide = 'left' | 'right';
 
 const Container = styled.div`
   font-family: ${({ theme }): string => theme.page.fontFamily};
@@ -29,7 +28,7 @@ const Subtitle = styled.h2`
   font-size: 1.5rem;
 `;
 
-const Column = styled.div<{ side: 'left' | 'right' }>`
+const Column = styled.div<{ side: ColumnSide }>`
   float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
   margin-right: ${({ side, theme }): string =>
     side === 'left' ? theme.page.columnsGap : 'unset'};
@@ -50,29 +49,16 @@ const Resume: React.FC = () => {
             <Subtitle>{header.subtitle}</Subtitle>
           </Header>
           <Container>
-            <Column side="left">
-              {columns.left.map(({ entries, title }) => (
-                <Block key={`block_${title.toLowerCase()}`} title={title}>
-                  <Entries items={entries} />
-                </Block>
-              ))}
-            </Column>
-            <Column side="right">
-              {columns.right.map(({ sections, title }) => (
-                <Block key={`block_${title.toLowerCase()}`} title={title}>
-                  {sections.map(
-                    (section): React.ReactNode => (
-                      <Section
-                        {...section}
-                        key={`section_${buildIteratorKey(
-                          section.title + section.org
-                        )}`}
-                      />
-                    )
-                  )}
-                </Block>
-              ))}
-            </Column>
+            {(['left', 'right'] as ColumnSide[]).map((side) => (
+              <Column key={`column_${side}`} side={side}>
+                {columns[side].map((block) => (
+                  <Block
+                    {...block}
+                    key={`block_${block.title.toLowerCase()}`}
+                  />
+                ))}
+              </Column>
+            ))}
           </Container>
         </Container>
       </Sheet>

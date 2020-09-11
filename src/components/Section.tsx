@@ -9,22 +9,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.h4`
-  display: inline-block;
   line-height: ${({ theme }): string => theme.spacing.lineHeight};
   margin-bottom: ${({ theme }): string => theme.spacing.title};
 
   ::before {
     content: '${({ theme }): string => theme.prompts.section}';
     margin-right: ${({ theme }): string => theme.spacing.prompt};
-  }
-`;
-
-const Duration = styled.span``;
-
-const Org = styled.strong`
-  ::before {
-    content: '@';
-    margin: 0 ${({ theme }): string => theme.spacing.prompt};
   }
 `;
 
@@ -35,9 +25,16 @@ const Brief = styled.li`
   margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
-    color: rgb(220, 220, 220);
+    color: ${({ theme }): string => theme.colors.prompts.item};
     content: '${({ theme }): string => theme.prompts.item}';
     margin-right: ${({ theme }): string => theme.spacing.prompt};
+  }
+`;
+
+const Org = styled(Brief)`
+  ::before {
+    color: inherit;
+    content: '@';
   }
 `;
 
@@ -45,17 +42,13 @@ const Section: React.FC<SectionData> = ({ briefs, org, timeframe, title }) => (
   <Container>
     <Title>{title}</Title>
     <BriefsContainer>
+      <Org>{org}</Org>
       <Brief>
-        <Duration>
-          {timeframe.from} - {timeframe.to}
-        </Duration>
-        <Org>{org}</Org>
+        {timeframe.from} - {timeframe.to}
       </Brief>
-      {briefs.map(
-        (brief): React.ReactNode => (
-          <Brief key={`brief_${buildIteratorKey(brief)}`}>{brief}</Brief>
-        )
-      )}
+      {briefs.map((brief) => (
+        <Brief key={`brief_${buildIteratorKey(brief)}`}>{brief}</Brief>
+      ))}
     </BriefsContainer>
   </Container>
 );

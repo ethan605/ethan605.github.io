@@ -20,13 +20,19 @@ export type SectionData = {
   title: string;
 };
 
+export type BlockData = {
+  entries?: EntryData[];
+  sections?: SectionData[];
+  title: string;
+};
+
 export type ResumeData = {
   header: {
     title: string;
     subtitle: string;
   };
   columns: {
-    left: { title: string; entries: EntryData[] }[];
-    right: { title: string; sections: SectionData[] }[];
+    left: BlockData[];
+    right: BlockData[];
   };
 };

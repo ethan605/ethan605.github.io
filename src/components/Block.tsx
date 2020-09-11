@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-type Props = {
-  children: React.ReactNode;
-  title: string;
-};
+import { buildIteratorKey } from '../helpers/utils';
+import { BlockData } from '../types/resume';
+import Entries from './Entries';
+import Section from './Section';
 
 const Container = styled.div`
   margin-bottom: ${({ theme }): string => theme.spacing.block};
@@ -19,10 +19,17 @@ const Title = styled.h3`
   }
 `;
 
-const Block: React.FC<Props> = ({ children, title }) => (
+const Block: React.FC<BlockData> = ({ entries, sections, title }) => (
   <Container>
     <Title>{title}</Title>
-    {children}
+    {entries && <Entries items={entries} />}
+    {sections &&
+      sections.map((section) => (
+        <Section
+          {...section}
+          key={`section_${buildIteratorKey(section.title + section.org)}`}
+        />
+      ))}
   </Container>
 );
 

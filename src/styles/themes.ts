@@ -2,7 +2,11 @@ import { DecorationTypes } from '../types/resume';
 
 export type PaperSize = 'A3' | 'A4' | 'A5';
 
-export type ColorScheme = {};
+export type ColorScheme = {
+  prompts: {
+    item: string;
+  };
+};
 
 export type PageSettings = {
   columnsGap: string;
@@ -36,32 +40,36 @@ export type ResumeTheme = {
   page: PageSettings;
 } & TerminalScheme;
 
-const colorScheme: ColorScheme = {};
+const colorSchemeLight: ColorScheme = {
+  prompts: {
+    item: 'rgb(220, 220, 220)',
+  },
+};
 
 const pageSettings: PageSettings = {
   columnsGap: '0.75cm',
   fontFamily: 'Fira Code',
-  fontSize: '14px',
-  margin: '1.5cm',
+  fontSize: '15px',
+  margin: '1.5cm 1.5cm 1cm 1.5cm',
   orientation: 'portrait',
   size: 'A4',
-  smallColumnProportion: '35%',
+  smallColumnProportion: '40%',
 };
 
 const terminalScheme: TerminalScheme = {
   decorators: {
     email: '📧',
-    phone: '📞',
-    location: '🌍',
     homepage: '👤',
+    location: '🌍',
+    phone: '📞',
   },
   spacing: {
     block: '2rem',
     item: '0.75rem',
-    lineHeight: '1.3rem',
+    lineHeight: '1.25rem',
     prompt: '0.5rem',
-    section: '1.5rem',
-    title: '1rem',
+    section: '1.75rem',
+    title: '0.75rem',
   },
   prompts: {
     block: '~',
@@ -71,7 +79,7 @@ const terminalScheme: TerminalScheme = {
 };
 
 export const light: ResumeTheme = {
-  colors: colorScheme,
+  colors: colorSchemeLight,
   page: pageSettings,
   ...terminalScheme,
 };
