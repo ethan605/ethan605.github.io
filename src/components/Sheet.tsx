@@ -11,21 +11,21 @@ const Sheet = styled.div`
   background-color: white;
   box-sizing: border-box;
   width: ${({ theme }): string => {
-    const { width, height } = PAGE_SIZES[theme.paperSize];
-    return theme.landscape ? height : width;
+    const { width, height } = PAGE_SIZES[theme.page.size];
+    return theme.page.orientation === 'landscape' ? height : width;
   }};
 
   @page {
-    size: ${({ theme }): string => theme.paperSize}
-      ${({ theme }): string => (theme.landscape ? 'landscape' : '')};
-    margin: ${({ theme }): string => theme.paperMargin};
+    size: ${({ theme }): string => theme.page.size}
+      ${({ theme }): string => theme.page.orientation};
+    margin: ${({ theme }): string => theme.page.margin};
   }
 
   @media print {
     background-color: pink;
     height: ${({ theme }): string => {
-      const { width, height } = PAGE_SIZES[theme.paperSize];
-      return theme.landscape ? width : height;
+      const { width, height } = PAGE_SIZES[theme.page.size];
+      return theme.page.orientation === 'landscape' ? width : height;
     }};
   }
 
@@ -33,7 +33,7 @@ const Sheet = styled.div`
     overflow: auto;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     margin: 0.5cm auto;
-    padding: ${({ theme }): string => theme.paperMargin};
+    padding: ${({ theme }): string => theme.page.margin};
   }
 `;
 

@@ -3,36 +3,45 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import RESUME_DATA from '../data/resume.json';
 import { buildIteratorKey } from '../helpers/utils';
-import { resumeTheme } from '../styles/themes';
+import { light as lightTheme } from '../styles/themes';
 import { ResumeData } from '../types/resume';
 
 import Block from './Block';
 import Entries from './Entries';
 import Sheet from './Sheet';
 
-const Container = styled.div``;
+const Container = styled.div`
+  font-family: ${({ theme }): string => theme.page.fontFamily};
+  font-size: ${({ theme }): string => theme.page.fontSize};
+`;
 
 const Header = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: ${({ theme }): string => theme.spacing.block};
   text-align: center;
 `;
 
-const Title = styled.h1``;
-const Subtitle = styled.h2``;
+const Title = styled.h1`
+  font-size: 1.75rem;
+`;
+
+const Subtitle = styled.h2`
+  font-size: 1.5rem;
+`;
 
 const Column = styled.div<{ side: 'left' | 'right' }>`
   float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
-  margin-right: ${({ side }): string => (side === 'left' ? '1rem' : 'unset')};
+  margin-right: ${({ side, theme }): string =>
+    side === 'left' ? theme.page.columnsGap : 'unset'};
   overflow: hidden;
   width: ${({ side, theme }): string =>
-    side === 'left' ? theme.sideColumnProportion : 'auto'};
+    side === 'left' ? theme.page.smallColumnProportion : 'auto'};
 `;
 
 const Resume: React.FC = () => {
   const { header, columns } = RESUME_DATA as ResumeData;
 
   return (
-    <ThemeProvider theme={resumeTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Sheet>
         <Container id="resume">
           <Header>
@@ -42,17 +51,14 @@ const Resume: React.FC = () => {
           <Container>
             <Column side="left">
               {columns.left.map(({ entries, title }) => (
-                <Block key={`column_left_${title.toLowerCase()}`} title={title}>
+                <Block key={`block_${title.toLowerCase()}`} title={title}>
                   <Entries items={entries} />
                 </Block>
               ))}
             </Column>
             <Column side="right">
               {columns.right.map(({ sections, title }) => (
-                <Block
-                  key={`column_right_${title.toLowerCase()}`}
-                  title={title}
-                >
+                <Block key={`block_${title.toLowerCase()}`} title={title}>
                   {sections.map(
                     (section): React.ReactNode => (
                       <div

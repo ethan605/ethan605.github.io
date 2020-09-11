@@ -18,21 +18,21 @@ type Props = {
 const Container = styled.ul``;
 
 const Item = styled.li<{ decoration?: DecorationTypes }>`
-  line-height: 1.3rem;
-  margin-bottom: 0.75rem;
+  line-height: ${({ theme }): string => theme.spacing.lineHeight};
+  margin-bottom: ${({ theme }): string => theme.spacing.item};
 
   ::before {
-    content: '${({ decoration }): string =>
-      decoration ? DECORATION_MAP[decoration] || '' : '•'}';
-    font-size: 1.2rem;
-    margin-right: 0.4rem;
+    color: rgb(220, 220, 220);
+    content: '${({ decoration, theme }): string =>
+      decoration ? DECORATION_MAP[decoration] : theme.prompts.item}';
+    margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
 
 const TextContent = styled.span<{ hasAttributes?: boolean }>`
   ::after {
     content: ${({ hasAttributes }): string => (hasAttributes ? `':'` : 'none')};
-    margin-right: 0.25rem;
+    margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
 

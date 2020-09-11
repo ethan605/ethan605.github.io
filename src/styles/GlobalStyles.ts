@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  code, #resume {
+  code {
     font-family: 'Fira Code', Menlo, Monaco, Consolas, monospace;
   }
 `;

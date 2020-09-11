@@ -7,15 +7,15 @@ type Props = {
 };
 
 const Container = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: ${({ theme }): string => theme.spacing.block};
 `;
 
 const Title = styled.h3`
-  margin-bottom: 1rem;
+  margin-bottom: ${({ theme }): string => theme.spacing.title};
 
   ::before {
-    content: '~';
-    margin-right: 0.5rem;
+    content: '${({ theme }): string => theme.prompts.block}';
+    margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
 
