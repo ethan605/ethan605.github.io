@@ -7,7 +7,7 @@ import {
   Phone as FeatherPhone,
 } from 'react-feather';
 
-import { DecorationTypes } from 'types/resume';
+import { DecorationTypes } from 'src/types/resume';
 
 const featherIconStyles = css`
   margin-right: ${({ theme }): string => theme.spacing.prompt};

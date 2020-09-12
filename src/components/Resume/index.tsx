@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import RESUME_DATA from 'data/resume.json';
-import themes from 'styles/themes';
-import { ResumeData } from 'types/resume';
-import { SupportedThemes } from 'types/themes';
+import RESUME_DATA from 'src/data/resume.json';
+import themes from 'src/styles/themes';
+import { ResumeData } from 'src/types/resume';
+import { SupportedThemes } from 'src/types/themes';
 
 import Block from './Block';
 import PrintPaper from './PrintPaper';

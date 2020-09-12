@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { buildIteratorKey } from 'helpers/utils';
-import { BlockData } from 'types/resume';
+import { buildIteratorKey } from 'src/helpers/utils';
+import { BlockData } from 'src/types/resume';
 import Entries from './Entries';
 import Section from './Section';
 

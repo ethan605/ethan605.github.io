@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { SupportedThemes } from 'types/themes';
+import { SupportedThemes } from 'src/types/themes';
 
 type Props = {
   children: React.ReactNode;
