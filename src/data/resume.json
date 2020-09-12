@@ -108,7 +108,10 @@
         "sections": [
           {
             "title": "Bachelor of Science",
-            "org": "Vietnam National University",
+            "org": {
+              "name": "Vietnam National University",
+              "href": "https://e.uet.vnu.edu.vn"
+            },
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2009",
@@ -125,7 +128,7 @@
         "sections": [
           {
             "title": "Senior Full-stack Engineer",
-            "org": "Pi-top",
+            "org": { "name": "Pi-top", "href": "https://pi-top.com" },
             "location": "London - UK (Remote)",
             "timeframe": {
               "from": "Sep 2019",
@@ -139,7 +142,7 @@
           },
           {
             "title": "Senior Full-stack Engineer",
-            "org": "WeFit",
+            "org": { "name": "WeFit", "href": "https://wewow.vn" },
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2016",
@@ -153,7 +156,10 @@
           },
           {
             "title": "Development Team Lead then Operations Manager",
-            "org": "TOPICA Edtech Group",
+            "org": {
+              "name": "TOPICA Edtech Group",
+              "href": "https://topica.asia"
+            },
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2014",
@@ -166,7 +172,7 @@
           },
           {
             "title": "Mobile Developer",
-            "org": "Vinova Pte. Ltd.",
+            "org": { "name": "Vinova Pte. Ltd.", "href": "https://vinova.sg" },
             "location": "Hanoi, Vietnam",
             "timeframe": {
               "from": "Aug 2014",

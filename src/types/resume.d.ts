@@ -15,7 +15,7 @@ export type Timeframe = {
 export type SectionData = {
   briefs: string[];
   location: string;
-  org: string;
+  org: { name: string; href?: string };
   timeframe: Timeframe;
   title: string;
 };

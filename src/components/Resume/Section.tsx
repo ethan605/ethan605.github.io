@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { buildIteratorKey } from 'src/helpers/utils';
 import { SectionData } from 'src/types/resume';
+import { Anchor } from './primitives';
 
 const Container = styled.div`
   margin-bottom: ${({ theme }): string => theme.spacing.section || ''};
@@ -34,13 +35,7 @@ const Brief = styled.li`
   }
 `;
 
-/* const Org = styled(Brief)`
-  ::before {
-    content: '@';
-  }
-`; */
-
-const OrgInline = styled.strong`
+const Org = styled.strong`
   ::before {
     content: '@';
     margin: 0 ${({ theme }): string => theme.spacing.prompt || ''};
@@ -52,10 +47,17 @@ const Section: React.FC<SectionData> = ({ briefs, org, timeframe, title }) => (
   <Container>
     <Title>{title}</Title>
     <BriefsContainer>
-      {/* <Org>{org}</Org> */}
       <Brief>
         {timeframe.from} - {timeframe.to}
-        <OrgInline>{org}</OrgInline>
+        <Org>
+          {org.href ? (
+            <Anchor href={org.href} target="_blank">
+              {org.name}
+            </Anchor>
+          ) : (
+            org.name
+          )}
+        </Org>
       </Brief>
       {briefs.map((brief) => (
         <Brief key={`brief_${buildIteratorKey(brief)}`}>{brief}</Brief>

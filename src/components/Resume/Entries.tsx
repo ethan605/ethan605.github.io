@@ -4,12 +4,11 @@ import styled from 'styled-components';
 import { buildIteratorKey } from 'src/helpers/utils';
 import { EntryData } from 'src/types/resume';
 import decorationIcons from './decorationIcons';
+import { Anchor } from './primitives';
 
 type Props = {
   items: EntryData[];
 };
-
-const Container = styled.ul``;
 
 const InteractiveItem = styled.li`
   align-items: center;
@@ -35,39 +34,22 @@ const TextContent = styled.span<{ hasAttributes?: boolean }>`
   }
 `;
 
-const LinkContent = styled.a`
-  color: inherit;
-  highlight: none;
-  text-decoration: none;
-
-  &,
-  &:active,
-  &:visited {
-    color: inherit;
-  }
-
-  &:hover {
-    text-decoration: underline;
-    color: ${({ theme }): string => theme.colors.url};
-  }
-`;
-
 const Attributes = styled.strong`
   line-height: 1.5rem;
 `;
 
 const Entries: React.FC<Props> = ({ items }) => {
   return (
-    <Container>
+    <ul>
       {items.map(({ attributes, content, decoration, href }) => {
         const key = `entry_content_${buildIteratorKey(content)}`;
 
         const children = (
           <React.Fragment>
             {href ? (
-              <LinkContent href={href} target="_blank">
+              <Anchor href={href} target="_blank">
                 {content}
-              </LinkContent>
+              </Anchor>
             ) : (
               <TextContent hasAttributes={attributes != null}>
                 {content}
@@ -90,7 +72,7 @@ const Entries: React.FC<Props> = ({ items }) => {
 
         return <Item key={key}>{children}</Item>;
       })}
-    </Container>
+    </ul>
   );
 };
 
