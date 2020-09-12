@@ -55,9 +55,16 @@ const UtilButton = styled.button`
   cursor: pointer;
   font-size: 1.75rem;
   margin-left: 0.5rem;
+  opacity: 0.5;
   outline: none;
   padding: 0.5rem;
   padding-bottom: 0.3rem;
+
+  &:focus,
+  &:focus-within,
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const Sheet = styled.div`
@@ -108,12 +115,14 @@ const PrintPaper: React.FC<Props> = ({
   return (
     <Sheet ref={sheetRef}>
       <UtilsContainer className="utils">
-        <UtilButton
-          onClick={(): void => handlePrint && handlePrint()}
-          title="Save as PDF"
-        >
-          <Printer />
-        </UtilButton>
+        {window.print && (
+          <UtilButton
+            onClick={(): void => handlePrint && handlePrint()}
+            title="Save as PDF"
+          >
+            <Printer />
+          </UtilButton>
+        )}
         <UtilButton onClick={onChangeTheme} title="Toggle dark mode">
           {currentTheme === 'light' ? <Moon /> : <Sun />}
         </UtilButton>
