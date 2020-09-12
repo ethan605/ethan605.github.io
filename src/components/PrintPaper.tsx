@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Moon, Sun } from 'react-feather';
+import { Moon, Printer, Sun } from 'react-feather';
+import { useReactToPrint } from 'react-to-print';
 
 import { SupportedThemes } from '../types/themes';
+
+type Props = {
+  children: React.ReactNode;
+  currentTheme: SupportedThemes;
+  onChangeTheme: () => void;
+};
 
 // Page sizes in *portrait* mode
 const PAGE_SIZES = {
   A3: { width: '29.7cm', height: '42cm' },
   A4: { width: '21cm', height: '29.7cm' },
   A5: { width: '14cm', height: '21cm' },
-};
-
-type Props = {
-  children: React.ReactNode;
-  currentTheme: SupportedThemes;
-  onChangeTheme: () => void;
 };
 
 const UtilsContainer = styled.div`
@@ -25,7 +26,6 @@ const UtilsContainer = styled.div`
   right: 0;
   top: 0;
   padding: 1rem;
-  // background-color: pink;
 
   @media print {
     display: none;
@@ -39,7 +39,7 @@ const UtilButton = styled.button`
   color: ${({ theme }): string => theme.colors.background};
   cursor: pointer;
   font-size: 1.75rem;
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
   outline: none;
   padding: 0.5rem;
   padding-bottom: 0.3rem;
@@ -56,12 +56,6 @@ const Sheet = styled.div`
 
   .utils {
     display: none;
-  }
-
-  :hover {
-    .utils {
-      display: block;
-    }
   }
 
   @page {
@@ -81,6 +75,12 @@ const Sheet = styled.div`
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     margin: 0.5cm auto;
     overflow: auto;
+
+    &:hover {
+      .utils {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -88,15 +88,26 @@ const PrintPaper: React.FC<Props> = ({
   children,
   currentTheme,
   onChangeTheme,
-}) => (
-  <Sheet>
-    <UtilsContainer className="utils">
-      <UtilButton onClick={onChangeTheme}>
-        {currentTheme === 'light' ? <Moon /> : <Sun />}
-      </UtilButton>
-    </UtilsContainer>
-    {children}
-  </Sheet>
-);
+}) => {
+  const sheetRef = useRef(null);
+  const handlePrint = useReactToPrint({ content: () => sheetRef.current });
+
+  return (
+    <Sheet ref={sheetRef}>
+      <UtilsContainer className="utils">
+        <UtilButton
+          onClick={(): void => handlePrint && handlePrint()}
+          title="Save as PDF"
+        >
+          <Printer />
+        </UtilButton>
+        <UtilButton onClick={onChangeTheme} title="Toggle dark mode">
+          {currentTheme === 'light' ? <Moon /> : <Sun />}
+        </UtilButton>
+      </UtilsContainer>
+      {children}
+    </Sheet>
+  );
+};
 
 export default PrintPaper;
