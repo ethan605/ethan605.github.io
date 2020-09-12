@@ -3,6 +3,7 @@ import {
   ColorScheme,
   ContentSettings,
   PageSettings,
+  PaperSizesMapping,
 } from 'src/types/themes';
 
 /**
@@ -77,6 +78,14 @@ const light: AppTheme = {
 const dark: AppTheme = {
   ...defaultSettings,
   colors: colorSchemeDark,
+};
+
+// Page sizes in *portrait* mode
+export const PAGE_SIZES_MAPPING: PaperSizesMapping = {
+  A4: { width: '210mm', height: '297mm' },
+  B4: { width: '250mm', height: '353mm' },
+  legal: { width: '8.5in', height: '14in' },
+  letter: { width: '8.5in', height: '11in' },
 };
 
 export default { light, dark };

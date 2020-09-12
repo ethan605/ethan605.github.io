@@ -1,36 +1,15 @@
 import React, { useRef } from 'react';
-import styled, { ThemedStyledProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 import { Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import {
-  PaperDimensions,
-  PaperSizesMapping,
-  SupportedThemes,
-} from 'src/types/themes';
+import { getPageSize } from 'src/helpers/utils';
+import { SupportedThemes } from 'src/types/themes';
 
 type Props = {
   children: React.ReactNode;
   currentTheme: SupportedThemes;
   onChangeTheme: () => void;
-};
-
-// Page sizes in *portrait* mode
-const PAGE_SIZES: PaperSizesMapping = {
-  A4: { width: '210mm', height: '297mm' },
-  B4: { width: '250mm', height: '353mm' },
-  legal: { width: '8.5in', height: '14in' },
-  letter: { width: '8.5in', height: '11in' },
-};
-
-const getPageSize = (dimension: PaperDimensions) => ({
-  theme,
-}: ThemedStyledProps<{}, DefaultTheme>): string => {
-  const otherDimension = dimension === 'width' ? 'height' : 'width';
-  const { [dimension]: size, [otherDimension]: otherSize } = PAGE_SIZES[
-    theme.page.type
-  ];
-  return theme.page.orientation === 'landscape' ? otherSize : size;
 };
 
 const UtilsContainer = styled.div`
@@ -82,20 +61,22 @@ const Sheet = styled.div`
     margin: 0;
   }
 
-  @media print {
+  @media only print {
     height: ${getPageSize('height')};
     width: ${getPageSize('width')};
   }
 
-  @media screen {
-    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-    margin: 0.5cm auto;
+  @media only screen {
     overflow: auto;
 
     @media (min-width: ${getPageSize('width')}) {
+      box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+      margin: 0.5cm auto;
       width: ${getPageSize('width')};
     }
 
+    &:focus,
+    &:focus-within,
     &:hover {
       .utils {
         display: block;

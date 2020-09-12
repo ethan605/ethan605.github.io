@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import RESUME_DATA from 'src/data/resume.json';
+import { getPageSize } from 'src/helpers/utils';
 import themes from 'src/styles/themes';
 import { ResumeData } from 'src/types/resume';
 import { SupportedThemes } from 'src/types/themes';
@@ -52,6 +53,11 @@ const Column = styled.div<{ side: ColumnSides }>`
   overflow: hidden;
   width: ${({ side, theme }): string =>
     side === 'left' ? theme.page.smallColumnProportion : 'auto'};
+
+  @media only screen and (max-width: calc(${getPageSize('width')} * 0.75)) {
+    float: none;
+    width: unset;
+  }
 `;
 
 const Resume: React.FC = () => {
