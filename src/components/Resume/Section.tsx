@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { buildIteratorKey } from '../helpers/utils';
-import { SectionData } from '../types/resume';
+import { buildIteratorKey } from 'helpers/utils';
+import { SectionData } from 'types/resume';
 
 const Container = styled.div`
   margin-bottom: ${({ theme }): string => theme.spacing.section};

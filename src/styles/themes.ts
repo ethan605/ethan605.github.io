@@ -3,7 +3,7 @@ import {
   PageSettings,
   AppTheme,
   TerminalScheme,
-} from '../types/themes';
+} from 'types/themes';
 
 /**
  * Inspired by base16-github theme

@@ -1,4 +1,4 @@
-import { DecorationTypes } from '../types/resume';
+import { DecorationTypes } from '~types/resume';
 
 export type PaperSize = 'A3' | 'A4' | 'A5';
 

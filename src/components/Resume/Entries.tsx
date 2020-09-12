@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import decorationIcons from '../helpers/decorationIcons';
-import { buildIteratorKey } from '../helpers/utils';
-import { EntryData } from '../types/resume';
+import { buildIteratorKey } from 'helpers/utils';
+import { EntryData } from 'types/resume';
+import decorationIcons from './decorationIcons';
 
 type Props = {
   items: EntryData[];

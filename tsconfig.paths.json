@@ -1,0 +1,10 @@
+{
+  "baseUrl": ".",
+  "paths": {
+    "~components/*": ["./src/components/*"],
+    "~data/*": ["./src/data/*"],
+    "~helpers/*": ["./src/helpers/*"],
+    "~styles/*": ["./src/styles/*"],
+    "~types/*": ["./src/types/*"]
+  }
+}
