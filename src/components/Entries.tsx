@@ -22,7 +22,8 @@ const Item = styled.li`
 
   ::before {
     color: ${({ theme }): string => theme.colors.prompts.tertiary};
-    content: '${({ theme }): string => theme.prompts.item}';
+    content: ${({ theme }): string =>
+      theme.prompts.item ? `'${theme.prompts.item}'` : 'none'};
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;

@@ -64,6 +64,8 @@ const terminalScheme: TerminalScheme = {
     block: '❯',
     item: '↳',
     section: '~',
+    // item: '◦',
+    // section: '•',
   },
 };
 

@@ -14,7 +14,8 @@ const Title = styled.h4`
   margin-bottom: ${({ theme }): string => theme.spacing.title};
 
   ::before {
-    content: '${({ theme }): string => theme.prompts.section}';
+    content: ${({ theme }): string =>
+      theme.prompts.section ? `'${theme.prompts.section}'` : 'none'};
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
@@ -27,7 +28,8 @@ const Brief = styled.li`
 
   ::before {
     color: ${({ theme }): string => theme.colors.prompts.tertiary};
-    content: '${({ theme }): string => theme.prompts.item}';
+    content: ${({ theme }): string =>
+      theme.prompts.item ? `'${theme.prompts.item}'` : 'none'};
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;

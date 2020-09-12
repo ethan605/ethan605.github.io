@@ -34,9 +34,9 @@ export type TerminalScheme = {
     title: string;
   };
   prompts: {
-    block: string;
-    section: string;
-    item: string;
+    block?: string;
+    item?: string;
+    section?: string;
   };
 };
 

@@ -15,7 +15,8 @@ const Title = styled.h3`
   margin-bottom: ${({ theme }): string => theme.spacing.title};
 
   ::before {
-    content: '${({ theme }): string => theme.prompts.block}';
+    content: ${({ theme }): string =>
+      theme.prompts.block ? `'${theme.prompts.block}'` : 'none'};
     margin-right: ${({ theme }): string => theme.spacing.prompt};
   }
 `;
