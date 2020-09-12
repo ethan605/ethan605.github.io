@@ -10,7 +10,7 @@ import {
 import { DecorationTypes } from 'src/types/resume';
 
 const featherIconStyles = css`
-  margin-right: ${({ theme }): string => theme.spacing.prompt};
+  margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
   width: ${({ theme }): string => theme.page.fontSize};
 `;
 

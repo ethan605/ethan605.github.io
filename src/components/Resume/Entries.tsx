@@ -17,21 +17,21 @@ const InteractiveItem = styled.li`
 `;
 
 const Item = styled.li`
-  line-height: ${({ theme }): string => theme.spacing.lineHeight};
-  margin-bottom: ${({ theme }): string => theme.spacing.item};
+  line-height: ${({ theme }): string => theme.page.lineHeight};
+  margin-bottom: ${({ theme }): string => theme.spacing.item || ''};
 
   ::before {
-    color: ${({ theme }): string => theme.colors.prompts.tertiary};
+    color: ${({ theme }): string => theme.colors.tertiary};
     content: ${({ theme }): string =>
       theme.prompts.item ? `'${theme.prompts.item}'` : 'none'};
-    margin-right: ${({ theme }): string => theme.spacing.prompt};
+    margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
   }
 `;
 
 const TextContent = styled.span<{ hasAttributes?: boolean }>`
   ::after {
     content: ${({ hasAttributes }): string => (hasAttributes ? `':'` : 'none')};
-    margin-right: ${({ theme }): string => theme.spacing.prompt};
+    margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
   }
 `;
 

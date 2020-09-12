@@ -1,9 +1,13 @@
 import React, { useRef } from 'react';
-import styled from 'styled-components';
+import styled, { ThemedStyledProps, DefaultTheme } from 'styled-components';
 import { Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { SupportedThemes } from 'src/types/themes';
+import {
+  PaperDimensions,
+  PaperSizesMapping,
+  SupportedThemes,
+} from 'src/types/themes';
 
 type Props = {
   children: React.ReactNode;
@@ -12,10 +16,21 @@ type Props = {
 };
 
 // Page sizes in *portrait* mode
-const PAGE_SIZES = {
-  A3: { width: '29.7cm', height: '42cm' },
-  A4: { width: '21cm', height: '29.7cm' },
-  A5: { width: '14cm', height: '21cm' },
+const PAGE_SIZES: PaperSizesMapping = {
+  A4: { width: '210mm', height: '297mm' },
+  B4: { width: '250mm', height: '353mm' },
+  legal: { width: '8.5in', height: '14in' },
+  letter: { width: '8.5in', height: '11in' },
+};
+
+const getPageSize = (dimension: PaperDimensions) => ({
+  theme,
+}: ThemedStyledProps<{}, DefaultTheme>): string => {
+  const otherDimension = dimension === 'width' ? 'height' : 'width';
+  const { [dimension]: size, [otherDimension]: otherSize } = PAGE_SIZES[
+    theme.page.type
+  ];
+  return theme.page.orientation === 'landscape' ? otherSize : size;
 };
 
 const UtilsContainer = styled.div`
@@ -49,32 +64,30 @@ const Sheet = styled.div`
   background-color: ${({ theme }): string => theme.colors.background};
   box-sizing: border-box;
   position: relative;
-  width: ${({ theme }): string => {
-    const { width, height } = PAGE_SIZES[theme.page.size];
-    return theme.page.orientation === 'landscape' ? height : width;
-  }};
 
   .utils {
     display: none;
   }
 
   @page {
-    size: ${({ theme }): string => theme.page.size}
+    size: ${({ theme }): string => theme.page.type}
       ${({ theme }): string => theme.page.orientation};
     margin: 0;
   }
 
   @media print {
-    height: ${({ theme }): string => {
-      const { width, height } = PAGE_SIZES[theme.page.size];
-      return theme.page.orientation === 'landscape' ? width : height;
-    }};
+    height: ${getPageSize('height')};
+    width: ${getPageSize('width')};
   }
 
   @media screen {
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     margin: 0.5cm auto;
     overflow: auto;
+
+    @media (min-width: ${getPageSize('width')}) {
+      width: ${getPageSize('width')};
+    }
 
     &:hover {
       .utils {

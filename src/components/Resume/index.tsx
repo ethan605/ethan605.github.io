@@ -23,18 +23,18 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  margin-bottom: ${({ theme }): string => theme.spacing.block};
+  margin-bottom: ${({ theme }): string => theme.spacing.block || ''};
   text-align: center;
 `;
 
 const Title = styled.h1`
-  color: ${({ theme }): string => theme.colors.prompts.primary};
+  color: ${({ theme }): string => theme.colors.primary};
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
 `;
 
 const Subtitle = styled.h2`
-  color: ${({ theme }): string => theme.colors.prompts.tertiary};
+  color: ${({ theme }): string => theme.colors.tertiary};
   font-size: 1.25rem;
 `;
 

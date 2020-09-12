@@ -1,8 +1,8 @@
 import {
-  ColorScheme,
-  PageSettings,
   AppTheme,
-  TerminalScheme,
+  ColorScheme,
+  ContentSettings,
+  PageSettings,
 } from 'src/types/themes';
 
 /**
@@ -12,11 +12,9 @@ import {
 const colorSchemeLight: ColorScheme = {
   background: '#ffffff',
   foreground: '#333333',
-  prompts: {
-    primary: '#a71d5d',
-    secondary: '#183691',
-    tertiary: '#969896',
-  },
+  primary: '#a71d5d',
+  secondary: '#183691',
+  tertiary: '#969896',
   url: '#0086b3',
 };
 
@@ -27,58 +25,58 @@ const colorSchemeLight: ColorScheme = {
 const colorSchemeDark: ColorScheme = {
   background: '#282a36',
   foreground: '#eff0eb',
-  prompts: {
-    primary: '#ff6ac1',
-    secondary: '#9aedfe',
-    tertiary: '#6c6c6c',
-  },
+  primary: '#ff6ac1',
+  secondary: '#9aedfe',
+  tertiary: '#6c6c6c',
   url: '#0087bd',
 };
 
 const pageSettings: PageSettings = {
-  columnsGap: '0.5cm',
-  fontFamily: `'Fira Code', 'Operator Mono Book', 'Operator Mono'`,
-  fontSize: '14px',
-  margin: '1cm 1cm 0.5cm 1cm',
   orientation: 'portrait',
-  size: 'A4',
-  smallColumnProportion: '40%',
+  lineHeight: '1.2rem',
+  type: 'A4',
+  columnsGap: '0.7cm',
+  fontFamily: `'Fira Code'`,
+  fontSize: '14px',
+  margin: '1.25cm 1.25cm 0.7cm 1.25cm',
+  smallColumnProportion: '42.5%',
+  // columnsGap: '0.75cm',
+  // fontFamily: `'Operator Mono Lig'`,
+  // fontSize: '15px',
+  // margin: '1.5cm 1.5cm 0.75cm 1.5cm',
+  // smallColumnProportion: '40%',
 };
 
-const terminalScheme: TerminalScheme = {
-  decorators: {
-    email: '📧',
-    homepage: '👤',
-    location: '🌍',
-    phone: '📞',
-  },
-  spacing: {
-    block: '1.5rem',
-    item: '0.75rem',
-    lineHeight: '1.2rem',
-    prompt: '0.5rem',
-    section: '1.25rem',
-    title: '1rem',
-  },
-  prompts: {
-    block: '❯',
-    item: '↳',
-    section: '~',
-    // item: '◦',
-    // section: '•',
-  },
+const spacingSettings: ContentSettings = {
+  block: '1.5rem',
+  item: '0.75rem',
+  prompt: '0.5rem',
+  section: '1.25rem',
+  title: '1rem',
+};
+
+const promptSettings: ContentSettings = {
+  block: '❯',
+  item: '↳',
+  section: '~',
+  // item: '◦',
+  // section: '•',
+};
+
+const defaultSettings = {
+  page: pageSettings,
+  prompts: promptSettings,
+  spacing: spacingSettings,
 };
 
 const light: AppTheme = {
+  ...defaultSettings,
   colors: colorSchemeLight,
-  page: pageSettings,
-  ...terminalScheme,
 };
 
 const dark: AppTheme = {
+  ...defaultSettings,
   colors: colorSchemeDark,
-  page: pageSettings,
-  ...terminalScheme,
 };
 
 export default { light, dark };

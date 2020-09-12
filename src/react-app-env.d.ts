@@ -1,7 +1,7 @@
 /// <reference types="react-scripts" />
 
-import {} from 'styled-components';
-import { AppTheme } from './types/themes';
+import 'styled-components';
+import { AppTheme } from 'src/types/themes';
 
 declare module 'styled-components' {
   /* eslint-disable @typescript-eslint/no-empty-interface */

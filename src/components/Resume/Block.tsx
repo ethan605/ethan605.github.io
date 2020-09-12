@@ -7,17 +7,17 @@ import Entries from './Entries';
 import Section from './Section';
 
 const Container = styled.div`
-  margin-bottom: ${({ theme }): string => theme.spacing.block};
+  margin-bottom: ${({ theme }): string => theme.spacing.block || ''};
 `;
 
 const Title = styled.h3`
-  color: ${({ theme }): string => theme.colors.prompts.primary};
-  margin-bottom: ${({ theme }): string => theme.spacing.title};
+  color: ${({ theme }): string => theme.colors.primary};
+  margin-bottom: ${({ theme }): string => theme.spacing.title || ''};
 
   ::before {
     content: ${({ theme }): string =>
       theme.prompts.block ? `'${theme.prompts.block}'` : 'none'};
-    margin-right: ${({ theme }): string => theme.spacing.prompt};
+    margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
   }
 `;
 

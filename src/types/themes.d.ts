@@ -1,15 +1,17 @@
-import { DecorationTypes } from 'src/types/resume';
+export type PaperDimensions = 'height' | 'width';
+export type PaperOrientations = 'landscape' | 'portrait';
+export type PaperTypes = 'A4' | 'B4' | 'legal' | 'letter';
 
-export type PaperSize = 'A3' | 'A4' | 'A5';
+export type PaperSizesMapping = {
+  [key in PaperTypes]: { width: string; height: string };
+};
 
 export type ColorScheme = {
   background: string;
   foreground: string;
-  prompts: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-  };
+  primary: string;
+  secondary: string;
+  tertiary: string;
   url: string;
 };
 
@@ -18,26 +20,18 @@ export type PageSettings = {
   fontFamily: string;
   fontSize: string;
   margin: string;
-  orientation: 'landscape' | 'portrait';
-  size: PaperSize;
+  orientation: PaperOrientations;
   smallColumnProportion: string;
+  lineHeight: string;
+  type: PaperTypes;
 };
 
-export type TerminalScheme = {
-  decorators: { [key in DecorationTypes]: string };
-  spacing: {
-    block: string;
-    item: string;
-    lineHeight: string;
-    prompt: string;
-    section: string;
-    title: string;
-  };
-  prompts: {
-    block?: string;
-    item?: string;
-    section?: string;
-  };
+export type ContentSettings = {
+  block?: string;
+  item?: string;
+  prompt?: string;
+  section?: string;
+  title?: string;
 };
 
 export type SupportedThemes = 'light' | 'dark';
@@ -45,4 +39,6 @@ export type SupportedThemes = 'light' | 'dark';
 export type AppTheme = {
   colors: ColorScheme;
   page: PageSettings;
-} & TerminalScheme;
+  prompts: ContentSettings;
+  spacing: ContentSettings;
+};
