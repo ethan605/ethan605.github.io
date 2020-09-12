@@ -39,8 +39,7 @@ const UtilButton = styled.button`
   padding: 0.5rem;
   padding-bottom: 0.3rem;
 
-  &:focus,
-  &:focus-within,
+  &:active,
   &:hover {
     opacity: 1;
   }
@@ -75,8 +74,7 @@ const Sheet = styled.div`
       width: ${getPageSize('width')};
     }
 
-    &:focus,
-    &:focus-within,
+    &:active,
     &:hover {
       .utils {
         display: block;
