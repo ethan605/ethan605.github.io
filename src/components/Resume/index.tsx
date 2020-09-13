@@ -44,7 +44,7 @@ const Column = styled.div<{ side: ColumnSides }>`
     side === 'left' ? theme.page.smallColumnProportion : 'auto'};
 
   @media only screen and (max-width: calc(${getPageSize('width')} * 0.75)) {
-    float: none;
+    float: unset;
     width: unset;
   }
 `;
