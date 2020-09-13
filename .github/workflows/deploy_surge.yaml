@@ -8,7 +8,7 @@ jobs:
     name: Deploy to surge.sh
     steps:
       - uses: actions/checkout@v1
-      - name: Install surge and fire deployment
+      - name: Setup node environment
         uses: actions/setup-node@v1
         with:
           node-version: 12
