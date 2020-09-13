@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   ${normalize}
 
   :root {
-    font-family: 'Oxygen', 'PT Sans', 'Segoe UI', 'Ubuntu', sans-serif;
+    font-family: "Oxygen", "PT Sans", "Segoe UI", "Ubuntu", sans-serif;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   code {
-    font-family: 'Fira Code', Menlo, Monaco, Consolas, monospace;
+    font-family: "Fira Code", Menlo, Monaco, Consolas, monospace;
   }
 `;
 

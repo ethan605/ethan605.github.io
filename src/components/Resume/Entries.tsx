@@ -29,7 +29,7 @@ const Item = styled.li`
 
 const TextContent = styled.span<{ hasAttributes?: boolean }>`
   ::after {
-    content: ${({ hasAttributes }): string => (hasAttributes ? `':'` : 'none')};
+    content: ${({ hasAttributes }): string => (hasAttributes ? '":"' : 'none')};
     margin-right: ${getSpacing('prompt')};
   }
 `;

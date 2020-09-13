@@ -33,19 +33,14 @@ const colorSchemeDark: ColorScheme = {
 };
 
 const pageSettings: PageSettings = {
-  orientation: 'portrait',
-  lineHeight: '1.2rem',
-  type: 'A4',
   columnsGap: '0.7cm',
-  fontFamily: `'Fira Code'`,
+  fontFamily: '"Fira Code"',
   fontSize: '14px',
+  lineHeight: '1.2rem',
   margin: '1.25cm 1.25cm 0.7cm 1.25cm',
+  orientation: 'portrait',
   smallColumnProportion: '42.5%',
-  // columnsGap: '0.75cm',
-  // fontFamily: `'Operator Mono Lig'`,
-  // fontSize: '14.5px',
-  // margin: '1.5cm 1.5cm 0.75cm 1.5cm',
-  // smallColumnProportion: '42.5%',
+  type: 'A4',
 };
 
 const spacingSettings: ContentSettings = {
