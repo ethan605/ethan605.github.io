@@ -99,7 +99,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config): void {
     });
 }
 
-export function register(config?: Config): void {
+export function registerServiceWorker(config?: Config): void {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -133,7 +133,7 @@ export function register(config?: Config): void {
   }
 }
 
-export function unregister(): void {
+export function unregisterServiceWorker(): void {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready
       .then((registration) => {

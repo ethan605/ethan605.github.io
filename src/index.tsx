@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Resume from './components/Resume';
-import * as serviceWorker from './utils/serviceWorker';
 import GlobalStyles from './styles/GlobalStyles';
+import { registerServiceWorker } from './utils/serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,4 +17,4 @@ ReactDOM.render(
  * Enable PWA
  * @see https://bit.ly/CRA-PWA
  */
-serviceWorker.register();
+registerServiceWorker();
