@@ -29,7 +29,7 @@ const Block: React.FC<BlockData> = ({ entries, sections, title }) => (
       sections.map((section) => (
         <Section
           {...section}
-          key={`section_${buildIteratorKey(section.title + section.org)}`}
+          key={`section_${buildIteratorKey(section.title + section.org.name)}`}
         />
       ))}
   </Container>
