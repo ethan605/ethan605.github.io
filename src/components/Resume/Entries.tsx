@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { EntryData } from 'src/types/resume';
 import { buildIteratorKey } from 'src/utils';
-import { getSpacing } from 'src/utils/themes';
+import { getPrompt, getSpacing } from 'src/utils/themes';
 import decorationIcons from './decorationIcons';
 import { Anchor } from './primitives';
 
@@ -22,8 +22,7 @@ const Item = styled.li`
 
   ::before {
     color: ${({ theme }): string => theme.colors.tertiary};
-    content: ${({ theme }): string =>
-      theme.prompts.item ? `'${theme.prompts.item}'` : 'none'};
+    content: ${getPrompt('item')};
     margin-right: ${getSpacing('prompt')};
   }
 `;

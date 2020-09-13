@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { BlockData } from 'src/types/resume';
 import { buildIteratorKey } from 'src/utils';
-import { getSpacing } from 'src/utils/themes';
+import { getPrompt, getSpacing } from 'src/utils/themes';
 import Entries from './Entries';
 import Section from './Section';
 
@@ -16,8 +16,7 @@ const Title = styled.h3`
   margin-bottom: ${getSpacing('title')};
 
   ::before {
-    content: ${({ theme }): string =>
-      theme.prompts.block ? `'${theme.prompts.block}'` : 'none'};
+    content: ${getPrompt('block')};
     margin-right: ${getSpacing('prompt')};
   }
 `;

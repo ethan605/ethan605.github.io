@@ -43,9 +43,9 @@ const pageSettings: PageSettings = {
   smallColumnProportion: '42.5%',
   // columnsGap: '0.75cm',
   // fontFamily: `'Operator Mono Lig'`,
-  // fontSize: '15px',
+  // fontSize: '14.5px',
   // margin: '1.5cm 1.5cm 0.75cm 1.5cm',
-  // smallColumnProportion: '40%',
+  // smallColumnProportion: '42.5%',
 };
 
 const spacingSettings: ContentSettings = {
