@@ -47,9 +47,7 @@ const Entries: React.FC<Props> = ({ items }) => {
         const children = (
           <React.Fragment>
             {href ? (
-              <Anchor href={href} target="_blank">
-                {content}
-              </Anchor>
+              <Anchor href={href}>{content}</Anchor>
             ) : (
               <TextContent hasAttributes={attributes != null}>
                 {content}

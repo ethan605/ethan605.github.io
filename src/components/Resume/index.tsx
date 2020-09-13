@@ -42,7 +42,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  color: ${({ theme }): string => theme.colors.tertiary};
+  color: ${({ theme }): string => theme.colors.secondary};
   font-size: 1.25rem;
 `;
 

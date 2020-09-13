@@ -15,3 +15,8 @@ export const Anchor = styled.a`
     color: ${({ theme }): string => theme.colors.url};
   }
 `;
+
+Anchor.defaultProps = {
+  rel: 'noreferrer',
+  target: '_blank',
+};

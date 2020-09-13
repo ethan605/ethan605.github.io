@@ -49,13 +49,7 @@ const Section: React.FC<SectionData> = ({ briefs, org, timeframe, title }) => (
       <Brief>
         {timeframe.from} - {timeframe.to}
         <Org>
-          {org.href ? (
-            <Anchor href={org.href} target="_blank">
-              {org.name}
-            </Anchor>
-          ) : (
-            org.name
-          )}
+          {org.href ? <Anchor href={org.href}>{org.name}</Anchor> : org.name}
         </Org>
       </Brief>
       {briefs.map((brief) => (
