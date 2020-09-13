@@ -101,7 +101,10 @@ const Printable: React.FC<Props> = ({
     <Sheet ref={sheetRef}>
       <UtilsContainer>
         <UtilButton
-          onClick={(): void => console.log('history:', history.length)}
+          onClick={(): void => {
+            // Replace if current location is on top of history stack
+            history.length === 2 ? history.replace('/') : history.goBack();
+          }}
           title="Back to home page"
         >
           <ArrowLeft />
