@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import Home from './components/Home';
 import Resume from './components/Resume';
 import GlobalStyles from './styles/GlobalStyles';
 import { registerServiceWorker } from './utils/serviceWorker';
@@ -8,7 +10,16 @@ import { registerServiceWorker } from './utils/serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <Resume />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/resume">
+          <Resume />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

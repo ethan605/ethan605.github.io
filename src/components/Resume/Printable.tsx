@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Moon, Printer, Sun } from 'react-feather';
+import { useHistory } from 'react-router-dom';
+import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
 import { SupportedThemes } from 'src/types/themes';
@@ -15,11 +16,12 @@ type Props = {
 const UtilsContainer = styled.div`
   align-items: flex-start;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem 0.5rem 0 0.5rem;
   position: absolute;
   right: 0;
   top: 0;
-  padding: 1rem;
 
   @media only print {
     display: none;
@@ -33,7 +35,7 @@ const UtilButton = styled.button`
   color: ${getColor('background')};
   cursor: pointer;
   font-size: 1.75rem;
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
   opacity: 0.5;
   outline: none;
   padding: 0.5rem;
@@ -93,21 +95,30 @@ const Printable: React.FC<Props> = ({
 }) => {
   const sheetRef = useRef(null);
   const handlePrint = useReactToPrint({ content: () => sheetRef.current });
+  const history = useHistory();
 
   return (
     <Sheet ref={sheetRef}>
-      <UtilsContainer className="utils">
-        {window.print && (
-          <UtilButton
-            onClick={(): void => handlePrint && handlePrint()}
-            title="Save as PDF"
-          >
-            <Printer />
-          </UtilButton>
-        )}
-        <UtilButton onClick={onChangeTheme} title="Toggle dark mode">
-          {currentTheme === 'light' ? <Moon /> : <Sun />}
+      <UtilsContainer>
+        <UtilButton
+          onClick={(): void => console.log('history:', history.length)}
+          title="Back to home page"
+        >
+          <ArrowLeft />
         </UtilButton>
+        <div>
+          {window.print && (
+            <UtilButton
+              onClick={(): void => handlePrint && handlePrint()}
+              title="Save as PDF"
+            >
+              <Printer />
+            </UtilButton>
+          )}
+          <UtilButton onClick={onChangeTheme} title="Toggle dark mode">
+            {currentTheme === 'light' ? <Moon /> : <Sun />}
+          </UtilButton>
+        </div>
       </UtilsContainer>
       {children}
     </Sheet>
