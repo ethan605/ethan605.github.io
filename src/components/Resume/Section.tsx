@@ -1,23 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { buildIteratorKey } from 'src/helpers/utils';
 import { SectionData } from 'src/types/resume';
+import { getSpacing } from 'src/utils/themes';
+import { buildIteratorKey } from 'src/utils';
 import { Anchor } from './primitives';
 
 const Container = styled.div`
-  margin-bottom: ${({ theme }): string => theme.spacing.section || ''};
+  margin-bottom: ${getSpacing('section')};
 `;
 
 const Title = styled.h4`
   color: ${({ theme }): string => theme.colors.secondary};
   line-height: ${({ theme }): string => theme.page.lineHeight};
-  margin-bottom: ${({ theme }): string => theme.spacing.title || ''};
+  margin-bottom: ${getSpacing('title')};
 
   ::before {
     content: ${({ theme }): string =>
       theme.prompts.section ? `'${theme.prompts.section}'` : 'none'};
-    margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
+    margin-right: ${getSpacing('prompt')};
   }
 `;
 
@@ -31,14 +32,14 @@ const Brief = styled.li`
     color: ${({ theme }): string => theme.colors.tertiary};
     content: ${({ theme }): string =>
       theme.prompts.item ? `'${theme.prompts.item}'` : 'none'};
-    margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
+    margin-right: ${getSpacing('prompt')};
   }
 `;
 
 const Org = styled.strong`
   ::before {
     content: '@';
-    margin: 0 ${({ theme }): string => theme.spacing.prompt || ''};
+    margin: 0 ${getSpacing('prompt')};
     font-weight: normal;
   }
 `;

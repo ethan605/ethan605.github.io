@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import RESUME_DATA from 'src/data/resume.json';
-import { getPageSize } from 'src/helpers/utils';
 import themes from 'src/styles/themes';
 import { ResumeData } from 'src/types/resume';
 import { SupportedThemes } from 'src/types/themes';
+import { getPageSize, getSpacing } from 'src/utils/themes';
 
 import Block from './Block';
 import PrintPaper from './PrintPaper';
@@ -31,7 +31,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.div`
-  margin-bottom: ${({ theme }): string => theme.spacing.block || ''};
+  margin-bottom: ${getSpacing('block')};
   text-align: center;
 `;
 

@@ -1,11 +1,7 @@
-import MD5 from 'md5.js';
 import { ThemedStyledProps, DefaultTheme } from 'styled-components';
 
 import { PAGE_SIZES_MAPPING } from 'src/styles/themes';
-import { PaperDimensions } from 'src/types/themes';
-
-export const buildIteratorKey = (content: string): string =>
-  new MD5().update(content).digest('hex');
+import { ContentSettings, PaperDimensions } from 'src/types/themes';
 
 export const getPageSize = (dimension: PaperDimensions) => ({
   theme,
@@ -16,3 +12,9 @@ export const getPageSize = (dimension: PaperDimensions) => ({
   ];
   return theme.page.orientation === 'landscape' ? otherSize : size;
 };
+
+export const getSpacing = (
+  key: keyof ContentSettings,
+  fallbackValue?: string
+) => ({ theme }: ThemedStyledProps<{}, DefaultTheme>): string =>
+  theme.spacing[key] || fallbackValue || '';

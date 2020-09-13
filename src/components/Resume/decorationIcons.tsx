@@ -8,9 +8,10 @@ import {
 } from 'react-feather';
 
 import { DecorationTypes } from 'src/types/resume';
+import { getSpacing } from 'src/utils/themes';
 
 const featherIconStyles = css`
-  margin-right: ${({ theme }): string => theme.spacing.prompt || ''};
+  margin-right: ${getSpacing('prompt')};
   width: ${({ theme }): string => theme.page.fontSize};
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Resume from './components/Resume';
-import * as serviceWorker from './helpers/serviceWorker';
+import * as serviceWorker from './utils/serviceWorker';
 import GlobalStyles from './styles/GlobalStyles';
 
 ReactDOM.render(

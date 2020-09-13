@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { getPageSize } from 'src/helpers/utils';
 import { SupportedThemes } from 'src/types/themes';
+import { getPageSize } from 'src/utils/themes';
 
 type Props = {
   children: React.ReactNode;
