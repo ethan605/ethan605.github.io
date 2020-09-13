@@ -36,7 +36,7 @@
   "scripts": {
     "start": "HTTPS=true react-app-rewired start",
     "build": "react-app-rewired build",
-    "predeploy:surge": "react-app-rewired build",
+    "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh react-app-rewired build",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build"
   },
   "husky": {
