@@ -21,7 +21,7 @@ const UtilsContainer = styled.div`
   top: 0;
   padding: 1rem;
 
-  @media print {
+  @media only print {
     display: none;
   }
 `;
@@ -55,10 +55,6 @@ const Sheet = styled.div`
   position: relative;
   min-width: 320px;
 
-  .utils {
-    display: none;
-  }
-
   @page {
     size: ${({ theme }): string => theme.page.type}
       ${({ theme }): string => theme.page.orientation};
@@ -79,13 +75,14 @@ const Sheet = styled.div`
       margin: 0.5cm auto;
       width: ${getPageSize('width')};
     }
+  }
 
-    &:active,
-    &:hover {
-      .utils {
-        display: block;
-      }
-    }
+  ${UtilsContainer} {
+    display: none;
+  }
+
+  &:active ${UtilsContainer}, &:hover ${UtilsContainer} {
+    display: flex;
   }
 `;
 

@@ -5,6 +5,7 @@ import RESUME_DATA from 'src/data/resume.json';
 import themes from 'src/styles/themes';
 import { ResumeData } from 'src/types/resume';
 import { SupportedThemes } from 'src/types/themes';
+import { buildIteratorKey } from 'src/utils';
 import { getColor, getPageSize, getSpacing } from 'src/utils/themes';
 
 import Block from './Block';
@@ -68,7 +69,10 @@ const Resume: React.FC = () => {
           {COLUMN_SIDES.map((side) => (
             <Column key={`column_${side}`} side={side}>
               {COLUMNS_DATA[side].map((block) => (
-                <Block {...block} key={`block_${block.title.toLowerCase()}`} />
+                <Block
+                  {...block}
+                  key={`block_${buildIteratorKey(block.title)}`}
+                />
               ))}
             </Column>
           ))}
