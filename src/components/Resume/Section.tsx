@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { SectionData } from 'src/types/resume';
-import { getPrompt, getSpacing } from 'src/utils/themes';
+import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 import { buildIteratorKey } from 'src/utils';
 import { Anchor } from './primitives';
 
@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h4`
-  color: ${({ theme }): string => theme.colors.secondary};
+  color: ${getColor('secondary')};
   line-height: ${({ theme }): string => theme.page.lineHeight};
   margin-bottom: ${getSpacing('title')};
 
@@ -28,7 +28,7 @@ const Brief = styled.li`
   margin-bottom: ${({ theme }): string => theme.spacing.item || ''};
 
   ::before {
-    color: ${({ theme }): string => theme.colors.tertiary};
+    color: ${getColor('tertiary')};
     content: ${getPrompt('item')};
     margin-right: ${getSpacing('prompt')};
   }

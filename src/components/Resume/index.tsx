@@ -5,7 +5,7 @@ import RESUME_DATA from 'src/data/resume.json';
 import themes from 'src/styles/themes';
 import { ResumeData } from 'src/types/resume';
 import { SupportedThemes } from 'src/types/themes';
-import { getPageSize, getSpacing } from 'src/utils/themes';
+import { getColor, getPageSize, getSpacing } from 'src/utils/themes';
 
 import Block from './Block';
 import Printable from './Printable';
@@ -25,13 +25,13 @@ const Header = styled.div`
 `;
 
 const Title = styled.h1`
-  color: ${({ theme }): string => theme.colors.primary};
+  color: ${getColor('primary')};
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
 `;
 
 const Subtitle = styled.h2`
-  color: ${({ theme }): string => theme.colors.secondary};
+  color: ${getColor('secondary')};
   font-size: 1.25rem;
 `;
 

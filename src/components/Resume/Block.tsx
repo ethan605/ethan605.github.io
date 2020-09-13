@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { BlockData } from 'src/types/resume';
 import { buildIteratorKey } from 'src/utils';
-import { getPrompt, getSpacing } from 'src/utils/themes';
+import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 import Entries from './Entries';
 import Section from './Section';
 
@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h3`
-  color: ${({ theme }): string => theme.colors.primary};
+  color: ${getColor('primary')};
   margin-bottom: ${getSpacing('title')};
 
   ::before {

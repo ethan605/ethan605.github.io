@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { getColor } from 'src/utils/themes';
+
 export const Anchor = styled.a`
   color: inherit;
   highlight: none;
@@ -12,7 +14,7 @@ export const Anchor = styled.a`
 
   &:hover {
     text-decoration: underline;
-    color: ${({ theme }): string => theme.colors.url};
+    color: ${getColor('url')};
   }
 `;
 

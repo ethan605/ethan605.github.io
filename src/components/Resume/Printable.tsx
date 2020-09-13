@@ -4,7 +4,7 @@ import { Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
 import { SupportedThemes } from 'src/types/themes';
-import { getPageSize } from 'src/utils/themes';
+import { getColor, getPageSize } from 'src/utils/themes';
 
 type Props = {
   children: React.ReactNode;
@@ -27,10 +27,10 @@ const UtilsContainer = styled.div`
 `;
 
 const UtilButton = styled.button`
-  background-color: ${({ theme }): string => theme.colors.foreground};
+  background-color: ${getColor('foreground')};
   border-radius: 0.25rem;
   border: none;
-  color: ${({ theme }): string => theme.colors.background};
+  color: ${getColor('background')};
   cursor: pointer;
   font-size: 1.75rem;
   margin-left: 0.5rem;
@@ -46,9 +46,9 @@ const UtilButton = styled.button`
 `;
 
 const Sheet = styled.div`
-  background-color: ${({ theme }): string => theme.colors.background};
+  background-color: ${getColor('background')};
   box-sizing: border-box;
-  color: ${({ theme }): string => theme.colors.foreground};
+  color: ${getColor('foreground')};
   font-family: ${({ theme }): string => theme.page.fontFamily};
   font-size: ${({ theme }): string => theme.page.fontSize};
   padding: ${({ theme }): string => theme.page.margin};

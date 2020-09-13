@@ -1,7 +1,15 @@
 import { ThemedStyledProps, DefaultTheme } from 'styled-components';
 
 import { PAGE_SIZES_MAPPING } from 'src/styles/themes';
-import { ContentSettings, PaperDimensions } from 'src/types/themes';
+import {
+  ColorScheme,
+  ContentSettings,
+  PaperDimensions,
+} from 'src/types/themes';
+
+export const getColor = (key: keyof ColorScheme) => ({
+  theme,
+}: ThemedStyledProps<{}, DefaultTheme>): string => theme.colors[key];
 
 export const getPageSize = (dimension: PaperDimensions) => ({
   theme,
