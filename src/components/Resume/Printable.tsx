@@ -48,6 +48,10 @@ const UtilButton = styled.button`
 const Sheet = styled.div`
   background-color: ${({ theme }): string => theme.colors.background};
   box-sizing: border-box;
+  color: ${({ theme }): string => theme.colors.foreground};
+  font-family: ${({ theme }): string => theme.page.fontFamily};
+  font-size: ${({ theme }): string => theme.page.fontSize};
+  padding: ${({ theme }): string => theme.page.margin};
   position: relative;
 
   .utils {
@@ -62,6 +66,7 @@ const Sheet = styled.div`
 
   @media only print {
     height: ${getPageSize('height')};
+    padding-bottom: 0;
     width: ${getPageSize('width')};
   }
 
@@ -83,7 +88,7 @@ const Sheet = styled.div`
   }
 `;
 
-const PrintPaper: React.FC<Props> = ({
+const Printable: React.FC<Props> = ({
   children,
   currentTheme,
   onChangeTheme,
@@ -111,4 +116,4 @@ const PrintPaper: React.FC<Props> = ({
   );
 };
 
-export default PrintPaper;
+export default Printable;

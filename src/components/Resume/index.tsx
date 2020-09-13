@@ -8,7 +8,7 @@ import { SupportedThemes } from 'src/types/themes';
 import { getPageSize, getSpacing } from 'src/utils/themes';
 
 import Block from './Block';
-import PrintPaper from './PrintPaper';
+import Printable from './Printable';
 
 type ColumnSides = 'left' | 'right';
 
@@ -18,17 +18,6 @@ const {
 } = RESUME_DATA as ResumeData;
 
 const COLUMN_SIDES: ColumnSides[] = ['left', 'right'];
-
-const Container = styled.div`
-  color: ${({ theme }): string => theme.colors.foreground};
-  font-family: ${({ theme }): string => theme.page.fontFamily};
-  font-size: ${({ theme }): string => theme.page.fontSize};
-  padding: ${({ theme }): string => theme.page.margin};
-
-  @media print {
-    padding-bottom: 0;
-  }
-`;
 
 const Header = styled.div`
   margin-bottom: ${getSpacing('block')};
@@ -65,31 +54,26 @@ const Resume: React.FC = () => {
 
   return (
     <ThemeProvider theme={themes[currentTheme]}>
-      <PrintPaper
+      <Printable
         currentTheme={currentTheme}
         onChangeTheme={(): void =>
           changeTheme(currentTheme === 'light' ? 'dark' : 'light')
         }
       >
-        <Container id="resume">
-          <Header>
-            <Title>{HEADER_DATA.title}</Title>
-            <Subtitle>{HEADER_DATA.subtitle}</Subtitle>
-          </Header>
-          <div>
-            {COLUMN_SIDES.map((side) => (
-              <Column key={`column_${side}`} side={side}>
-                {COLUMNS_DATA[side].map((block) => (
-                  <Block
-                    {...block}
-                    key={`block_${block.title.toLowerCase()}`}
-                  />
-                ))}
-              </Column>
-            ))}
-          </div>
-        </Container>
-      </PrintPaper>
+        <Header>
+          <Title>{HEADER_DATA.title}</Title>
+          <Subtitle>{HEADER_DATA.subtitle}</Subtitle>
+        </Header>
+        <div>
+          {COLUMN_SIDES.map((side) => (
+            <Column key={`column_${side}`} side={side}>
+              {COLUMNS_DATA[side].map((block) => (
+                <Block {...block} key={`block_${block.title.toLowerCase()}`} />
+              ))}
+            </Column>
+          ))}
+        </div>
+      </Printable>
     </ThemeProvider>
   );
 };
