@@ -34,7 +34,7 @@
     "prettier": "^2.1.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "HTTPS=true react-app-rewired start",
     "build": "react-app-rewired build",
     "predeploy:surge": "react-app-rewired build",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build"
