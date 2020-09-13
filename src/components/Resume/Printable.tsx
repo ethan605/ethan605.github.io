@@ -53,6 +53,7 @@ const Sheet = styled.div`
   font-size: ${({ theme }): string => theme.page.fontSize};
   padding: ${({ theme }): string => theme.page.margin};
   position: relative;
+  min-width: 320px;
 
   .utils {
     display: none;
