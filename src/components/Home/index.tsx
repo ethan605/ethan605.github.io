@@ -36,8 +36,8 @@ const Home: React.FC = () => {
     <Container>
       <TopBar />
       <Content>
-        <Link to="/">Home</Link>
         <Link to="/resume">Resume</Link>
+        <Link to="/system">System info</Link>
       </Content>
     </Container>
   );

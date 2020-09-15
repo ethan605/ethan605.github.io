@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Resume from './components/Resume';
+import DetectSystem from './components/DetectSystem';
 import GlobalStyles from './styles/GlobalStyles';
 import { registerServiceWorker } from './utils/serviceWorker';
 
@@ -14,6 +15,9 @@ ReactDOM.render(
       <Switch>
         <Route path="/resume">
           <Resume />
+        </Route>
+        <Route path="/system">
+          <DetectSystem />
         </Route>
         <Route path="/">
           <Home />
