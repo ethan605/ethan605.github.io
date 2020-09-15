@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
+import { shadowStyles } from 'src/styles/primitives';
 import { SupportedThemes } from 'src/types/themes';
 import { getColor, getPageSize } from 'src/utils/themes';
 
@@ -73,7 +74,8 @@ const Sheet = styled.div`
     overflow: auto;
 
     @media (min-width: ${getPageSize('width')}) {
-      box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+      ${shadowStyles}
+
       margin: 0.5cm auto;
       width: ${getPageSize('width')};
     }

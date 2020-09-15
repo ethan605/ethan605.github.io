@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { ExternalLink } from 'src/styles/primitives';
 import { EntryData } from 'src/types/resume';
 import { buildIteratorKey } from 'src/utils';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 import decorationIcons from './decorationIcons';
-import { Anchor } from './primitives';
 
 type Props = {
   items: EntryData[];
@@ -47,7 +47,7 @@ const Entries: React.FC<Props> = ({ items }) => {
         const children = (
           <React.Fragment>
             {href ? (
-              <Anchor href={href}>{content}</Anchor>
+              <ExternalLink href={href}>{content}</ExternalLink>
             ) : (
               <TextContent hasAttributes={attributes != null}>
                 {content}

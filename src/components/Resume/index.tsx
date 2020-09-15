@@ -37,16 +37,14 @@ const Subtitle = styled.h2`
 `;
 
 const Column = styled.div<{ side: ColumnSides }>`
-  float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
-  margin-right: ${({ side, theme }): string =>
-    side === 'left' ? theme.page.columnsGap : 'unset'};
   overflow: hidden;
-  width: ${({ side, theme }): string =>
-    side === 'left' ? theme.page.smallColumnProportion : 'auto'};
 
-  @media only screen and (max-width: calc(${getPageSize('width')} * 0.75)) {
-    float: unset;
-    width: unset;
+  @media only screen and (min-width: calc(${getPageSize('width')} * 0.75)) {
+    float: ${({ side }): string => (side === 'left' ? 'left' : 'unset')};
+    margin-right: ${({ side, theme }): string =>
+      side === 'left' ? theme.page.columnsGap : 'unset'};
+    width: ${({ side, theme }): string =>
+      side === 'left' ? theme.page.smallColumnProportion : 'auto'};
   }
 `;
 

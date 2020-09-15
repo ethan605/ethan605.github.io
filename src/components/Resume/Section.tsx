@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { ExternalLink } from 'src/styles/primitives';
 import { SectionData } from 'src/types/resume';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 import { buildIteratorKey } from 'src/utils';
-import { Anchor } from './primitives';
 
 const Container = styled.div`
   margin-bottom: ${getSpacing('section')};
@@ -49,7 +49,11 @@ const Section: React.FC<SectionData> = ({ briefs, org, timeframe, title }) => (
       <Brief>
         {timeframe.from} - {timeframe.to}
         <Org>
-          {org.href ? <Anchor href={org.href}>{org.name}</Anchor> : org.name}
+          {org.href ? (
+            <ExternalLink href={org.href}>{org.name}</ExternalLink>
+          ) : (
+            org.name
+          )}
         </Org>
       </Brief>
       {briefs.map((brief) => (
