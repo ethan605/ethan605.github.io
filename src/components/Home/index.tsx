@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
-import Terminal from './Terminal';
+import Terminal from 'src/components/Terminal';
 
 const Container = styled.div`
   ${flexCenterStyles}
