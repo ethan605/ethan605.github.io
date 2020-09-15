@@ -26,13 +26,16 @@ const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
     { name: 'Palm', codeName: 'Palm', versionPrefix: 'PalmOS' },
   ],
   browser: [
+    // List of detectable browsers. Notes that the order is important!
+    { name: 'Opera', codeName: 'OPR', versionPrefix: 'OPR' },
+    { name: 'UC Browser', codeName: 'UCBrowser', versionPrefix: 'UCBrowser' },
     { name: 'Chrome', codeName: 'Chrome', versionPrefix: 'Chrome' },
+    { name: 'Chrome iOS', codeName: 'CriOS', versionPrefix: 'CriOS' },
     { name: 'Firefox', codeName: 'Firefox', versionPrefix: 'Firefox' },
     { name: 'Firefox iOS', codeName: 'FxiOS', versionPrefix: 'FxiOS' },
     { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
-    { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
-    { name: 'Opera', codeName: 'OPR', versionPrefix: 'OPR' },
     { name: 'Opera Touch', codeName: 'OPT', versionPrefix: 'OPT' },
+    { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
     { name: 'BlackBerry', codeName: 'CLDC', versionPrefix: 'CLDC' },
     { name: 'Mozilla', codeName: 'Mozilla', versionPrefix: 'Mozilla' },
   ],
@@ -70,15 +73,8 @@ const detectSystem = (systemType: SystemTypes): SystemInfo | null => {
     }
   );
 
-  const compacted = matchedSystems.filter((sys) => sys);
-
-  const opera = compacted.find((sys) => sys?.name === 'Opera');
-
-  if (opera) {
-    return opera;
-  }
-
-  return compacted[0];
+  // Return first non-nullish result
+  return matchedSystems.filter((sys) => sys)[0];
 };
 
 export default detectSystem;
