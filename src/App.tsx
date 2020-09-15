@@ -27,7 +27,7 @@ const App: React.FC = () => {
             <Route path="/resume">
               <Resume />
             </Route>
-            <Route path="/system">
+            <Route path="/sys-info">
               <SystemInfo />
             </Route>
             <Route path="/">

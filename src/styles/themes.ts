@@ -84,6 +84,6 @@ export const PAGE_SIZES_MAPPING: PaperSizesMapping = {
   letter: { width: '8.5in', height: '11in' },
 };
 
-const themes: { [key in SupportedThemes]: AppTheme } = { light, dark };
+const themes: Record<SupportedThemes, AppTheme> = { light, dark };
 
 export default themes;

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
 import Terminal from 'src/components/Terminal';
+import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
+import { getPrompt, getSpacing } from 'src/utils/themes';
 
 const Container = styled.div`
   ${flexCenterStyles}
@@ -10,12 +11,26 @@ const Container = styled.div`
   height: 100vh;
 `;
 
+const CommandLine = styled.code`
+  display: block;
+  margin-bottom: ${getSpacing('item')};
+
+  ::before {
+    content: ${getPrompt('block')};
+    margin-right: ${getSpacing('prompt')};
+  }
+`;
+
 const Home: React.FC = () => {
   return (
     <Container>
       <Terminal>
-        <InternalLink to="/resume">Resume</InternalLink>
-        <InternalLink to="/system">System info</InternalLink>
+        <CommandLine>
+          <InternalLink to="/resume">resume</InternalLink>
+        </CommandLine>
+        <CommandLine>
+          <InternalLink to="/sys-info">sys-info</InternalLink>
+        </CommandLine>
       </Terminal>
     </Container>
   );

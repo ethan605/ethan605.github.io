@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  html, body, h1, h2, h3, h4, h5, h6, ul, li {
+  html, body, h1, h2, h3, h4, h5, h6, ul, li, code, pre {
     margin: 0
   }
 
@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  code {
+  code, pre {
     font-family: "Fira Code", Menlo, Monaco, Consolas, monospace;
   }
 `;

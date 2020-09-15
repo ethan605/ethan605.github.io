@@ -11,7 +11,7 @@ type SystemInfo = {
   version: string;
 };
 
-const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
+const SYSTEMS_MAPPING: Record<SystemTypes, SystemAttribute[]> = {
   os: [
     {
       name: 'Windows Phone',

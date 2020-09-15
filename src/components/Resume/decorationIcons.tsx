@@ -31,7 +31,7 @@ export const Phone = styled(FeatherPhone)`
   ${featherIconStyles}
 `;
 
-const decorationIcons: { [key in DecorationTypes]: React.ReactNode } = {
+const decorationIcons: Record<DecorationTypes, React.ReactNode> = {
   email: <Mail />,
   homepage: <Home />,
   location: <MapPin />,

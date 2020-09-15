@@ -22,7 +22,6 @@ type Props = {
 };
 
 const MEDIA_BREAKS: MediaBreak[] = [
-  { maxWidth: '1024px', width: '70vw' },
   { maxWidth: '768px', width: '80vw' },
   { maxWidth: '425px', width: '90vw' },
 ];
@@ -44,15 +43,15 @@ const Container = styled.div`
 
   align-items: stretch;
   background-color: ${getColor('background')};
-  color: ${getColor('foreground')};
   border-radius: 5px;
+  color: ${getColor('foreground')};
   flex-direction: column;
   margin: 0 auto;
   max-height: 90vh;
   overflow: hidden;
   position: relative;
 
-  ${buildWindowSize('60vh')}
+  ${buildWindowSize('75vh')}
   ${MEDIA_BREAKS.map(buildMediaBreak).join('\n')}
 
   ${HoverToolbar} {
@@ -66,11 +65,10 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  ${flexCenterStyles}
-
-  color: #eff0eb;
-  justify-content: space-evenly;
+  color: ${getColor('foreground')};
+  font-size: 1.5rem;
   flex: 1;
+  padding: 1rem;
 `;
 
 const Terminal: React.FC<Props> = ({ children }) => {
