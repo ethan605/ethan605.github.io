@@ -9,11 +9,11 @@ import {
 
 export const getColor = (key: keyof ColorScheme) => ({
   theme,
-}: ThemedStyledProps<{}, DefaultTheme>): string => theme.colors[key];
+}: ThemedStyledProps<unknown, DefaultTheme>): string => theme.colors[key];
 
 export const getPageSize = (dimension: PaperDimensions) => ({
   theme,
-}: ThemedStyledProps<{}, DefaultTheme>): string => {
+}: ThemedStyledProps<unknown, DefaultTheme>): string => {
   const otherDimension = dimension === 'width' ? 'height' : 'width';
   const { [dimension]: size, [otherDimension]: otherSize } = PAGE_SIZES_MAPPING[
     theme.page.type
@@ -23,11 +23,11 @@ export const getPageSize = (dimension: PaperDimensions) => ({
 
 export const getPrompt = (key: keyof ContentSettings) => ({
   theme,
-}: ThemedStyledProps<{}, DefaultTheme>): string =>
+}: ThemedStyledProps<unknown, DefaultTheme>): string =>
   theme.prompts.section ? `"${theme.prompts[key]}"` : 'none';
 
 export const getSpacing = (
   key: keyof ContentSettings,
   fallbackValue?: string
-) => ({ theme }: ThemedStyledProps<{}, DefaultTheme>): string =>
+) => ({ theme }: ThemedStyledProps<unknown, DefaultTheme>): string =>
   theme.spacing[key] || fallbackValue || '';

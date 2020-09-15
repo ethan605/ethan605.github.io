@@ -5,13 +5,13 @@ import { flexCenterStyles, shadowStyles } from 'src/styles/primitives';
 import { getColor } from 'src/utils/themes';
 import ControlsBar from './ControlsBar';
 
-type Props = {
-  children: React.ReactNode;
-};
-
 type MediaBreak = {
   maxWidth: string;
   width: string;
+};
+
+type Props = {
+  children: React.ReactNode;
 };
 
 const MEDIA_BREAKS: MediaBreak[] = [

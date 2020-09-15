@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^14.6.4",
+    "@types/node": "^14.10.2",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.5",
@@ -40,6 +40,7 @@
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "preanalyse": "react-app-rewired build",
     "build": "react-app-rewired build",
+    "lint": "eslint src/**/*.ts*",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build",
     "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh react-app-rewired build",
     "start": "react-app-rewired start"

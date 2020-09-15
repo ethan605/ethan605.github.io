@@ -51,13 +51,17 @@ const Column = styled.div<{ side: ColumnSides }>`
 const Resume: React.FC = () => {
   const [currentTheme, changeTheme] = useState<SupportedThemes>('dark');
 
+  // const [theme, toggleTheme] = useTheme();
+  // console.log('consuming theme:', theme);
+
   return (
     <ThemeProvider theme={themes[currentTheme]}>
       <Printable
         currentTheme={currentTheme}
-        onChangeTheme={(): void =>
-          changeTheme(currentTheme === 'light' ? 'dark' : 'light')
-        }
+        onChangeTheme={(): void => {
+          changeTheme(currentTheme === 'light' ? 'dark' : 'light');
+          // toggleTheme();
+        }}
       >
         <Header>
           <Title>{HEADER_DATA.title}</Title>
