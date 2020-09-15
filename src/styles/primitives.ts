@@ -14,6 +14,12 @@ const anchorStyles = css`
   }
 `;
 
+export const flexCenterStyles = css`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`;
+
 export const shadowStyles = css`
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.55);
 `;

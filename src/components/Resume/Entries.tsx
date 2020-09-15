@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ExternalLink } from 'src/styles/primitives';
+import { ExternalLink, flexCenterStyles } from 'src/styles/primitives';
 import { EntryData } from 'src/types/resume';
 import { buildIteratorKey } from 'src/utils';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
@@ -12,8 +12,9 @@ type Props = {
 };
 
 const InteractiveItem = styled.li`
-  align-items: center;
-  display: flex;
+  ${flexCenterStyles}
+
+  justify-content: flex-start;
 `;
 
 const Item = styled.li`

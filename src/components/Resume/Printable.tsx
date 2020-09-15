@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { shadowStyles } from 'src/styles/primitives';
+import { flexCenterStyles, shadowStyles } from 'src/styles/primitives';
 import { SupportedThemes } from 'src/types/themes';
 import { getColor, getPageSize } from 'src/utils/themes';
 
@@ -15,8 +15,8 @@ type Props = {
 };
 
 const UtilsContainer = styled.div`
-  align-items: flex-start;
-  display: flex;
+  ${flexCenterStyles}
+
   justify-content: space-between;
   left: 0;
   padding: 1rem 0.5rem 0 0.5rem;
