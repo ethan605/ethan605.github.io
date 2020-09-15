@@ -29,8 +29,6 @@ const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
     // List of detectable browsers. Notes that the order is important!
     { name: 'BlackBerry', codeName: 'CLDC', versionPrefix: 'CLDC' },
     { name: 'Edge', codeName: 'Edg', versionPrefix: 'Edg' },
-    { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
-    { name: 'Internet Explorer', codeName: 'rv', versionPrefix: 'rv' },
     { name: 'Opera', codeName: 'OPR', versionPrefix: 'OPR' },
     { name: 'Opera Touch', codeName: 'OPT', versionPrefix: 'OPT' },
     {
@@ -45,6 +43,8 @@ const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
     { name: 'Firefox', codeName: 'Firefox', versionPrefix: 'Firefox' },
     { name: 'Firefox iOS', codeName: 'FxiOS', versionPrefix: 'FxiOS' },
     { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
+    { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
+    { name: 'Internet Explorer', codeName: 'rv', versionPrefix: 'rv' },
     { name: 'Mozilla', codeName: 'Mozilla', versionPrefix: 'Mozilla' },
   ],
 };
