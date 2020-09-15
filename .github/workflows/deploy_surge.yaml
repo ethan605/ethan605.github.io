@@ -9,12 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup node environment
-        env:
-          CI: false
         uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm install --production
       - run: npm audit
-      - run: REACT_APP_CANONICAL_URL=${{ secrets.CANONNICAL_URL_STAGING }} npm run build
+      - run: CI=false REACT_APP_CANONICAL_URL=${{ secrets.CANONNICAL_URL_STAGING }} npm run build
       - run: ./node_modules/.bin/surge ./build --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
