@@ -12,6 +12,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+        env:
+          CI: ''
       - run: npm install --production
       - run: npm audit
       - run: REACT_APP_CANONICAL_URL=${{ secrets.CANONNICAL_URL_STAGING }} npm run build

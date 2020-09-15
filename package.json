@@ -42,6 +42,7 @@
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "preanalyse": "react-app-rewired build",
     "build": "react-app-rewired build",
+    "postbuild": "cp build/index.html build/200.html",
     "dev": "react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build",
