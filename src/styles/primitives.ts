@@ -36,3 +36,33 @@ ExternalLink.defaultProps = {
 export const InternalLink = styled(Link)`
   ${anchorStyles}
 `;
+
+export const HoverToolbar = styled.div`
+  ${flexCenterStyles}
+
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem 0.5rem 0 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
+
+export const HoverControl = styled.button`
+  background-color: ${getColor('foreground')};
+  border-radius: 0.25rem;
+  border: none;
+  color: ${getColor('background')};
+  cursor: pointer;
+  font-size: 1.75rem;
+  margin: 0 0.5rem;
+  opacity: 0.5;
+  outline: none;
+  padding: 0.5rem;
+  padding-bottom: 0.3rem;
+
+  &:active,
+  &:hover {
+    opacity: 1;
+  }
+`;

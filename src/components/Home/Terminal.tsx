@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Moon, Sun } from 'react-feather';
 
-import { flexCenterStyles, shadowStyles } from 'src/styles/primitives';
+import { ThemeContext } from 'src/contexts';
+import {
+  HoverToolbar,
+  HoverControl,
+  flexCenterStyles,
+  shadowStyles,
+} from 'src/styles/primitives';
 import { getColor } from 'src/utils/themes';
 import ControlsBar from './ControlsBar';
 
@@ -43,9 +50,19 @@ const Container = styled.div`
   margin: 0 auto;
   max-height: 90vh;
   overflow: hidden;
+  position: relative;
 
   ${buildWindowSize('60vh')}
   ${MEDIA_BREAKS.map(buildMediaBreak).join('\n')}
+
+  ${HoverToolbar} {
+    display: none;
+    justify-content: flex-end;
+  }
+
+  &:active ${HoverToolbar}, &:hover ${HoverToolbar} {
+    display: flex;
+  }
 `;
 
 const Content = styled.div`
@@ -56,11 +73,20 @@ const Content = styled.div`
   flex: 1;
 `;
 
-const Terminal: React.FC<Props> = ({ children }) => (
-  <Container>
-    <ControlsBar />
-    <Content>{children}</Content>
-  </Container>
-);
+const Terminal: React.FC<Props> = ({ children }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <Container>
+      <ControlsBar />
+      <HoverToolbar>
+        <HoverControl onClick={toggleTheme} title="Toggle dark mode">
+          {theme === 'light' ? <Moon /> : <Sun />}
+        </HoverControl>
+      </HoverToolbar>
+      <Content>{children}</Content>
+    </Container>
+  );
+};
 
 export default Terminal;

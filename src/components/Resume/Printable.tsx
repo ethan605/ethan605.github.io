@@ -1,52 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { flexCenterStyles, shadowStyles } from 'src/styles/primitives';
-import { SupportedThemes } from 'src/types/themes';
+import { ThemeContext } from 'src/contexts';
+import {
+  HoverToolbar,
+  HoverControl,
+  shadowStyles,
+} from 'src/styles/primitives';
 import { getColor, getPageSize } from 'src/utils/themes';
 
 type Props = {
   children: React.ReactNode;
-  currentTheme: SupportedThemes;
-  onChangeTheme: () => void;
 };
-
-const UtilsContainer = styled.div`
-  ${flexCenterStyles}
-
-  justify-content: space-between;
-  left: 0;
-  padding: 1rem 0.5rem 0 0.5rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-
-  @media only print {
-    display: none;
-  }
-`;
-
-const UtilButton = styled.button`
-  background-color: ${getColor('foreground')};
-  border-radius: 0.25rem;
-  border: none;
-  color: ${getColor('background')};
-  cursor: pointer;
-  font-size: 1.75rem;
-  margin: 0 0.5rem;
-  opacity: 0.5;
-  outline: none;
-  padding: 0.5rem;
-  padding-bottom: 0.3rem;
-
-  &:active,
-  &:hover {
-    opacity: 1;
-  }
-`;
 
 const Sheet = styled.div`
   background-color: ${getColor('background')};
@@ -68,6 +36,10 @@ const Sheet = styled.div`
     height: ${getPageSize('height')};
     padding-bottom: 0;
     width: ${getPageSize('width')};
+
+    ${HoverToolbar} {
+      display: none;
+    }
   }
 
   @media only screen {
@@ -81,28 +53,25 @@ const Sheet = styled.div`
     }
   }
 
-  ${UtilsContainer} {
+  ${HoverToolbar} {
     display: none;
   }
 
-  &:active ${UtilsContainer}, &:hover ${UtilsContainer} {
+  &:active ${HoverToolbar}, &:hover ${HoverToolbar} {
     display: flex;
   }
 `;
 
-const Printable: React.FC<Props> = ({
-  children,
-  currentTheme,
-  onChangeTheme,
-}) => {
+const Printable: React.FC<Props> = ({ children }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const history = useHistory();
   const sheetRef = useRef(null);
   const handlePrint = useReactToPrint({ content: () => sheetRef.current });
-  const history = useHistory();
 
   return (
     <Sheet ref={sheetRef}>
-      <UtilsContainer>
-        <UtilButton
+      <HoverToolbar>
+        <HoverControl
           onClick={(): void => {
             // Replace if current location is on top of history stack
             history.length === 2 ? history.replace('/') : history.goBack();
@@ -110,21 +79,21 @@ const Printable: React.FC<Props> = ({
           title="Back to home page"
         >
           <ArrowLeft />
-        </UtilButton>
+        </HoverControl>
         <div>
           {window.print && (
-            <UtilButton
+            <HoverControl
               onClick={(): void => handlePrint && handlePrint()}
               title="Save as PDF"
             >
               <Printer />
-            </UtilButton>
+            </HoverControl>
           )}
-          <UtilButton onClick={onChangeTheme} title="Toggle dark mode">
-            {currentTheme === 'light' ? <Moon /> : <Sun />}
-          </UtilButton>
+          <HoverControl onClick={toggleTheme} title="Toggle dark mode">
+            {theme === 'light' ? <Moon /> : <Sun />}
+          </HoverControl>
         </div>
-      </UtilsContainer>
+      </HoverToolbar>
       {children}
     </Sheet>
   );
