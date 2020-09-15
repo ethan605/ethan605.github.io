@@ -13,7 +13,11 @@ type SystemInfo = {
 
 const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
   os: [
-    { name: 'Windows Phone', codeName: 'Windows Phone', versionPrefix: 'OS' },
+    {
+      name: 'Windows Phone',
+      codeName: 'Windows Phone',
+      versionPrefix: 'Windows Phone',
+    },
     { name: 'Windows', codeName: 'Win', versionPrefix: 'NT' },
     { name: 'iPhone', codeName: 'iPhone', versionPrefix: 'OS' },
     { name: 'iPad', codeName: 'iPad', versionPrefix: 'OS' },
@@ -38,13 +42,18 @@ const SYSTEMS_MAPPING: { [key in SystemTypes]: SystemAttribute[] } = {
     },
     { name: 'UC Browser', codeName: 'UCBrowser', versionPrefix: 'UCBrowser' },
     { name: 'Yandex', codeName: 'YaBrowser', versionPrefix: 'YaBrowser' },
-    { name: 'Chrome', codeName: 'Chrome', versionPrefix: 'Chrome' },
-    { name: 'Chrome iOS', codeName: 'CriOS', versionPrefix: 'CriOS' },
     { name: 'Firefox', codeName: 'Firefox', versionPrefix: 'Firefox' },
     { name: 'Firefox iOS', codeName: 'FxiOS', versionPrefix: 'FxiOS' },
-    { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
+    {
+      name: 'Internet Explorer Mobile',
+      codeName: 'IEMobile',
+      versionPrefix: 'IEMobile',
+    },
     { name: 'Internet Explorer', codeName: 'MSIE', versionPrefix: 'MSIE' },
     { name: 'Internet Explorer', codeName: 'rv', versionPrefix: 'rv' },
+    { name: 'Chrome', codeName: 'Chrome', versionPrefix: 'Chrome' },
+    { name: 'Chrome iOS', codeName: 'CriOS', versionPrefix: 'CriOS' },
+    { name: 'Safari', codeName: 'Safari', versionPrefix: 'Version' },
     { name: 'Mozilla', codeName: 'Mozilla', versionPrefix: 'Mozilla' },
   ],
 };
