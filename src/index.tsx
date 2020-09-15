@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Resume from './components/Resume';
-import DetectSystem from './components/DetectSystem';
+import SystemInfo from './components/SystemInfo';
 import GlobalStyles from './styles/GlobalStyles';
 import { registerServiceWorker } from './utils/serviceWorker';
 
@@ -17,7 +17,7 @@ ReactDOM.render(
           <Resume />
         </Route>
         <Route path="/system">
-          <DetectSystem />
+          <SystemInfo />
         </Route>
         <Route path="/">
           <Home />

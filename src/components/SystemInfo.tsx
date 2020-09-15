@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import detectSystem from 'src/utils/detectSystem';
 
 const Result = styled.pre`
-  overflow: auto;
+  white-space: pre-wrap;
 `;
 
-const DetectBrowser: React.FC = () => {
+const SystemInfo: React.FC = () => {
   const [systemInfo, setSystemInfo] = useState({});
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const DetectBrowser: React.FC = () => {
   );
 };
 
-export default DetectBrowser;
+export default SystemInfo;
