@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import qs from 'querystring';
 
 import { ThemeContext } from 'src/contexts';
 import Terminal from 'src/components/Terminal';
 import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
+
+import Version from './Version';
 
 const Container = styled.div<{ backgroundUrl?: string }>`
   ${flexCenterStyles}
@@ -24,12 +25,6 @@ const CommandLine = styled.code`
     content: ${getPrompt('block')};
     margin-right: ${getSpacing('prompt')};
   }
-`;
-
-const Version = styled.code`
-  bottom: 1rem;
-  position: absolute;
-  right: 1rem;
 `;
 
 const Home: React.FC = () => {
@@ -54,7 +49,7 @@ const Home: React.FC = () => {
           <InternalLink to="/resume">resume</InternalLink>
         </CommandLine>
       </Terminal>
-      <Version>{process.env.REACT_APP_GITHUB_SHA || 'GITHUB_SHA'}</Version>
+      <Version />
     </Container>
   );
 };
