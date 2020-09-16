@@ -34,15 +34,10 @@ const Home: React.FC = () => {
     const { clientHeight = 0, clientWidth = 0 } =
       document.getElementById('root') || {};
 
-    const params = qs.stringify({
-      blur: 3,
-      grayscale: theme === 'dark' ? '' : undefined,
-    });
-
-    console.log('params:', params);
-
     setBackgroundUrl(
-      `https://picsum.photos/${clientWidth}/${clientHeight}?${params}`
+      `https://picsum.photos/${clientWidth}/${clientHeight}?blur=3${
+        theme === 'dark' ? '&grayscale' : ''
+      }`
     );
   }, [theme]);
 
