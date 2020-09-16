@@ -22,6 +22,8 @@ type Props = {
 };
 
 const MEDIA_BREAKS: MediaBreak[] = [
+  { maxWidth: '1280px', width: '60vw' },
+  { maxWidth: '1024px', width: '70vw' },
   { maxWidth: '768px', width: '80vw' },
   { maxWidth: '425px', width: '90vw' },
 ];
@@ -51,7 +53,7 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
 
-  ${buildWindowSize('75vh')}
+  ${buildWindowSize('50vw')}
   ${MEDIA_BREAKS.map(buildMediaBreak).join('\n')}
 
   ${HoverToolbar} {
