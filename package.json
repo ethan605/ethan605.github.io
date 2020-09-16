@@ -47,7 +47,7 @@
     "preanalyse": "react-app-rewired build",
     "build": "react-app-rewired build",
     "postbuild": "cp build/index.html build/200.html",
-    "dev": "react-app-rewired start",
+    "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build",
     "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh react-app-rewired build"

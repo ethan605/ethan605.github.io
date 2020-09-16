@@ -6,7 +6,7 @@ import Terminal from 'src/components/Terminal';
 import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 
-import Version from './Version';
+import Corners from './Corners';
 
 const Container = styled.div<{ backgroundUrl?: string }>`
   ${flexCenterStyles}
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
           <InternalLink to="/resume">resume</InternalLink>
         </CommandLine>
       </Terminal>
-      <Version />
+      <Corners />
     </Container>
   );
 };
