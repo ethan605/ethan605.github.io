@@ -26,6 +26,12 @@ const CommandLine = styled.code`
   }
 `;
 
+const Version = styled.code`
+  bottom: 1rem;
+  position: absolute;
+  right: 1rem;
+`;
+
 const Home: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const [backgroundUrl, setBackgroundUrl] = useState<string | undefined>();
@@ -48,6 +54,7 @@ const Home: React.FC = () => {
           <InternalLink to="/resume">resume</InternalLink>
         </CommandLine>
       </Terminal>
+      <Version>{process.env.REACT_APP_GITHUB_SHA || 'GITHUB_SHA'}</Version>
     </Container>
   );
 };
