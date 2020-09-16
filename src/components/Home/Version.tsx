@@ -12,9 +12,7 @@ const Container = styled.code`
 `;
 
 const Version: React.FC = () => {
-  const commitHash =
-    process.env.REACT_APP_GITHUB_SHA ||
-    'f149bd37148af8a1f336444f948696f50aee0632';
+  const commitHash = process.env.REACT_APP_GITHUB_SHA || '';
 
   if (!commitHash) {
     return null;
