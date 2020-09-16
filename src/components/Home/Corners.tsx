@@ -34,7 +34,7 @@ const Corners: React.FC = () => {
   const commitHash = process.env.REACT_APP_GITHUB_SHA || '';
 
   const repoUrl = packageInfo.repository.url.replace(/\.git$/i, '/commit');
-  const shortHash = commitHash.substr(0, 6);
+  const shortHash = commitHash.substr(0, 7);
 
   return (
     <>
