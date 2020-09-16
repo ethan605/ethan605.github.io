@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Terminal from 'src/components/Terminal';
 import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
-import { getPrompt, getSpacing } from 'src/utils/themes';
+import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 
 const Container = styled.div`
   ${flexCenterStyles}
@@ -16,6 +16,7 @@ const CommandLine = styled.code`
   margin-bottom: ${getSpacing('item')};
 
   ::before {
+    color: ${getColor('primary')};
     content: ${getPrompt('block')};
     margin-right: ${getSpacing('prompt')};
   }
