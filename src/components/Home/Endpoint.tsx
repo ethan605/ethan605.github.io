@@ -76,7 +76,7 @@ const Container = styled.div`
 `;
 
 const Endpoint: React.FC<EndpointData> = ({ href, type, value }) => {
-  const isExternalLink = /^http[s]*::\/\//i.test(href);
+  const isExternalLink = /^http[s]*:\/\//i.test(href);
 
   return (
     <Container>

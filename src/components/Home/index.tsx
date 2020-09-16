@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ThemeContext } from 'src/contexts';
-import homeData from 'src/data/home.json';
-import { HomeData } from 'src/types/home';
+import HOME_DATA from 'src/data/home.json';
+import { EndpointData } from 'src/types/home';
 import Terminal, { Command, Path, TextBlock } from 'src/components/Terminal';
 import { flexCenterStyles } from 'src/styles/primitives';
 import { buildIteratorKey } from 'src/utils';
@@ -35,19 +35,17 @@ const Home: React.FC = () => {
     );
   }, [theme]);
 
-  const { command, description, path, endpoints } = homeData as HomeData;
-
   return (
     <Container backgroundUrl={backgroundUrl}>
       <Terminal>
         <TextBlock>
-          <Path>{path}</Path>
+          <Path>{HOME_DATA.path}</Path>
         </TextBlock>
         <TextBlock>
-          <Command>{command}</Command>
+          <Command>{HOME_DATA.command}</Command>
         </TextBlock>
         <TextBlock>
-          {description}
+          {HOME_DATA.description}
           <br />
           <br />
         </TextBlock>
@@ -55,7 +53,7 @@ const Home: React.FC = () => {
           Endpoints:
           <br />
           <br />
-          {endpoints.map((endpoint) => (
+          {(HOME_DATA.endpoints as EndpointData[]).map((endpoint) => (
             <Endpoint
               {...endpoint}
               key={`endpoint_${buildIteratorKey(endpoint.href)}`}

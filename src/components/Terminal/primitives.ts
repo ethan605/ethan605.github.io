@@ -7,11 +7,6 @@ export const TextBlock = styled.div`
 
 export const Path = styled.code`
   color: ${getColor('secondary')};
-
-  ::before {
-    color: ${getColor('secondary')};
-    content: ${getPrompt('section')};
-  }
 `;
 
 export const Command = styled.code`
