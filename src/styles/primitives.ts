@@ -9,8 +9,8 @@ const anchorStyles = css`
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
     color: ${getColor('url')};
+    text-decoration: underline;
   }
 `;
 

@@ -10,6 +10,7 @@ import {
   shadowStyles,
 } from 'src/styles/primitives';
 import { getColor } from 'src/utils/themes';
+
 import ControlsBar from './ControlsBar';
 
 type MediaBreak = {
@@ -87,4 +88,5 @@ const Terminal: React.FC<Props> = ({ children }) => {
   );
 };
 
+export { Command, Path, TextBlock } from './primitives';
 export default Terminal;
