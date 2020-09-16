@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import qs from 'querystring';
 
+import { ThemeContext } from 'src/contexts';
 import Terminal from 'src/components/Terminal';
 import { InternalLink, flexCenterStyles } from 'src/styles/primitives';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
@@ -25,16 +27,24 @@ const CommandLine = styled.code`
 `;
 
 const Home: React.FC = () => {
+  const { theme } = useContext(ThemeContext);
   const [backgroundUrl, setBackgroundUrl] = useState<string | undefined>();
 
   useEffect(() => {
     const { clientHeight = 0, clientWidth = 0 } =
       document.getElementById('root') || {};
 
+    const params = qs.stringify({
+      blur: 3,
+      grayscale: theme === 'dark' ? '' : undefined,
+    });
+
+    console.log('params:', params);
+
     setBackgroundUrl(
-      `https://picsum.photos/${clientWidth}/${clientHeight}?blur=3&grayscale`
+      `https://picsum.photos/${clientWidth}/${clientHeight}?${params}`
     );
-  }, []);
+  }, [theme]);
 
   return (
     <Container backgroundUrl={backgroundUrl}>
