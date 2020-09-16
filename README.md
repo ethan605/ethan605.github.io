@@ -1,3 +1,3 @@
-# ethan605.github.io
+# ethanify.me
 
 My home page
