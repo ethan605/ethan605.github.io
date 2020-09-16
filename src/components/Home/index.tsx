@@ -29,9 +29,6 @@ const Home: React.FC = () => {
         <CommandLine>
           <InternalLink to="/resume">resume</InternalLink>
         </CommandLine>
-        <CommandLine>
-          <InternalLink to="/sys-info">sys-info</InternalLink>
-        </CommandLine>
       </Terminal>
     </Container>
   );
