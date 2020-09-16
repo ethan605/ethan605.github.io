@@ -28,14 +28,9 @@ const MEDIA_BREAKS: MediaBreak[] = [
   { maxWidth: '425px', width: '90vw' },
 ];
 
-const buildWindowSize = (width: string): string => `
-  height: calc(${width} * 2 / 3);
-  width: ${width};
-`;
-
 const buildMediaBreak = ({ maxWidth, width }: MediaBreak): string => `
   @media (max-width: ${maxWidth}) {
-    ${buildWindowSize(width)}
+    width: ${width};
   }
 `;
 
@@ -48,13 +43,13 @@ const Container = styled.div`
   border-radius: 5px;
   color: ${getColor('foreground')};
   flex-direction: column;
-  margin: 0 auto;
-  max-height: 90vh;
-  overflow: hidden;
+  height: auto;
+  max-height: 85vh;
+  margin: 0 5vw 2rem;
   position: relative;
+  width: 50vw;
 
-  ${buildWindowSize('50vw')}
-  ${MEDIA_BREAKS.map(buildMediaBreak).join('\n')}
+  ${MEDIA_BREAKS.map(buildMediaBreak)}
 
   ${HoverToolbar} {
     display: none;
@@ -68,9 +63,12 @@ const Container = styled.div`
 
 const Content = styled.div`
   color: ${getColor('foreground')};
-  font-size: 1.5rem;
   flex: 1;
+  font-family: ${({ theme }): string => theme.page.fontFamily};
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   padding: 1rem;
+  overflow: auto;
 `;
 
 const Terminal: React.FC<Props> = ({ children }) => {
