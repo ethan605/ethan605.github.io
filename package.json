@@ -51,9 +51,9 @@
     "postbuild": "cp build/index.html build/200.html",
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
-    "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethan605.github.io react-app-rewired build",
+    "predeploy:gh-pages": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) REACT_APP_CANONICAL_URL=https://ethan605.github.io react-app-rewired build",
     "deploy:gh-pages": "gh-pages -b master -d build",
-    "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh react-app-rewired build",
+    "predeploy:surge": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) REACT_APP_CANONICAL_URL=https://ethanify.surge.sh react-app-rewired build",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build"
   },
   "husky": {

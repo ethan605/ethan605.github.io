@@ -33,10 +33,6 @@ const Version = styled.code`
 const Corners: React.FC = () => {
   const commitHash = process.env.REACT_APP_GITHUB_SHA || '';
 
-  if (!commitHash) {
-    return null;
-  }
-
   const repoUrl = packageInfo.repository.url.replace(/\.git$/i, '/commit');
   const shortHash = commitHash.substr(0, 6);
 
@@ -46,11 +42,13 @@ const Corners: React.FC = () => {
         {'Images by '}
         <ExternalLink href="https://picsum.photos">Unsplash</ExternalLink>
       </Credit>
-      <Version>
-        <ExternalLink href={`${repoUrl}/${commitHash}`}>
-          {shortHash}
-        </ExternalLink>
-      </Version>
+      {commitHash && (
+        <Version>
+          <ExternalLink href={`${repoUrl}/${commitHash}`}>
+            {shortHash}
+          </ExternalLink>
+        </Version>
+      )}
     </>
   );
 };
