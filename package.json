@@ -15,7 +15,7 @@
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
     "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethan605.github.io npm run build",
-    "deploy:gh-pages": "gh-pages -b master -d build",
+    "deploy:gh-pages": "gh-pages -b gh-pages -d build",
     "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh npm run build",
     "deploy:surge": "surge --domain https://ethanify.surge.sh build"
   },
