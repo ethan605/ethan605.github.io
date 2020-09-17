@@ -5,14 +5,21 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Deploy to surge.sh
     steps:
-      - uses: actions/checkout@v1
-      - name: Setup node environment
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
         with:
-          node-version: 12
-      - run: npm install --production
-      - run: npm audit
-      - run: CI=false REACT_APP_CANONICAL_URL=${{ secrets.SURGE_DOMAIN }} npm run build
-      - run: ./node_modules/.bin/surge ./build --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          persist-credentials: false
+
+      - name: Install and Build
+        run: |
+          npm install --production
+          CI=false REACT_APP_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build
+
+      - name: Deploy
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: ${{ secrets.SURGE_DOMAIN }}
+          project: '.'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
