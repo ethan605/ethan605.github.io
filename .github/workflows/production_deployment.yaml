@@ -1,20 +1,28 @@
 name: Production deployment
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - react-source
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Setup node environment
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
         with:
-          node-version: 12
-      - run: npm install --production
-      - run: npm audit
-      - run: CI=false REACT_APP_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build
-      - run: ./node_modules/.bin/gh-pages -b master -d build
+          persist-credentials: false
+
+      - name: Install and Build
+        run: |
+          npm install --production
+          CI=false REACT_APP_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: build
+          CLEAN: true

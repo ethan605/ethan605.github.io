@@ -7,6 +7,18 @@
     "url": "https://github.com/ethan605/ethan605.github.io.git"
   },
   "homepage": "https://ethan605.github.io",
+  "scripts": {
+    "preanalyse": "react-app-rewired build",
+    "analyse": "source-map-explorer 'build/static/js/*.js'",
+    "build": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired build",
+    "postbuild": "cp build/index.html build/200.html",
+    "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
+    "lint": "eslint src/**/*.ts*",
+    "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethan605.github.io npm run build",
+    "deploy:gh-pages": "gh-pages -b master -d build",
+    "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh npm run build",
+    "deploy:surge": "surge --domain https://ethanify.surge.sh build"
+  },
   "dependencies": {
     "@types/node": "^14.10.2",
     "@types/react": "^16.9.0",
@@ -43,18 +55,6 @@
     "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
     "source-map-explorer": "^2.5.0"
-  },
-  "scripts": {
-    "preanalyse": "react-app-rewired build",
-    "analyse": "source-map-explorer 'build/static/js/*.js'",
-    "build": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired build",
-    "postbuild": "cp build/index.html build/200.html",
-    "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
-    "lint": "eslint src/**/*.ts*",
-    "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethan605.github.io npm run build",
-    "deploy:gh-pages": "gh-pages -b master -d build",
-    "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh npm run build",
-    "deploy:surge": "surge --domain https://ethanify.surge.sh build"
   },
   "husky": {
     "hooks": {
