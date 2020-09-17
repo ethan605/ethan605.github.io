@@ -4,14 +4,14 @@
   "description": "Passionate about creating awesome products that help plenty of people improving their lives.",
   "endpoints": [
     {
-      "type": "linkedin",
-      "value": "ethan605",
-      "href": "https://linkedin.com/in/ethan605"
-    },
-    {
       "type": "github",
       "value": "ethan605",
       "href": "https://github.com/ethan605"
+    },
+    {
+      "type": "linkedin",
+      "value": "ethan605",
+      "href": "https://linkedin.com/in/ethan605"
     },
     {
       "type": "facebook",
