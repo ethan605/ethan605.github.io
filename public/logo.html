@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      .container {
+        align-items: center;
+        background-color: #282a36;
+        display: flex;
+        height: 1024px;
+        justify-content: center;
+        width: 1024px;
+      }
+      .text {
+        color: #ff6ac1;
+        font-family: 'Operator Mono Lig Light';
+        font-size: 480px;
+        font-weight: 400;
+        margin-bottom: 80px;
+      }
+      .text::before {
+        content: '{';
+        margin-right: -40px;
+      }
+      .text::after {
+        content: '}';
+        margin-left: -40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span class="text">e</span>
+    </div>
+  </body>
+</html>
