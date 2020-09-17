@@ -3,7 +3,7 @@ name: Production deployment
 on:
   push:
     branches:
-      - react-source
+      - master
 
 jobs:
   build:
