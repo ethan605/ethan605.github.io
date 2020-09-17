@@ -1,0 +1,32 @@
+{
+  "path": "~/ethanify",
+  "command": "about",
+  "description": "Passionate about creating awesome products that help plenty of people improving their lives.",
+  "endpoints": [
+    {
+      "type": "github",
+      "value": "ethan605",
+      "href": "https://github.com/ethan605"
+    },
+    {
+      "type": "linkedin",
+      "value": "ethan605",
+      "href": "https://linkedin.com/in/ethan605"
+    },
+    {
+      "type": "facebook",
+      "value": "ethan605",
+      "href": "https://facebook.com/ethan605"
+    },
+    {
+      "type": "twitter",
+      "value": "@ethan605",
+      "href": "https://twitter.com/@ethan605"
+    },
+    {
+      "type": "resume",
+      "value": "resume",
+      "href": "/resume"
+    }
+  ]
+}
