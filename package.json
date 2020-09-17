@@ -14,10 +14,12 @@
     "postbuild": "cp build/index.html build/200.html",
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
-    "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethan605.github.io npm run build",
+    "predeploy:gh-pages": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
     "deploy:gh-pages": "gh-pages -b gh-pages -d build",
     "predeploy:surge": "REACT_APP_CANONICAL_URL=https://ethanify.surge.sh npm run build",
-    "deploy:surge": "surge --domain https://ethanify.surge.sh build"
+    "deploy:surge": "surge --domain https://ethanify.surge.sh build",
+    "prestart": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
+    "start": "serve -s build"
   },
   "dependencies": {
     "@types/node": "^14.10.2",
@@ -38,6 +40,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-to-print": "^2.10.0",
+    "serve": "^11.3.2",
     "styled-components": "^5.2.0",
     "styled-normalize": "^8.0.7",
     "surge": "^0.21.6",
