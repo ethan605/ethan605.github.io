@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/ethan605
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ethanify.me
+  * I am ethan605 (https://keybase.io/ethan605) on keybase.
+  * I have a public key ASBXyUZpQENWGzCGeSCUtdYCe_is4QyVfDdva5SEn5s32go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01014b65ee857bd4629bb824373e1a52e9cb4608c469ea0164b43809dc360c4c132b0a",
+      "host": "keybase.io",
+      "kid": "012057c946694043561b3086792094b5d6027bf8ace10c957c376f6b94849f9b37da0a",
+      "uid": "e0e790d77bd4133af1d0da2772f80619",
+      "username": "ethan605"
+    },
+    "merkle_root": {
+      "ctime": 1600353656,
+      "hash": "2e0319d9774054cf738969cd1373e9be3ce8c0c4fdd517f8750575f8db43f903a98b14edbaf32c4bd666533ad3046cc514c43efbb149016cd6058e087e374246",
+      "hash_meta": "74fb31efb3e941264e00a66c0373549467e7a07b3e36040b71bf5dcdc3e3baee",
+      "seqno": 17595969
+    },
+    "service": {
+      "entropy": "y+dw8iZHrsiYg0RTfrJ0mMUS",
+      "hostname": "ethanify.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1600353699,
+  "expire_in": 504576000,
+  "prev": "4991c9088a769525dd0043f6cc426f8145285028dd09092bf5a4d659e57b5251",
+  "seqno": 26,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgV8lGaUBDVhswhnkglLXWAnv4rOEMlXw3b2uUhJ+bN9oKp3BheWxvYWTESpcCGsQgSZHJCIp2lSXdAEP2zEJvgUUoUCjdCQkr9aTWWeV7UlHEIHuNglghJf86OnPP4UyRr/xYITUEomG3YuE5o/Zc62QDAgHCo3NpZ8RALGlndxNXxkvzG4hrlItGGR3Eu0yaCpiiSMVGy8RFvsiugY7Ky2UhEja686jf/475Nn01R4OCZTTeoaWCNIguB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIN3VSeZHzHSUepuSOK7EHLFWoMEmjvit7cfxMyRbUmGKo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ethan605
+
+==================================================================
