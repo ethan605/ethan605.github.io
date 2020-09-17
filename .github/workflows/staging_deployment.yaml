@@ -14,12 +14,12 @@ jobs:
       - name: Install and Build
         run: |
           npm install --production
-          CI=false REACT_APP_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build
+          CI=false REACT_APP_CANONICAL_URL=${{ secrets.SURGE_DOMAIN }} npm run build
 
       - name: Deploy
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: ${{ secrets.SURGE_DOMAIN }}
-          project: '.'
+          project: build
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
