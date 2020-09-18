@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Facebook, File, GitHub, Linkedin, Twitter } from 'react-feather';
 
-import { ExternalLink, InternalLink } from 'src/styles/primitives';
+import { ExternalLink, InternalLink } from 'src/styles/reusables';
 import { EndpointTypes, EndpointData } from 'src/types/home';
 import { getColor, getSpacing } from 'src/utils/themes';
 

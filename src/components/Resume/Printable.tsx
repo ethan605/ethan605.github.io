@@ -5,11 +5,7 @@ import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
 import { ThemeContext } from 'src/contexts';
-import {
-  HoverToolbar,
-  HoverControl,
-  shadowStyles,
-} from 'src/styles/primitives';
+import { HoverToolbar, HoverControl, shadowStyles } from 'src/styles/reusables';
 import { getColor, getPageSize } from 'src/utils/themes';
 
 type Props = {

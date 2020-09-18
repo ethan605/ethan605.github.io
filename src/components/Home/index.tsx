@@ -4,8 +4,13 @@ import styled from 'styled-components';
 import { ThemeContext } from 'src/contexts';
 import HOME_DATA from 'src/data/home.json';
 import { EndpointData } from 'src/types/home';
-import Terminal, { Command, Path, TextBlock } from 'src/components/Terminal';
-import { flexCenterStyles } from 'src/styles/primitives';
+import Terminal, {
+  Command,
+  Path,
+  TextBlock,
+  TextLine,
+} from 'src/components/Terminal';
+import { flexCenterStyles } from 'src/styles/reusables';
 import { buildIteratorKey } from 'src/utils';
 
 import Corners from './Corners';
@@ -45,14 +50,18 @@ const Home: React.FC = () => {
           <Command>{HOME_DATA.command}</Command>
         </TextBlock>
         <TextBlock>
-          {HOME_DATA.description}
-          <br />
-          <br />
+          <TextLine>
+            {HOME_DATA.description}
+            <br />
+            <br />
+          </TextLine>
         </TextBlock>
         <TextBlock>
-          Endpoints:
-          <br />
-          <br />
+          <TextLine>
+            Endpoints:
+            <br />
+            <br />
+          </TextLine>
           {(HOME_DATA.endpoints as EndpointData[]).map((endpoint) => (
             <Endpoint
               {...endpoint}
