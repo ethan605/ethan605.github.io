@@ -5,6 +5,10 @@ export const TextBlock = styled.div`
   margin-bottom: ${getSpacing('item')};
 `;
 
+export const TextLine = styled.code`
+  line-height: 1.5rem;
+`;
+
 export const Path = styled.code`
   color: ${getColor('secondary')};
 `;
