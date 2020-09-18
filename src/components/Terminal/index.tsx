@@ -8,7 +8,7 @@ import {
   HoverControl,
   flexCenterStyles,
   shadowStyles,
-} from 'src/styles/primitives';
+} from 'src/styles/reusables';
 import { getColor } from 'src/utils/themes';
 
 import ControlsBar from './ControlsBar';
@@ -88,5 +88,5 @@ const Terminal: React.FC<Props> = ({ children }) => {
   );
 };
 
-export { Command, Path, TextBlock } from './primitives';
+export * from './primitives';
 export default Terminal;

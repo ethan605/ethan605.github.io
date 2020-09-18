@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ExternalLink } from 'src/styles/primitives';
+import { ExternalLink } from 'src/styles/reusables';
 import { SectionData } from 'src/types/resume';
 import { getColor, getPrompt, getSpacing } from 'src/utils/themes';
 import { buildIteratorKey } from 'src/utils';

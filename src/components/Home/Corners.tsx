@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import packageInfo from '../../../package.json';
-import { ExternalLink } from 'src/styles/primitives';
+import { ExternalLink } from 'src/styles/reusables';
 import { getColor } from 'src/utils/themes';
 
 const bottomStyles = css`
