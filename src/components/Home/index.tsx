@@ -11,7 +11,7 @@ import Terminal, {
   TextLine,
 } from 'src/components/Terminal';
 import { flexCenterStyles } from 'src/styles/reusables';
-import { buildIteratorKey } from 'src/utils';
+import { buildIteratorKey, sampleArr } from 'src/utils';
 
 import Corners from './Corners';
 import Endpoint from './Endpoint';
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
           <Path>{HOME_DATA.path}</Path>
         </TextBlock>
         <TextBlock>
-          <Command>{HOME_DATA.command}</Command>
+          <Command>{sampleArr(HOME_DATA.commands)}</Command>
         </TextBlock>
         <TextBlock>
           <TextLine>
