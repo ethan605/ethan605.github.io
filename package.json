@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "@types/node": "^14.14.6",
-    "@types/react": "^16.9.55",
-    "@types/react-dom": "^16.9.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
     "@types/webfontloader": "^1.6.32",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^7.0.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.1.4",
@@ -49,9 +49,9 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "husky": "^4.3.0",
-    "lint-staged": "^10.5.0",
-    "source-map-explorer": "^2.5.0"
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "source-map-explorer": "^2.5.1"
   },
   "husky": {
     "hooks": {
