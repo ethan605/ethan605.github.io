@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { ThemeContext } from 'src/contexts';
@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <ThemeProvider theme={themes[theme]}>
         <GlobalStyles />
-        <BrowserRouter>
+        <HashRouter>
           <Switch>
             <Route path="/resume">
               <Resume />
@@ -34,7 +34,7 @@ const App: React.FC = () => {
               <Home />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </ThemeContext.Provider>
   );
