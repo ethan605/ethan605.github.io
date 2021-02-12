@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import styled from 'styled-components';
 
 import { ExternalLink, flexCenterStyles } from 'src/styles/reusables';
@@ -46,7 +46,7 @@ const Entries: React.FC<Props> = ({ items }) => {
         const key = `entry_content_${buildIteratorKey(content)}`;
 
         const children = (
-          <React.Fragment>
+          <Fragment>
             {href ? (
               <ExternalLink href={href}>{content}</ExternalLink>
             ) : (
@@ -57,7 +57,7 @@ const Entries: React.FC<Props> = ({ items }) => {
             {!href && attributes && (
               <Attributes>{attributes.join(', ')}</Attributes>
             )}
-          </React.Fragment>
+          </Fragment>
         );
 
         if (decoration != null) {

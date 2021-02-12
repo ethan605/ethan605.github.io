@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { Facebook, File, GitHub, Linkedin, Twitter } from 'react-feather';
 
