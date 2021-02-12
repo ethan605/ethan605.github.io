@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import { BlockData } from 'src/types/resume';
@@ -35,4 +35,4 @@ const Block: React.FC<BlockData> = ({ entries, sections, title }) => (
   </Container>
 );
 
-export default Block;
+export default memo(Block);

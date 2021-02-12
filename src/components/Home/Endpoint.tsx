@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import styled, { css } from 'styled-components';
 import { Facebook, File, GitHub, Linkedin, Twitter } from 'react-feather';
 
@@ -92,4 +92,4 @@ const Endpoint: React.FC<EndpointData> = ({ href, type, value }) => {
   );
 };
 
-export default Endpoint;
+export default memo(Endpoint);

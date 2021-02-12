@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import { ExternalLink } from 'src/styles/reusables';
@@ -63,4 +63,4 @@ const Section: React.FC<SectionData> = ({ briefs, org, timeframe, title }) => (
   </Container>
 );
 
-export default Section;
+export default memo(Section);

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { memo, useContext } from 'react';
 import styled from 'styled-components';
 import { Moon, Sun } from 'react-feather';
 
@@ -89,4 +89,4 @@ const Terminal: React.FC<Props> = ({ children }) => {
 };
 
 export * from './primitives';
-export default Terminal;
+export default memo(Terminal);
