@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 

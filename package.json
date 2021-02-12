@@ -8,6 +8,7 @@
   },
   "homepage": "https://ethan605.github.io",
   "scripts": {
+    "postinstall": "husky install",
     "preanalyse": "react-app-rewired build",
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "build": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired build",
