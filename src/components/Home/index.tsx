@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { memo, useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { ThemeContext } from 'src/contexts';
@@ -75,4 +75,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -44,4 +45,4 @@ const ControlsBar: React.FC = () => {
   );
 };
 
-export default ControlsBar;
+export default memo(ControlsBar);

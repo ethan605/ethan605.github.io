@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, memo } from 'react';
 import styled from 'styled-components';
 
 import { ExternalLink, flexCenterStyles } from 'src/styles/reusables';
@@ -75,4 +75,4 @@ const Entries: React.FC<Props> = ({ items }) => {
   );
 };
 
-export default Entries;
+export default memo(Entries);

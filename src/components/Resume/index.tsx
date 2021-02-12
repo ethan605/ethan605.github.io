@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import RESUME_DATA from 'src/data/resume.json';
@@ -71,4 +72,4 @@ const Resume: React.FC = () => {
   );
 };
 
-export default Resume;
+export default memo(Resume);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled, { css } from 'styled-components';
 
 import packageInfo from '../../../package.json';
@@ -52,4 +53,4 @@ const Corners: React.FC = () => {
   );
 };
 
-export default Corners;
+export default memo(Corners);

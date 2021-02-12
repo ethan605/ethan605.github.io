@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { memo, useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
@@ -95,4 +95,4 @@ const Printable: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default Printable;
+export default memo(Printable);

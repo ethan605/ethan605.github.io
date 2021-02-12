@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import detectSystem from 'src/utils/detectSystem';
@@ -29,4 +30,4 @@ const SystemInfo: React.FC = () => {
   );
 };
 
-export default SystemInfo;
+export default memo(SystemInfo);
