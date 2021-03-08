@@ -77,7 +77,7 @@ const Printable: React.FC<Props> = ({ children }) => {
           <ArrowLeft />
         </HoverControl>
         <div>
-          {window.print && (
+          {typeof window.print === 'function' && (
             <HoverControl
               onClick={(): void => handlePrint && handlePrint()}
               title="Save as PDF"
