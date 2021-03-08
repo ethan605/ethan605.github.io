@@ -19,7 +19,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
+    'prettier',
   ],
   rules: {
     'react/prop-types': 'off',
