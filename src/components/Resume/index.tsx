@@ -11,10 +11,8 @@ import Printable from './Printable';
 
 type ColumnSides = 'left' | 'right';
 
-const {
-  header: HEADER_DATA,
-  columns: COLUMNS_DATA,
-} = RESUME_DATA as ResumeData;
+const { header: HEADER_DATA, columns: COLUMNS_DATA } =
+  RESUME_DATA as ResumeData;
 
 const COLUMN_SIDES: ColumnSides[] = ['left', 'right'];
 
