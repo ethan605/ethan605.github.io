@@ -13,10 +13,11 @@
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "build": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired build",
     "postbuild": "cp build/index.html build/200.html",
+    "start": "concurrently npm:dev",
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
-    "prestart": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
-    "start": "serve -s build"
+    "preserve": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
+    "serve": "serve -s build"
   },
   "dependencies": {
     "@types/node": "^17.0.4",
@@ -51,6 +52,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "concurrently": "^6.5.1",
     "lint-staged": "^12.1.3",
     "source-map-explorer": "^2.5.2"
   },
