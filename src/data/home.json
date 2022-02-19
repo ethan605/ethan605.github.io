@@ -10,6 +10,11 @@
   "description": "Passionate about creating awesome products that help plenty of people improving their lives.",
   "endpoints": [
     {
+      "type": "keybase",
+      "value": "ethan605",
+      "href": "https://keybase.io/ethan605"
+    },
+    {
       "type": "github",
       "value": "ethan605",
       "href": "https://github.com/ethan605"
