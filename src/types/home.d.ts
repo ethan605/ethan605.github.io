@@ -2,6 +2,7 @@ export type EndpointTypes =
   | 'facebook'
   | 'github'
   | 'linkedin'
+  | 'keybase'
   | 'twitter'
   | 'resume';
 
