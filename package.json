@@ -18,7 +18,8 @@
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse --short HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
     "preserve": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "gen-resumes": "./scripts/latex-to-pdf.sh"
   },
   "dependencies": {
     "@types/node": "^17.0.4",
