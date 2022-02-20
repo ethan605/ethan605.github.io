@@ -1,6 +1,6 @@
 import { memo, useRef } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
@@ -60,7 +60,7 @@ const Sheet = styled.div`
 
 const Printable: React.FC<Props> = ({ children }) => {
   const { theme, toggleTheme } = useTheme();
-  const history = useHistory();
+  const navigate = useNavigate();
   const sheetRef = useRef(null);
   const handlePrint = useReactToPrint({ content: () => sheetRef.current });
 
@@ -70,7 +70,7 @@ const Printable: React.FC<Props> = ({ children }) => {
         <HoverControl
           onClick={(): void => {
             // Replace if current location is on top of history stack
-            history.length === 2 ? history.replace('/') : history.goBack();
+            history.length === 2 ? navigate('/') : navigate(-1);
           }}
           title="Back to home page"
         >

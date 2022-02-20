@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { ThemeProvider } from 'src/contexts';
@@ -22,14 +22,10 @@ const App: React.FC = () => {
       <StyledThemeProvider theme={themes[theme]}>
         <GlobalStyles />
         <HashRouter>
-          <Switch>
-            <Route path="/system">
-              <SystemInfo />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/system" element={<SystemInfo />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
         </HashRouter>
       </StyledThemeProvider>
     </ThemeProvider>
