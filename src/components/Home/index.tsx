@@ -1,7 +1,7 @@
-import { memo, useContext, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { ThemeContext } from 'src/contexts';
+import { useTheme } from 'src/contexts';
 import HOME_DATA from 'src/data/home.json';
 import { EndpointData } from 'src/types/home';
 import Terminal, {
@@ -26,7 +26,7 @@ const Container = styled.div<{ backgroundUrl?: string }>`
 `;
 
 const Home: React.FC = () => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const [backgroundUrl, setBackgroundUrl] = useState<string | undefined>();
 
   useEffect(() => {

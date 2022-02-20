@@ -1,8 +1,8 @@
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 import styled from 'styled-components';
 import { Moon, Sun } from 'react-feather';
 
-import { ThemeContext } from 'src/contexts';
+import { useTheme } from 'src/contexts';
 import {
   HoverToolbar,
   HoverControl,
@@ -73,7 +73,7 @@ const Content = styled.div`
 `;
 
 const Terminal: React.FC<Props> = ({ children }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Container>

@@ -1,8 +1,8 @@
 import { useCallback, useState } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-import { ThemeContext } from 'src/contexts';
+import { ThemeProvider } from 'src/contexts';
 import Home from 'src/components/Home';
 import Resume from 'src/components/Resume';
 import SystemInfo from 'src/components/SystemInfo';
@@ -19,8 +19,8 @@ const App: React.FC = () => {
   );
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <ThemeProvider theme={themes[theme]}>
+    <ThemeProvider value={{ theme, toggleTheme }}>
+      <StyledThemeProvider theme={themes[theme]}>
         <GlobalStyles />
         <HashRouter>
           <Switch>
@@ -35,8 +35,8 @@ const App: React.FC = () => {
             </Route>
           </Switch>
         </HashRouter>
-      </ThemeProvider>
-    </ThemeContext.Provider>
+      </StyledThemeProvider>
+    </ThemeProvider>
   );
 };
 
