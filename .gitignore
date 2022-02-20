@@ -22,3 +22,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# LateX
+resumes/*
+!resumes/*.tex
+public/*resume*
+!public/*.pdf
