@@ -32,7 +32,8 @@
     {
       "type": "resume",
       "value": "resume",
-      "href": "/resume"
+      "href": "/Thanh-Ethan-Nguyen-resume-{version}-{theme}.pdf",
+      "interpolated": true
     }
   ]
 }

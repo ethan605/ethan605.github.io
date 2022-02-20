@@ -7,6 +7,7 @@ export type EndpointTypes =
   | 'resume';
 
 export type EndpointData = {
+  interpolated?: boolean;
   href: string;
   type: EndpointTypes;
   value: string;

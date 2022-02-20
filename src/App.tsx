@@ -4,7 +4,6 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { ThemeProvider } from 'src/contexts';
 import Home from 'src/components/Home';
-import Resume from 'src/components/Resume';
 import SystemInfo from 'src/components/SystemInfo';
 import GlobalStyles from 'src/styles/GlobalStyles';
 import themes from 'src/styles/themes';
@@ -24,9 +23,6 @@ const App: React.FC = () => {
         <GlobalStyles />
         <HashRouter>
           <Switch>
-            <Route path="/resume">
-              <Resume />
-            </Route>
             <Route path="/system">
               <SystemInfo />
             </Route>
