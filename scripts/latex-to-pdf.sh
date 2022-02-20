@@ -5,7 +5,7 @@ PREFIX="Thanh-Ethan-Nguyen-resume"
 VARIANTS=(dark light)
 
 function main() {
-  local version=${1-}
+  local version=$(jq -r '.resume_version' package.json)
 
   if [[ -z "$version" ]]; then
     echo "Missing version"

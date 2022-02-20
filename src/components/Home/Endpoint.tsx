@@ -2,10 +2,13 @@ import { memo } from 'react';
 import styled, { css } from 'styled-components';
 import { Facebook, File, GitHub, Linkedin, Twitter } from 'react-feather';
 
-import { ExternalLink, InternalLink } from 'src/styles/reusables';
+import { ExternalLink } from 'src/styles/reusables';
 import { EndpointTypes, EndpointData } from 'src/types/home';
 import { getColor, getSpacing } from 'src/utils/themes';
 import { ReactComponent as Keybase } from './keybase.svg';
+import { useTheme } from 'src/contexts';
+
+import packageInfo from '../../../package.json';
 
 const iconStyles = css`
   margin-bottom: -0.25rem;
@@ -97,18 +100,27 @@ const Container = styled.div`
   }
 `;
 
-const Endpoint: React.FC<EndpointData> = ({ href, type, value }) => {
-  const isExternalLink = /^http[s]*:\/\//i.test(href);
+const Endpoint: React.FC<EndpointData> = ({
+  interpolated = false,
+  href,
+  type,
+  value,
+}) => {
+  const { theme } = useTheme();
+
+  let url = href;
+
+  if (interpolated) {
+    url = href
+      .replaceAll('{theme}', theme)
+      .replaceAll('{version}', packageInfo.resume_version);
+  }
 
   return (
     <Container>
       {ICONS_MAPPING[type]}
       <Value>
-        {isExternalLink ? (
-          <ExternalLink href={href}>{value}</ExternalLink>
-        ) : (
-          <InternalLink to={href}>{value}</InternalLink>
-        )}
+        <ExternalLink href={url}>{value}</ExternalLink>
       </Value>
     </Container>
   );

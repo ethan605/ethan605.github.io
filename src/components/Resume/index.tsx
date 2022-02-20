@@ -47,27 +47,22 @@ const Column = styled.div<{ side: ColumnSides }>`
   }
 `;
 
-const Resume: React.FC = () => {
-  return (
-    <Printable>
-      <Header>
-        <Title>{HEADER_DATA.title}</Title>
-        <Subtitle>{HEADER_DATA.subtitle}</Subtitle>
-      </Header>
-      <div>
-        {COLUMN_SIDES.map((side) => (
-          <Column key={`column_${side}`} side={side}>
-            {COLUMNS_DATA[side].map((block) => (
-              <Block
-                {...block}
-                key={`block_${buildIteratorKey(block.title)}`}
-              />
-            ))}
-          </Column>
-        ))}
-      </div>
-    </Printable>
-  );
-};
+const Resume: React.FC = () => (
+  <Printable>
+    <Header>
+      <Title>{HEADER_DATA.title}</Title>
+      <Subtitle>{HEADER_DATA.subtitle}</Subtitle>
+    </Header>
+    <div>
+      {COLUMN_SIDES.map((side) => (
+        <Column key={`column_${side}`} side={side}>
+          {COLUMNS_DATA[side].map((block) => (
+            <Block {...block} key={`block_${buildIteratorKey(block.title)}`} />
+          ))}
+        </Column>
+      ))}
+    </div>
+  </Printable>
+);
 
 export default memo(Resume);

@@ -1,10 +1,10 @@
-import { memo, useContext, useRef } from 'react';
+import { memo, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { ArrowLeft, Moon, Printer, Sun } from 'react-feather';
 import { useReactToPrint } from 'react-to-print';
 
-import { ThemeContext } from 'src/contexts';
+import { useTheme } from 'src/contexts';
 import { HoverToolbar, HoverControl, shadowStyles } from 'src/styles/reusables';
 import { getColor, getPageSize } from 'src/utils/themes';
 
@@ -59,7 +59,7 @@ const Sheet = styled.div`
 `;
 
 const Printable: React.FC<Props> = ({ children }) => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
   const history = useHistory();
   const sheetRef = useRef(null);
   const handlePrint = useReactToPrint({ content: () => sheetRef.current });
