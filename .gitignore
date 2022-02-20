@@ -26,4 +26,5 @@ yarn-error.log*
 # LateX
 resumes/*
 !resumes/*.tex
+public/*resume*
 !public/*.pdf
