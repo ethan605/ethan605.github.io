@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { ReactNode, createContext, useContext } from 'react';
 
 import { SupportedThemes } from 'src/types/themes';
 
@@ -10,6 +10,7 @@ type ContextType = {
 const ThemeContext = createContext<ContextType | undefined>(undefined);
 
 type Props = {
+  children: ReactNode;
   value: ContextType;
 };
 
