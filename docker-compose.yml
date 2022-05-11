@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  resume:
+    image: blang/latex:latest
+    container_name: ethan605_make_resume
+    environment:
+      - VARIANT
+    command: pdflatex "/data/$VARIANT.tex"
+    volumes:
+      - ./resumes:/data

@@ -19,8 +19,9 @@ function main() {
   cat content.tex.bak | sed "s,$tex_version_matching{.*,$tex_version_matching{$version}}," >| content.tex
 
   for variant in ${VARIANTS[@]}; do
-    local jobname="$PREFIX-$version-$variant"
-    pdflatex -output-directory=../public -jobname="$jobname" "$variant.tex"
+    local output="$PREFIX-$version-$variant"
+    VARIANT="$variant" docker compose run --rm resume
+    cp "$variant.pdf" "../public/$output.pdf"
   done
 }
 
