@@ -5,6 +5,6 @@ services:
     container_name: ethan605_make_resume
     environment:
       - VARIANT
-    command: pdflatex "/data/$VARIANT.tex"
+    command: pdflatex "$VARIANT.tex"
     volumes:
       - ./resumes:/data
