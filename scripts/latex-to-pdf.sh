@@ -5,7 +5,8 @@ PREFIX="Thanh-Ethan-Nguyen-resume"
 VARIANTS=(dark light)
 
 function main() {
-  local version=$(jq -r '.resume_version' package.json)
+  local version
+  version=$(jq -r '.resume_version' package.json)
 
   if [[ -z "$version" ]]; then
     echo "Missing version"
@@ -16,9 +17,9 @@ function main() {
 
   local tex_version_matching="VERSION \\\normalsize\\\texttt"
   mv content.tex{,.bak}
-  cat content.tex.bak | sed "s,$tex_version_matching{.*,$tex_version_matching{$version}}," >| content.tex
+  sed "s,$tex_version_matching{.*,$tex_version_matching{$version}}," < content.tex.bak >| content.tex
 
-  for variant in ${VARIANTS[@]}; do
+  for variant in "${VARIANTS[@]}"; do
     local output="$PREFIX-$version-$variant"
     VARIANT="$variant" docker compose run --rm resume
     cp "$variant.pdf" "../public/$output.pdf"
