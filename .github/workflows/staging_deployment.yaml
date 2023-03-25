@@ -1,31 +1,37 @@
 name: Staging deployment
 
-on: [push]
+on: [pull_request]
 
 jobs:
-  build:
+  deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
+          lfs: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: 17.9.0
-          cache: npm
+          node-version: 18
 
       - name: Install and Build
         run: |
-          npm install --production
+          npm install --omit=dev --force
           CI=false REACT_APP_CANONICAL_URL=${{ secrets.SURGE_DOMAIN }} npm run build
 
       - name: Deploy
-        uses: dswistowski/surge-sh-action@v1.0.1
-        with:
-          domain: ${{ secrets.SURGE_DOMAIN }}
-          project: build
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          npm install -g surge
+          surge build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+      #- name: Deploy
+        #uses: dswistowski/surge-sh-action@v1.0.1
+        #with:
+          #domain: ${{ secrets.SURGE_DOMAIN }}
+          #project: build
+          #login: ${{ secrets.SURGE_LOGIN }}
+          #token: ${{ secrets.SURGE_TOKEN }}
