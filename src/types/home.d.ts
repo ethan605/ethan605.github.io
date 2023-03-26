@@ -4,7 +4,8 @@ export type EndpointTypes =
   | 'linkedin'
   | 'keybase'
   | 'twitter'
-  | 'resume';
+  | 'resume'
+  | 'xkpasswd';
 
 export type EndpointData = {
   interpolated?: boolean;

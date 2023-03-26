@@ -1,6 +1,13 @@
 import { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { Facebook, File, GitHub, Linkedin, Twitter } from 'react-feather';
+import {
+  Facebook,
+  File,
+  GitHub,
+  Linkedin,
+  Twitter,
+  Key as XKPasswd,
+} from 'react-feather';
 
 import { ExternalLink } from 'src/styles/reusables';
 import { EndpointTypes, EndpointData } from 'src/types/home';
@@ -33,6 +40,9 @@ const LinkedinIcon = styled(Linkedin)`
 const TwitterIcon = styled(Twitter)`
   ${iconStyles}
 `;
+const XKPasswdIcon = styled(XKPasswd)`
+  ${iconStyles}
+`;
 
 const ICONS_MAPPING: Record<EndpointTypes, React.ReactNode> = {
   facebook: <FacebookIcon />,
@@ -41,6 +51,7 @@ const ICONS_MAPPING: Record<EndpointTypes, React.ReactNode> = {
   linkedin: <LinkedinIcon />,
   resume: <FileIcon />,
   twitter: <TwitterIcon />,
+  xkpasswd: <XKPasswdIcon />,
 };
 
 const BRANDING_COLORS: Record<Exclude<EndpointTypes, 'resume'>, string> = {
@@ -49,6 +60,7 @@ const BRANDING_COLORS: Record<Exclude<EndpointTypes, 'resume'>, string> = {
   keybase: '#ff6f21',
   linkedin: '#0076b2',
   twitter: '#1da1f2',
+  xkpasswd: '#ff5c57',
 };
 
 const Value = styled.code`
@@ -96,6 +108,11 @@ const Container = styled.div`
     ${TwitterIcon},
     ${TwitterIcon} + ${Value} > a {
       color: ${BRANDING_COLORS.twitter};
+    }
+
+    ${XKPasswdIcon},
+    ${XKPasswdIcon} + ${Value} > a {
+      color: ${BRANDING_COLORS.xkpasswd};
     }
   }
 `;

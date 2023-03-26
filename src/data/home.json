@@ -34,6 +34,11 @@
       "value": "resume",
       "href": "/Thanh-Ethan-Nguyen-resume-{version}-{theme}.pdf",
       "interpolated": true
+    },
+    {
+      "type": "xkpasswd",
+      "value": "xkpasswd",
+      "href": "https://xkpasswd.ethanify.me"
     }
   ]
 }
