@@ -1,7 +1,7 @@
 {
   "name": "ethanify-me",
   "version": "2.0.0",
-  "resume_version": "2022.oct.15",
+  "resume_version": "2023.apr.10",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +14,6 @@
     "analyse": "source-map-explorer 'build/static/js/*.js'",
     "build": "REACT_APP_GITHUB_SHA=$(git rev-parse --short HEAD) react-app-rewired build",
     "postbuild": "cp build/index.html build/200.html",
-    "start": "concurrently npm:dev",
     "dev": "REACT_APP_GITHUB_SHA=$(git rev-parse --short HEAD) react-app-rewired start",
     "lint": "eslint src/**/*.ts*",
     "preserve": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
@@ -55,7 +54,6 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
     "lint-staged": "^13.0.3",
     "source-map-explorer": "^2.5.2"
   },
