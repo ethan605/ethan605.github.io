@@ -1,15 +1,18 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from 'src/App';
 import { registerServiceWorker } from 'src/utils/serviceWorker';
 
-ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById('root')
-);
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+  root.render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+}
 
 /**
  * Enable PWA
