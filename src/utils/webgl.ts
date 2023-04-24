@@ -278,6 +278,40 @@ function getSupportedExtensions(gl: RenderingContext | null) {
   return (gl.getSupportedExtensions() || []).sort();
 }
 
+function getUnmaskedParams(gl: RenderingContext | null) {
+  const isWebGLContext = gl instanceof WebGLRenderingContext;
+  const isWebGL2Context = gl instanceof WebGL2RenderingContext;
+
+  if (!isWebGLContext && !isWebGL2Context) {
+    return [];
+  }
+
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+
+  if (debugInfo == null) {
+    return [];
+  }
+
+  return [
+    ['vendor', gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)],
+    ['renderer', gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL)],
+  ];
+}
+
+function normalizeParameter(
+  param: string | number | number[]
+): string | number {
+  const spaceSubstituted =
+    typeof param == 'string' ? param.replaceAll(' ', SEPARATORS.SPACE) : param;
+
+  const normalizedParam =
+    spaceSubstituted instanceof Array
+      ? spaceSubstituted.join(SEPARATORS.LIST_TERTIARY)
+      : spaceSubstituted;
+
+  return normalizedParam;
+}
+
 export function getWebGLAttributes() {
   const availableContexts = getAvailableContexts();
 
@@ -289,6 +323,7 @@ export function getWebGLAttributes() {
 
   const availableGl2Methods = getAvailableWebGL2Methods(glContext);
   const parameters = getParameters(glContext);
+  const unmaskedParameters = getUnmaskedParams(glContext);
   const supportedExtensions = getSupportedExtensions(glContext);
 
   const stringifiedComponents = [
@@ -303,25 +338,22 @@ export function getWebGLAttributes() {
     [
       'parameters',
       parameters
-        .map(([key, value]) => {
-          const spaceSubstituted =
-            typeof value == 'string'
-              ? value.replaceAll(' ', SEPARATORS.SPACE)
-              : value;
-
-          const normalizedValue =
-            spaceSubstituted instanceof Array
-              ? spaceSubstituted.join(SEPARATORS.LIST_TERTIARY)
-              : spaceSubstituted;
-
-          console.log({ key, normalizedValue });
-          return [key, normalizedValue].join(SEPARATORS.KEY_VALUE_SECONDARY);
-        })
+        .map(([key, value]) =>
+          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY)
+        )
         .join(SEPARATORS.LIST_SECONDARY),
     ].join(SEPARATORS.KEY_VALUE_PRIMARY),
     [
       'supported_extensions',
       supportedExtensions.join(SEPARATORS.LIST_SECONDARY),
+    ].join(SEPARATORS.KEY_VALUE_PRIMARY),
+    [
+      'unmasked_parameters',
+      unmaskedParameters
+        .map(([key, value]) =>
+          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY)
+        )
+        .join(SEPARATORS.LIST_SECONDARY),
     ].join(SEPARATORS.KEY_VALUE_PRIMARY),
   ].join(SEPARATORS.LIST_PRIMARY);
 
@@ -335,6 +367,7 @@ export function getWebGLAttributes() {
       available_gl2_methods: availableGl2Methods,
       parameters: Object.fromEntries(parameters),
       supported_extensions: supportedExtensions,
+      unmasked_parameters: Object.fromEntries(unmaskedParameters),
     },
   };
 }
