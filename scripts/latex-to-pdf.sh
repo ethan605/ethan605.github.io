@@ -2,7 +2,8 @@
 set -euo pipefail
 
 PREFIX="Thanh-Ethan-Nguyen-resume"
-VARIANTS=(dark light)
+THEMES=(dark light)
+VARIANTS=(1page full)
 
 function main() {
   local version
@@ -15,14 +16,14 @@ function main() {
 
   cd resumes/
 
-  local tex_version_matching="VERSION \\\normalsize\\\texttt"
-  mv content.tex{,.bak}
-  sed "s,$tex_version_matching{.*,$tex_version_matching{$version}}," < content.tex.bak >| content.tex
+  echo "$version" > version.tex
 
-  for variant in "${VARIANTS[@]}"; do
-    local output="$PREFIX-$version-$variant"
-    VARIANT="$variant" docker compose run --rm resume
-    cp "$variant.pdf" "../public/$output.pdf"
+  for theme in "${THEMES[@]}"; do
+    for variant in "${VARIANTS[@]}"; do
+      local output="$PREFIX-$version-$theme-$variant"
+      ENTRYPOINT="$theme-$variant.tex" docker compose run --rm resume
+      cp "$theme-$variant.pdf" "../public/$output.pdf"
+    done
   done
 }
 

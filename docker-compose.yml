@@ -4,7 +4,7 @@ services:
     image: blang/latex:latest
     container_name: ethan605_make_resume
     environment:
-      - VARIANT
-    command: xelatex "$VARIANT.tex"
+      - ENTRYPOINT
+    command: xelatex "$ENTRYPOINT"
     volumes:
       - ./resumes:/data
