@@ -2,7 +2,6 @@
 set -euo pipefail
 
 PREFIX="Thanh-Ethan-Nguyen-resume"
-THEMES=(dark light)
 VARIANTS=(1page full)
 
 function main() {
@@ -18,12 +17,10 @@ function main() {
 
   echo "$version" > version.tex
 
-  for theme in "${THEMES[@]}"; do
-    for variant in "${VARIANTS[@]}"; do
-      local output="$PREFIX-$version-$theme-$variant"
-      ENTRYPOINT="$theme-$variant.tex" docker compose run --rm resume
-      cp "$theme-$variant.pdf" "../public/$output.pdf"
-    done
+  for variant in "${VARIANTS[@]}"; do
+    local output="$PREFIX-$version-$variant"
+    ENTRYPOINT="resume-$variant.tex" docker compose run --rm resume
+    cp "resume-$variant.pdf" "../public/$output.pdf"
   done
 }
 
