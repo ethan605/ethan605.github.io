@@ -117,20 +117,16 @@ const Container = styled.div`
   }
 `;
 
-const Endpoint: React.FC<EndpointData> = ({
-  interpolated = false,
-  href,
-  type,
-  value,
-}) => {
+const Endpoint: React.FC<EndpointData> = ({ href, type, value }) => {
   const { theme } = useTheme();
-
   let url = href;
 
-  if (interpolated) {
+  if (type == 'resume') {
+    const variant = theme == 'light' ? 'full' : '1page';
+
     url = href
-      .replaceAll('{theme}', theme)
-      .replaceAll('{version}', packageInfo.resume_version);
+      .replaceAll('{version}', packageInfo.resume_version)
+      .replaceAll('{variant}', variant);
   }
 
   return (
