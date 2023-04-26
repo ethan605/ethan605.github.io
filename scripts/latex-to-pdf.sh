@@ -19,9 +19,11 @@ function main() {
 
   for variant in "${VARIANTS[@]}"; do
     local output="$PREFIX-$version-$variant"
-    ENTRYPOINT="resume-$variant.tex" docker compose run --rm resume
+    ENTRYPOINT="resume-$variant.tex" docker compose up resume
     cp "resume-$variant.pdf" "../public/$output.pdf"
   done
+
+  docker compose down -t0
 }
 
 main "$@"

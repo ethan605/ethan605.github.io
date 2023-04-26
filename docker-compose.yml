@@ -1,10 +1,11 @@
 version: "3.9"
 services:
   resume:
-    image: blang/latex:latest
-    container_name: ethan605_make_resume
+    image: ethan605/texlive:minimal
+    build: .
+    container_name: ethan605_resume
     environment:
       - ENTRYPOINT
     command: xelatex "$ENTRYPOINT"
     volumes:
-      - ./resumes:/data
+      - ./resumes:/app/data

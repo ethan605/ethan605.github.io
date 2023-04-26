@@ -2,8 +2,9 @@
 \usepackage[a4paper,margin=1.25cm,top=1.75cm]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[hidelinks]{hyperref}
-\usepackage{blindtext,bold-extra,fontawesome,setspace,tabularx}
-\setmainfont{Cabin}
+\usepackage[sfdefault]{cabin}
+\usepackage{fontawesome5,setspace,tabularx}
+\setmonofont{Hack Nerd Font Mono}
 
 \newcommand{\primary}[1]{\textcolor{primary}{\textbf{#1}}}
 \newcommand{\secondary}[1]{\textcolor{secondary}{\textbf{#1}}}
@@ -16,3 +17,7 @@
 \newcommand{\keybase}{\textcolor{secondary}{\href{https://keybase.io/ethan605}{\faKey}}}
 \newcommand{\github}{\textcolor{secondary}{\href{https://github.com/ethan605}{\faGithub}}}
 \newcommand{\linkedin}{\textcolor{secondary}{\href{https://linkedin.com/in/ethan605}{\faLinkedin}}}
+
+\newcolumntype{R}{@{} >{\raggedleft\arraybackslash}}
+
+\pagestyle{empty}

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import detectSystem from 'src/utils/detectSystem';
+import * as webgl from 'src/utils/webgl';
 
 const Container = styled.div`
   margin: 1rem;
@@ -13,14 +13,8 @@ const Result = styled.code`
 
 const SystemInfo: React.FC = () => {
   const systemInfo = {
-    navigator: {
-      appVersion: window.navigator.appVersion,
-      platform: window.navigator.platform,
-      userAgent: window.navigator.userAgent,
-      vendor: window.navigator.vendor,
-    },
-    os: detectSystem('os'),
-    browser: detectSystem('browser'),
+    user_agent: window.navigator.userAgent,
+    webgl: webgl.getWebGLAttributes(),
   };
 
   return (
