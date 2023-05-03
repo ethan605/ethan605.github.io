@@ -1,28 +1,26 @@
-FROM debian:bullseye-slim
+FROM alpine:3.17
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        ca-certificates=20210119 \
-        fontconfig=2.13.1-4.2 \
-        perl=5.32.1-4+deb11u2 \
-        unzip=6.0-26+deb11u1 \
-        wget=1.21-1+deb11u1 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    fontconfig=2.14.1-r0 \
+    perl=5.36.0-r1 \
+    unzip=6.0-r13 \
+    wget=1.21.3-r2
 
 LABEL maintainer=xtnguyen605@gmail.com
 
 RUN adduser --disabled-password --gecos '' app \
     # Gain write permission to texlive binaries for current user
     && mkdir -p /usr/local/texlive \
-    && chown app:app /usr/local/texlive
+    && chown app:app /usr/local/texlive \
+    && mkdir -p /usr/share/fonts
 
 # Install Hack Nerd fonts
 WORKDIR /tmp
 RUN wget --progress=dot:giga https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip \
     && unzip Hack.zip -d HackNerd \
-    && cp HackNerd/*.ttf /usr/local/share/fonts \
-    && dpkg-reconfigure fontconfig-config \
+    && cp HackNerd/*.ttf /usr/share/fonts \
+    && fc-cache -fv \
+    && fc-list :spacing=mono \
     && rm -rf /tmp/*
 
 USER app:app
@@ -46,7 +44,7 @@ RUN TEXLIVE_INSTALL_DIR=$(find /tmp -type d -name "install-tl-${TEXLIVE_VERSION}
 WORKDIR /app
 RUN mkdir -p data
 
-ENV PATH=/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linux:${PATH}
+ENV PATH=/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linuxmusl:${PATH}
 
 # Install packages
 RUN tlmgr install xetex \
