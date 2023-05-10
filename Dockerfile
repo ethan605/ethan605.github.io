@@ -14,15 +14,6 @@ RUN adduser --disabled-password --gecos '' app \
     && chown app:app /usr/local/texlive \
     && mkdir -p /usr/share/fonts
 
-# Install Hack Nerd fonts
-WORKDIR /tmp
-RUN wget --progress=dot:giga https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Hack.zip \
-    && unzip Hack.zip -d HackNerd \
-    && cp HackNerd/*.ttf /usr/share/fonts \
-    && fc-cache -fv \
-    && fc-list :spacing=mono \
-    && rm -rf /tmp/*
-
 USER app:app
 ARG TEXLIVE_VERSION=2023
 
