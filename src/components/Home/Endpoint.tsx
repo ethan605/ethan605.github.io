@@ -13,7 +13,6 @@ import { ExternalLink } from 'src/styles/reusables';
 import { EndpointTypes, EndpointData } from 'src/types/home';
 import { getColor, getSpacing } from 'src/utils/themes';
 import { ReactComponent as Keybase } from './keybase.svg';
-import { useTheme } from 'src/contexts';
 
 import packageInfo from '../../../package.json';
 
@@ -118,15 +117,10 @@ const Container = styled.div`
 `;
 
 const Endpoint: React.FC<EndpointData> = ({ href, type, value }) => {
-  const { theme } = useTheme();
   let url = href;
 
   if (type == 'resume') {
-    const variant = theme == 'light' ? 'full' : '1page';
-
-    url = href
-      .replaceAll('{version}', packageInfo.resume_version)
-      .replaceAll('{variant}', variant);
+    url = href.replaceAll('{version}', packageInfo.resume_version);
   }
 
   return (

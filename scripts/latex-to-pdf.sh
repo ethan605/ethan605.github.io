@@ -2,7 +2,6 @@
 set -euo pipefail
 
 PREFIX="Thanh-Ethan-Nguyen-resume"
-VARIANTS=(1page full)
 
 function main() {
   local version
@@ -17,11 +16,9 @@ function main() {
 
   echo "$version" > version.tex
 
-  for variant in "${VARIANTS[@]}"; do
-    local output="$PREFIX-$version-$variant"
-    ENTRYPOINT="resume-$variant.tex" docker compose up resume
-    cp "resume-$variant.pdf" "../public/$output.pdf"
-  done
+  local output="$PREFIX-$version"
+  docker compose up resume
+  cp "resume.pdf" "../public/$output.pdf"
 
   docker compose down -t0
 }

@@ -4,7 +4,8 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[sfdefault]{cabin}
 \usepackage{fontawesome5,setspace,tabularx}
-\setmonofont{Hack Nerd Font Mono}
+
+\pagestyle{empty}
 
 \newcommand{\primary}[1]{\textcolor{primary}{\textbf{#1}}}
 \newcommand{\secondary}[1]{\textcolor{secondary}{\textbf{#1}}}
@@ -18,6 +19,12 @@
 \newcommand{\github}{\textcolor{secondary}{\href{https://github.com/ethan605}{\faGithub}}}
 \newcommand{\linkedin}{\textcolor{secondary}{\href{https://linkedin.com/in/ethan605}{\faLinkedin}}}
 
-\newcolumntype{R}{@{} >{\raggedleft\arraybackslash}}
+\newcommand{\separator}{{\color{tertiary}{\hrule width \hsize height 0.5pt \kern 2.5 mm}}}
 
-\pagestyle{empty}
+\newenvironment{workexp}
+  {\tabularx{\textwidth}{
+    @{} >{\raggedright\arraybackslash} X % left-aligned
+    >{\raggedleft\arraybackslash} l @{} % right-aligned
+  }}
+  \separator
+  {\endtabularx}
