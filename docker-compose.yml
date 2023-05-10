@@ -4,8 +4,6 @@ services:
     image: ethan605/texlive:minimal
     build: .
     container_name: ethan605_resume
-    environment:
-      - ENTRYPOINT
-    command: xelatex "$ENTRYPOINT"
+    command: xelatex resume.tex
     volumes:
       - ./resumes:/app/data

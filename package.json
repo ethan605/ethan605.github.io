@@ -1,7 +1,7 @@
 {
   "name": "ethanify-me",
   "version": "2.0.0",
-  "resume_version": "2023.apr.25",
+  "resume_version": "2023.may.10",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "lint": "eslint src/**/*.ts*",
     "preserve": "REACT_APP_CANONICAL_URL=https://ethanify.me npm run build",
     "serve": "serve -s build",
-    "gen-resumes": "./scripts/latex-to-pdf.sh"
+    "gen-resume": "./scripts/latex-to-pdf.sh"
   },
   "dependencies": {
     "@types/node": "^20.1.1",
