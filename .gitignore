@@ -24,8 +24,14 @@ yarn-debug.log*
 yarn-error.log*
 
 # LateX
+<<<<<<< HEAD
 resumes/*
 !resumes/*.tex
 !resumes/obsolete
 public/*resume*
 !public/*.pdf
+=======
+resume/*.aux
+resume/*.log
+resume/*.pdf
+>>>>>>> af61bea (Rewrite Summary)

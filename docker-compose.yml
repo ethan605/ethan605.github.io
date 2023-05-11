@@ -3,7 +3,7 @@ services:
   resume:
     image: ethan605/texlive:minimal
     build: .
-    container_name: ethan605_resume
-    command: xelatex resume.tex
+    container_name: make_resume
+    command: xelatex index.tex
     volumes:
-      - ./resumes:/app/data
+      - ./resume:/app/data

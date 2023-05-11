@@ -12,13 +12,12 @@ function main() {
     return 1
   fi
 
-  cd resumes/
-
+  cd resume/
   echo "$version" > version.tex
 
   local output="$PREFIX-$version"
   docker compose up resume
-  cp "resume.pdf" "../public/$output.pdf"
+  cp "index.pdf" "../public/$output.pdf"
 
   docker compose down -t0
 }
