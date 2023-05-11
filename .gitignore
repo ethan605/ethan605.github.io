@@ -25,9 +25,15 @@ yarn-error.log*
 
 # LateX
 <<<<<<< HEAD
+<<<<<<< HEAD
 resumes/*
 !resumes/*.tex
 !resumes/obsolete
+=======
+resume/*
+!resume/*.tex
+!resume/obsolete
+>>>>>>> a8d5d9d (Rewrite Experience)
 public/*resume*
 !public/*.pdf
 =======
