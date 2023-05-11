@@ -1,10 +1,11 @@
-FROM alpine:3.17
+FROM alpine:3.18
 
 RUN apk add --no-cache \
-    fontconfig=2.14.1-r0 \
-    perl=5.36.0-r1 \
-    unzip=6.0-r13 \
-    wget=1.21.3-r2
+    fontconfig=2.14.2-r3 \
+    gpg=2.4.1-r1 \
+    perl=5.36.1-r1 \
+    unzip=6.0-r14 \
+    wget=1.21.4-r0
 
 LABEL maintainer=xtnguyen605@gmail.com
 
