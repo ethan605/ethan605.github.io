@@ -27,11 +27,3 @@ jobs:
         run: |
           npm install -g surge
           surge build ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-
-      #- name: Deploy
-        #uses: dswistowski/surge-sh-action@v1.0.1
-        #with:
-          #domain: ${{ secrets.SURGE_DOMAIN }}
-          #project: build
-          #login: ${{ secrets.SURGE_LOGIN }}
-          #token: ${{ secrets.SURGE_TOKEN }}
