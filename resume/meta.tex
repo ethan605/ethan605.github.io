@@ -1,30 +1,54 @@
 \documentclass[12pt]{extarticle}
-\usepackage[a4paper,margin=1.25cm,top=1.75cm]{geometry}
+\usepackage[a4paper,margin=1.25cm,top=1.5cm]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[hidelinks]{hyperref}
 \usepackage[sfdefault]{cabin}
-\usepackage{fontawesome5,setspace,tabularx}
+\usepackage{enumitem,fontawesome5,setspace,tabularx}
 
+\tolerance=9999
+\emergencystretch=10pt
+\hyphenpenalty=10000
+\exhyphenpenalty=100
 \pagestyle{empty}
 
 \newcommand{\primary}[1]{\textcolor{primary}{\textbf{#1}}}
 \newcommand{\secondary}[1]{\textcolor{secondary}{\textbf{#1}}}
 \newcommand{\tertiary}[1]{\textcolor{tertiary}{#1}}
 
-\newcommand{\tbullet}{\textcolor{tertiary}{\textbf{$\bullet$}}\space}
-\newcommand{\at}{\textcolor{tertiary}{\textbf{@}}\space}
-\newcommand{\then}{\textcolor{tertiary}{$\Rightarrow$}\space}
+\newcommand{\tbullet}{\tertiary{\textbf{$\bullet$}}}
+\newcommand{\at}{\tertiary{\textbf{@}}\space}
+\newcommand{\then}{\tertiary{$\Rightarrow$}\space}
 
 \newcommand{\keybase}{\textcolor{secondary}{\href{https://keybase.io/ethan605}{\faKey}}}
 \newcommand{\github}{\textcolor{secondary}{\href{https://github.com/ethan605}{\faGithub}}}
 \newcommand{\linkedin}{\textcolor{secondary}{\href{https://linkedin.com/in/ethan605}{\faLinkedin}}}
 
-\newcommand{\separator}{{\color{tertiary}{\hrule width \hsize height 0.5pt \kern 2.5 mm}}}
+\newcommand{\separator}{\color{tertiary}{\hrule width \hsize height 0.5pt \kern 2 mm}}
 
-\newenvironment{workexp}
+\renewcommand{\labelitemi}{\tbullet}
+
+\newenvironment{ExpTitle}
   {\tabularx{\textwidth}{
     @{} >{\raggedright\arraybackslash} X % left-aligned
     >{\raggedleft\arraybackslash} l @{} % right-aligned
   }}
-  \separator
+  {\separator}
   {\endtabularx}
+
+\newcommand{\WorkSkills}[1]{\item[] \tertiary{\textbf{Skills}}: #1}
+
+\newcommand{\WorkExp}[5]{
+  \begin{ExpTitle}
+    \primary{#1} \at \href{#2}{\secondary{#3}} \tertiary{#4} &
+    #5
+  \end{ExpTitle}
+}
+
+\newcommand{\WorkDesc}[1]{
+  \vspace{-\topsep}
+  \begin{itemize}[leftmargin=*,labelsep=1mm]
+    \setlength{\parskip}{0mm}
+    \setlength{\itemsep}{1.5mm}
+    #1
+  \end{itemize}
+}

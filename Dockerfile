@@ -42,7 +42,7 @@ ENV PATH=/usr/local/texlive/${TEXLIVE_VERSION}/bin/x86_64-linuxmusl:${PATH}
 RUN tlmgr install xetex \
         etoolbox fontspec infwarerr kvoptions pdftexcmds tools xkeyval \
         extsizes geometry hyperref xcolor \
-        cabin fontawesome5 setspace
+        cabin enumitem fontawesome5 setspace
 
 WORKDIR /app/data
 CMD ["xelatex", "--version"]
