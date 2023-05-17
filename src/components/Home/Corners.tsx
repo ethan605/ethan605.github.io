@@ -31,7 +31,7 @@ const Version = styled.code`
 `;
 
 const Corners: React.FC = () => {
-  const commitHash = process.env.REACT_APP_GITHUB_SHA || '';
+  const commitHash = import.meta.env.VITE_GIT_SHA || '';
 
   const repoUrl = packageInfo.repository.url.replace(/\.git$/i, '/commit');
 

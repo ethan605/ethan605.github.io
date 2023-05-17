@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import App from 'src/App';
-import { registerServiceWorker } from 'src/utils/serviceWorker';
 
 const container = document.getElementById('root');
 if (container) {
@@ -13,9 +12,3 @@ if (container) {
     </StrictMode>
   );
 }
-
-/**
- * Enable PWA
- * @see https://bit.ly/CRA-PWA
- */
-registerServiceWorker();

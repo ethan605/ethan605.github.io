@@ -1,7 +1,6 @@
-import MD5 from 'md5.js';
+import sha256 from 'sha256';
 
-export const buildIteratorKey = (content: string): string =>
-  new MD5().update(content).digest('hex');
+export const buildIteratorKey = (content: string): string => sha256(content);
 
 export const sampleArr = <T>(arr: T[]): T | null => {
   if (!arr.length) {

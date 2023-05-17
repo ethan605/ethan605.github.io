@@ -28,3 +28,4 @@ resume/*.aux
 resume/*.log
 resume/*.out
 resume/*.pdf
+dist
