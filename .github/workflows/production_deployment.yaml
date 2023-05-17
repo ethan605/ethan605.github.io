@@ -23,12 +23,12 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm install --omit=dev --force
-          CI=false REACT_APP_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build
+          npm install --omit=dev
+          CI=false VITE_CANONICAL_URL=${{ secrets.PRODUCTION_DOMAIN }} npm run build --omit=dev
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
-          folder: build
+          folder: dist
           clean: true
