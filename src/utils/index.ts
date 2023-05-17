@@ -1,6 +1,6 @@
-import md5 from 'md5';
+import sha256 from 'sha256';
 
-export const buildIteratorKey = (content: string): string => md5(content);
+export const buildIteratorKey = (content: string): string => sha256(content);
 
 export const sampleArr = <T>(arr: T[]): T | null => {
   if (!arr.length) {

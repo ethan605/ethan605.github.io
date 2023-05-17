@@ -1,3 +1,5 @@
+import sha256 from 'sha256';
+
 type WebGLContext =
   | 'webgl2'
   | 'experimental-webgl2'
@@ -357,7 +359,7 @@ export function getWebGLAttributes() {
     ].join(SEPARATORS.KEY_VALUE_PRIMARY),
   ].join(SEPARATORS.LIST_PRIMARY);
 
-  const fingerprint = window.sha256(stringifiedComponents);
+  const fingerprint = sha256(stringifiedComponents);
 
   return {
     fingerprint,
