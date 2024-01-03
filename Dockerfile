@@ -2,8 +2,8 @@ FROM alpine:3.18
 
 RUN apk add --no-cache \
     fontconfig=2.14.2-r3 \
-    gpg=2.4.1-r1 \
-    perl=5.36.1-r1 \
+    gpg=2.4.3-r0 \
+    perl=5.36.2-r0 \
     unzip=6.0-r14 \
     wget=1.21.4-r0
 
@@ -16,7 +16,7 @@ RUN adduser --disabled-password --gecos '' app \
     && mkdir -p /usr/share/fonts
 
 USER app:app
-ARG TEXLIVE_VERSION=2023
+ARG TEXLIVE_VERSION=2024
 
 WORKDIR /tmp
 RUN wget --progress=dot:giga https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
