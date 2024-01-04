@@ -36,7 +36,7 @@ const Home: React.FC = () => {
     setBackgroundUrl(
       `https://picsum.photos/${clientWidth}/${clientHeight}?blur=3${
         theme === 'dark' ? '&grayscale' : ''
-      }`
+      }`,
     );
   }, [theme]);
 

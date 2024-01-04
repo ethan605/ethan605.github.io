@@ -249,7 +249,7 @@ function getAvailableWebGL2Methods(gl: RenderingContext | null) {
 }
 
 function getParameters(
-  gl: RenderingContext | null
+  gl: RenderingContext | null,
 ): [string, string | number | number[]][] {
   const isWebGLContext = gl instanceof WebGLRenderingContext;
   const isWebGL2Context = gl instanceof WebGL2RenderingContext;
@@ -301,7 +301,7 @@ function getUnmaskedParams(gl: RenderingContext | null) {
 }
 
 function normalizeParameter(
-  param: string | number | number[]
+  param: string | number | number[],
 ): string | number {
   const spaceSubstituted =
     typeof param == 'string' ? param.replaceAll(' ', SEPARATORS.SPACE) : param;
@@ -341,7 +341,7 @@ export function getWebGLAttributes() {
       'parameters',
       parameters
         .map(([key, value]) =>
-          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY)
+          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY),
         )
         .join(SEPARATORS.LIST_SECONDARY),
     ].join(SEPARATORS.KEY_VALUE_PRIMARY),
@@ -353,7 +353,7 @@ export function getWebGLAttributes() {
       'unmasked_parameters',
       unmaskedParameters
         .map(([key, value]) =>
-          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY)
+          [key, normalizeParameter(value)].join(SEPARATORS.KEY_VALUE_SECONDARY),
         )
         .join(SEPARATORS.LIST_SECONDARY),
     ].join(SEPARATORS.KEY_VALUE_PRIMARY),
