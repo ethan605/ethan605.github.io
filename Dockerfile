@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:bookworm-slim
 
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
@@ -7,7 +7,7 @@ RUN apt-get update \
         gpg=2.2.40-1.1 \
         perl=5.36.0-7+deb12u1 \
         unzip=6.0-28 \
-        wget=1.21.3-1+b1 \
+        wget=1.21.3-1+b2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -41,7 +41,7 @@ RUN TEXLIVE_INSTALL_DIR=$(find /tmp -type d -name "install-tl-${TEXLIVE_INSTALL_
 WORKDIR /app
 RUN mkdir -p data
 
-ENV PATH=/usr/local/texlive/${TEXLIVE_RUNTIME_VERSION}/bin/aarch64-linux:${PATH}
+ENV PATH=/usr/local/texlive/${TEXLIVE_RUNTIME_VERSION}/bin/x86_64-linux:${PATH}
 
 # Install packages
 RUN tlmgr install xetex \
