@@ -7,7 +7,7 @@ RUN apt-get update \
         gpg=2.2.40-1.1 \
         perl=5.36.0-7+deb12u1 \
         unzip=6.0-28 \
-        wget=1.21.3-1+b2 \
+        wget=1.21.3-1+b1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -21,7 +21,7 @@ RUN adduser --disabled-password --gecos '' app \
 
 USER app:app
 ARG TEXLIVE_INSTALL_VERSION=2024
-ARG TEXLIVE_RUNTIME_VERSION=2023
+ARG TEXLIVE_RUNTIME_VERSION=2024
 
 WORKDIR /tmp
 RUN wget --progress=dot:giga https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
@@ -41,13 +41,15 @@ RUN TEXLIVE_INSTALL_DIR=$(find /tmp -type d -name "install-tl-${TEXLIVE_INSTALL_
 WORKDIR /app
 RUN mkdir -p data
 
-ENV PATH=/usr/local/texlive/${TEXLIVE_RUNTIME_VERSION}/bin/x86_64-linux:${PATH}
+# aarch64 or x86_64
+ARG ARCH=aarch64
+ENV PATH=/usr/local/texlive/${TEXLIVE_RUNTIME_VERSION}/bin/${ARCH}-linux:${PATH}
 
 # Install packages
 RUN tlmgr install xetex \
-        etoolbox fontspec infwarerr kvoptions pdftexcmds tools xkeyval \
-        extsizes geometry hyperref xcolor \
-        cabin enumitem fontawesome5 setspace
+      etoolbox fontspec infwarerr kvoptions pdftexcmds tools xkeyval \
+      extsizes geometry hyperref xcolor \
+      cabin enumitem fontawesome5 setspace
 
 WORKDIR /app/data
 CMD ["xelatex", "--version"]

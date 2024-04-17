@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   resume:
     image: ethan605/texlive:minimal
