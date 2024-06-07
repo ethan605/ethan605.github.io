@@ -1,7 +1,13 @@
 services:
   resume:
     image: ethan605/texlive:minimal
-    build: .
+    build:
+      context: .
+      args:
+        # List of available mirrors: https://ctan.org/mirrors?lang=en#Europe
+        - CTAN_MIRROR=${CTAN_MIRROR:-mirror.ctan.org}
+        # aarch64 or x86_64
+        - ARCH=${ARCH:-aarch64}
     container_name: make_resume
     command: xelatex index.tex
     volumes:
