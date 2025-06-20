@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.husky
 
 # testing
 /coverage
@@ -29,3 +30,4 @@ resume/*.log
 resume/*.out
 resume/*.pdf
 dist
+install-tl-*
