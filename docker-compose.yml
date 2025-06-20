@@ -5,10 +5,10 @@ services:
       context: .
       args:
         # List of available mirrors: https://ctan.org/mirrors?lang=en#Europe
-        - CTAN_MIRROR=${CTAN_MIRROR:-mirror.ctan.org}
+        - CTAN_REPOSITORY=${CTAN_REPOSITORY:-https://mirror.apps.cam.ac.uk/pub/tex-archive/systems/texlive/tlnet}
         # aarch64 or x86_64
         - ARCH=${ARCH:-aarch64}
     container_name: make_resume
     command: xelatex index.tex
     volumes:
-      - ./resume:/app/data
+      - ./resume:/home/app/data

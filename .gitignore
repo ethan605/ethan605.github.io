@@ -29,3 +29,4 @@ resume/*.log
 resume/*.out
 resume/*.pdf
 dist
+install-tl-*
