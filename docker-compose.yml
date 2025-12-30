@@ -1,14 +1,39 @@
 services:
-  resume:
-    image: ethan605/texlive:minimal
+  resume-glibc:
+    image: ethan605/texlive:minimal-glibc
     build:
       context: .
       args:
-        # List of available mirrors: https://ctan.org/mirrors?lang=en#Europe
+        - STDLIB=glibc
+        - TEXLIVE_RUNTIME_VARIANT=aarch64-linux
+
+        # List of available mirrors: https://ctan.org/mirrors
         - CTAN_REPOSITORY=${CTAN_REPOSITORY:-https://mirror.ctan.org/systems/texlive/tlnet}
-        # aarch64 or x86_64
-        - ARCH=${ARCH:-aarch64}
+        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2025}
+        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2025}
     container_name: make_resume
-    command: [ "xelatex", "index.tex" ]
+    command: ['xelatex', 'index.tex']
+    # tty: true
+    # command: ['tail', '-f', '/dev/null']
+    volumes:
+      - ./resume:/home/app/data
+  resume-musl:
+    image: ethan605/texlive:minimal-musl
+    platform: linux/amd64
+    build:
+      context: .
+      platforms:
+        - linux/amd64
+      args:
+        - STDLIB=musl
+        - TEXLIVE_RUNTIME_VARIANT=x86_64-linuxmusl
+        # List of available mirrors: https://ctan.org/mirrors
+        - CTAN_REPOSITORY=${CTAN_REPOSITORY:-https://mirror.ctan.org/systems/texlive/tlnet}
+        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2025}
+        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2025}
+    container_name: make_resume
+    command: ['xelatex', 'index.tex']
+    # tty: true
+    # command: ['tail', '-f', '/dev/null']
     volumes:
       - ./resume:/home/app/data
