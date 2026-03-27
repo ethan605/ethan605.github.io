@@ -1,15 +1,15 @@
 ARG STDLIB=${STDLIB:-invalid}
 
-FROM ubuntu:25.10 AS builder-glibc
+FROM ubuntu:26.04 AS builder-glibc
 
 RUN apt-get update \
   && apt-get -y --no-install-recommends install \
-  ca-certificates=20250419 \
-  fontconfig=2.15.0-2.3ubuntu1 \
-  gnupg2=2.4.8-2ubuntu2 \
-  perl=5.40.1-6build1 \
-  unzip=6.0-28ubuntu7 \
-  wget=1.25.0-2ubuntu3 \
+  ca-certificates=20250419build1 \
+  fontconfig=2.17.1-3ubuntu1 \
+  gnupg2=2.4.8-4ubuntu3 \
+  perl=5.40.1-7build1 \
+  unzip=6.0-29ubuntu1 \
+  wget=1.25.0-2ubuntu4 \
   && /usr/sbin/update-ca-certificates --fresh \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -22,14 +22,14 @@ RUN useradd app \
   && chown app:app /usr/local/texlive \
   && mkdir -p /usr/share/fonts
 
-FROM alpine:3.23.2 AS builder-musl
+FROM alpine:3.23.3 AS builder-musl
 
 RUN apk update \
   && apk add --no-cache \
   ca-certificates=20251003-r0 \
   fontconfig=2.17.1-r0 \
-  gnupg=2.4.8-r1 \
-  perl=5.42.0-r0 \
+  gnupg=2.4.9-r0 \
+  perl=5.42.1-r0 \
   unzip=6.0-r16 \
   wget=1.25.0-r2 \
   && apk upgrade \
@@ -60,13 +60,12 @@ ARG TEXLIVE_RUNTIME_VARIANT
 
 WORKDIR /tmp
 RUN wget --progress=dot:giga "${CTAN_REPOSITORY}/install-tl-unx.tar.gz" \
-  && tar xf install-tl-unx.tar.gz
+  && mkdir -p install-tl-unx \
+  && tar xf install-tl-unx.tar.gz --directory=./install-tl-unx --strip-components=1
 
-# hadolint ignore=DL3003
-RUN TEXLIVE_INSTALL_DIR=$(find /tmp -type d -name "install-tl-${TEXLIVE_INSTALL_VERSION}*") \
-  && cd "${TEXLIVE_INSTALL_DIR}" \
-  # Minimal install of texlive (no TeX at all)
-  && perl install-tl \
+WORKDIR /tmp/install-tl-unx
+# Minimal install of texlive (no TeX at all)
+RUN perl install-tl \
   --repository "${CTAN_REPOSITORY}" \
   --no-interaction \
   --no-doc-install \

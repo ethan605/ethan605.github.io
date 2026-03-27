@@ -9,8 +9,8 @@ services:
 
         # List of available mirrors: https://ctan.org/mirrors
         - CTAN_REPOSITORY=${CTAN_REPOSITORY:-https://mirror.ctan.org/systems/texlive/tlnet}
-        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2025}
-        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2025}
+        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2026}
+        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2026}
     container_name: make_resume
     command: ['xelatex', 'index.tex']
     # tty: true
@@ -27,10 +27,11 @@ services:
       args:
         - STDLIB=musl
         - TEXLIVE_RUNTIME_VARIANT=x86_64-linuxmusl
+
         # List of available mirrors: https://ctan.org/mirrors
         - CTAN_REPOSITORY=${CTAN_REPOSITORY:-https://mirror.ctan.org/systems/texlive/tlnet}
-        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2025}
-        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2025}
+        - TEXLIVE_INSTALL_VERSION=${TEXLIVE_INSTALL_VERSION:-2026}
+        - TEXLIVE_RUNTIME_VERSION=${TEXLIVE_RUNTIME_VERSION:-2026}
     container_name: make_resume
     command: ['xelatex', 'index.tex']
     # tty: true
